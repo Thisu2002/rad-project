@@ -1,38 +1,117 @@
-.App {
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./fonts/Poppins.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Handlee';
+  src: url('./fonts/Handlee.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BreeSerif';
+  src: url('./fonts/BreeSerif.ttf') format('truetype');
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #D9A691;
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  width: 40%;
+}
+
+.section {
+  padding-top: 60px;
+  height: 140vh;
+}
+
+#about-us {
+  background-image: url('./images/paws.png');
+  font-family: 'Poppins';
+  font-size: larger;
+  padding: 50px;
+}
+
+.about1 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.about2 {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: left;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.about2 .text {
+  max-width: 50%; /* Adjust to ensure the text and image columns are balanced */
+  margin-left: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about2 h2 {
+  font-family: 'BreeSerif';
+  margin-top: 0;
+}
+
+.about2 p {
+  margin: 20px;
+  font-family: 'Poppins';
+}
+
+.about2 img {
+  max-width: 40%; /* Control image size */
+  height: auto;
+  margin-left: 10px;
+}
+
+h1 {
+  color: #5144B2;
+  font-family: 'BreeSerif';
+  font-size: xx-large;
+}
+
+h2 {
+  font-family: 'BreeSerif';
+  font-size: xx-large;
+}
+
+#services{
+  background-image: url('./images/swirl.png');
+  font-family: 'Poppins';
+  font-size: larger;
+  padding: 50px;
+}
+
+.service{
+  width: 25%;
+  text-align: center;
+  padding: 50px;
+}
+
+h3{
+  font-family: 'Handlee';
 }
