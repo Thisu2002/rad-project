@@ -3,6 +3,14 @@ import logo from '../images/logo.png';
 import pets from '../images/pets.png';
 import ellipse from '../images/ellipse.png';
 import nutrition from '../images/nutrition.png';
+import phone from '../images/phone.png';
+import location from '../images/location.png';
+import email from '../images/email.png';
+import animals from '../images/animals.png';
+import instagram from '../images/instagram.png';
+import twitter from '../images/twitter.png';
+import facebook from '../images/facebook.png';
+import linkedin from '../images/linkedin.png';
 import '../App.css';
 
 const Home = () => {
@@ -63,8 +71,38 @@ const Home = () => {
 
       <section id="contact-us" className='section'>
         <h2>Contact Us</h2>
-        <p>Contact details...</p>
+        <div className='contact-container'>
+          <div className='contact'>
+            <img src={phone} alt='phone' />
+            011-1234567
+          </div>
+          <div className='contact'>
+            <img src={email} alt='email' />
+            info@drpet.com
+          </div>
+          <div className='contact'>
+            <img src={location} alt='location' />
+            123 Main St, City, State, 12345
+          </div>
+        </div>
       </section>
+
+      <div className='spanning-image-container'>
+        <img src={animals} alt='animals' className='spanning-image' />
+      </div>
+
+      <section id='footer' className='section'>
+        <div className='footer'>
+          <div className='social-media'>
+            <a href='#'><img src={facebook} alt='facebook' /></a>
+            <a href='#'><img src={twitter} alt='twitter' /></a>
+            <a href='#'><img src={instagram} alt='instagram' /></a>
+            <a href='#'><img src={linkedin} alt='linkedin' /></a>
+          </div><br />
+          <p>2024 Dr. Pet. All rights reserved.</p>
+        </div>
+      </section>
+
     </div>
   );
 };
