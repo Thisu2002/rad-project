@@ -105,18 +105,40 @@ h2 {
   background-repeat: no-repeat;
   background-size: 100%;
   font-family: 'Poppins';
-  font-size: larger;
-  padding: 50px;
+  flex-direction: column;
+  padding: 100px 0 0 0;
+  height: 100vh;
 }
 
-.service{
-  width: 25%;
+.v-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.v-item {
   text-align: center;
-  padding: 50px;
+  width: 20%;
+  padding: 20px 50px 10px 50px;
+}
+
+.v-row:first-child .v-item:nth-child(1) {
+  transform: translateX(-300px); /* Adjust to create the V shape for left image */
+}
+
+.v-row:first-child .v-item:nth-child(2) {
+  transform: translateX(300px); /* Adjust to create the V shape for right image */
+}
+
+.v-item img {
+  width: 150px; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 0;
 }
 
 h3{
   font-family: 'Handlee';
+  margin: 5px 0 5px 0;
 }
 
 #contact-us {
@@ -146,14 +168,14 @@ h3{
   text-align: center;
 }
 
-.spanning-image-container {
+.footer-img-container {
   position: relative;
   top: 100px;
   display: flex;
   justify-content: center;
 }
 
-.spanning-image {
+.footer-img {
   width: auto;
   max-height: 200px;
 }

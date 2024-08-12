@@ -3,6 +3,9 @@ import logo from '../images/logo.png';
 import pets from '../images/pets.png';
 import ellipse from '../images/ellipse.png';
 import nutrition from '../images/nutrition.png';
+import vaccine from '../images/vaccine.png';
+import medicine from '../images/medicine.png';
+import dental from '../images/dental.png';
 import phone from '../images/phone.png';
 import location from '../images/location.png';
 import email from '../images/email.png';
@@ -54,7 +57,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="services" className='section'>
+      {/* <section id="services" className='section'>
         <div className='services'>
         <h2>Our Veterinary Services</h2>
         <div className='service'>
@@ -67,7 +70,48 @@ const Home = () => {
           </p>
         </div>
         </div>
-      </section>
+      </section> */}
+
+<section id="services" >
+  <div className="v-row">
+    <div className="v-item">
+      <img src={nutrition} alt="image1" />
+      <h3>Nutritional Counseling</h3>
+            providing tailored dietary plans and expert advice to
+             ensure your pet's optimal health and well-being through
+              balanced nutrition
+         
+    </div>
+    <div className="v-item">
+      <img src={vaccine} alt="image2" />
+      <h3>Vaccinations</h3>
+          
+          Our team of experienced professionals can help with 
+          everything from pills to injections.
+          
+    </div>
+  </div>
+  <div className="v-row">
+    <div className="v-item">
+      <img src={medicine} alt="image3" />
+      <h3>Medical Administration</h3>
+          Our team of experienced professionals can help with 
+          everything from pills to injections.
+    </div>
+    <div className="v-item">
+      <img src={dental} alt="image4" />
+      <h3>Dental Care</h3>
+          
+          Our team of experienced professionals can 
+          help with everything from pills to injections.
+          
+    </div>
+  </div>
+</section>
+
+
+
+
 
       <section id="contact-us" className='section'>
         <h2>Contact Us</h2>
@@ -87,8 +131,8 @@ const Home = () => {
         </div>
       </section>
 
-      <div className='spanning-image-container'>
-        <img src={animals} alt='animals' className='spanning-image' />
+      <div className='footer-img-container'>
+        <img src={animals} alt='animals' className='footer-img' />
       </div>
 
       <section id='footer' className='section'>
