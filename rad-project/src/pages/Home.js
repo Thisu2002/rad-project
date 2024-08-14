@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../images/logo.png';
 import pets from '../images/pets.png';
 import ellipse from '../images/ellipse.png';
 import nutrition from '../images/nutrition.png';
@@ -14,20 +13,14 @@ import instagram from '../images/instagram.png';
 import twitter from '../images/twitter.png';
 import facebook from '../images/facebook.png';
 import linkedin from '../images/linkedin.png';
-import '../App.css';
+import '../styles/Home.css';
+
+import NavBar from '../components/NavBar';
 
 const Home = () => {
   return (
     <div>
-      <nav>
-        <img src={logo} alt="Logo" style={{ height: '50px', marginRight: '20px' }} />
-        <ul className='navbar-links'>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about-us">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact-us">Contact Us</a></li>
-        </ul>
-      </nav>
+      <NavBar />
 
       <section id="home" className='section'>
         <img src={pets} alt="pets" style={{width:'100%'}} />
@@ -57,61 +50,42 @@ const Home = () => {
         </div>
       </section>
 
-      {/* <section id="services" className='section'>
-        <div className='services'>
-        <h2>Our Veterinary Services</h2>
-        <div className='service'>
-          <img src={nutrition} alt='ellipse' />
-          <h3>Nutritional Counseling</h3>
-          <p>
-            providing tailored dietary plans and expert advice to
-             ensure your pet's optimal health and well-being through
-              balanced nutrition
-          </p>
+      <section id="services" >
+        <div className="v-row">
+          <div className="v-item">
+            <img src={nutrition} alt="image1" />
+            <h3>Nutritional Counseling</h3>
+                  providing tailored dietary plans and expert advice to
+                  ensure your pet's optimal health and well-being through
+                    balanced nutrition
+              
+          </div>
+          <div className="v-item">
+            <img src={vaccine} alt="image2" />
+            <h3>Vaccinations</h3>
+                
+                Our team of experienced professionals can help with 
+                everything from pills to injections.
+                
+          </div>
         </div>
+        <div className="v-row">
+          <div className="v-item">
+            <img src={medicine} alt="image3" />
+            <h3>Medical Administration</h3>
+                Our team of experienced professionals can help with 
+                everything from pills to injections.
+          </div>
+          <div className="v-item">
+            <img src={dental} alt="image4" />
+            <h3>Dental Care</h3>
+                
+                Our team of experienced professionals can 
+                help with everything from pills to injections.
+                
+          </div>
         </div>
-      </section> */}
-
-<section id="services" >
-  <div className="v-row">
-    <div className="v-item">
-      <img src={nutrition} alt="image1" />
-      <h3>Nutritional Counseling</h3>
-            providing tailored dietary plans and expert advice to
-             ensure your pet's optimal health and well-being through
-              balanced nutrition
-         
-    </div>
-    <div className="v-item">
-      <img src={vaccine} alt="image2" />
-      <h3>Vaccinations</h3>
-          
-          Our team of experienced professionals can help with 
-          everything from pills to injections.
-          
-    </div>
-  </div>
-  <div className="v-row">
-    <div className="v-item">
-      <img src={medicine} alt="image3" />
-      <h3>Medical Administration</h3>
-          Our team of experienced professionals can help with 
-          everything from pills to injections.
-    </div>
-    <div className="v-item">
-      <img src={dental} alt="image4" />
-      <h3>Dental Care</h3>
-          
-          Our team of experienced professionals can 
-          help with everything from pills to injections.
-          
-    </div>
-  </div>
-</section>
-
-
-
-
+      </section>
 
       <section id="contact-us" className='section'>
         <h2>Contact Us</h2>
