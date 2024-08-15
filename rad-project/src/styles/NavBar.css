@@ -1,44 +1,44 @@
 html {
-    scroll-behavior: smooth;
-  }
-  
-  @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins.ttf') format('truetype');
-  }
-  
-  @font-face {
-    font-family: 'Handlee';
-    src: url('../fonts/Handlee.ttf') format('truetype');
-  }
-  
-  @font-face {
-    font-family: 'BreeSerif';
-    src: url('../fonts/BreeSerif.ttf') format('truetype');
-  }
-  
-  nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #D9A691;
-    padding: 10px 20px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  a {
-    text-decoration: none;
-    color: black;
-    font-family: 'Poppins';
-    font-weight: bold;
-  }
-  
-  .navbar-links {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    width: 40%;
-  }
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Handlee";
+  src: url("../fonts/Handlee.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "BreeSerif";
+  src: url("../fonts/BreeSerif.ttf") format("truetype");
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #d9a691;
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-family: "Poppins";
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  width: 40%;
+}

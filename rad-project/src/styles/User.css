@@ -1,0 +1,78 @@
+.user-page {
+  background-image: url("../images/paws.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.heading {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: "Poppins";
+}
+
+.heading h4 {
+  margin: 0;
+}
+
+.heading-hr {
+  width: 100px;
+  border: none;
+  border-top: 2px solid black;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  font-family: "Poppins";
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.role-image {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  flex: 1 1 150px;
+  max-width: 200px;
+}
+
+.back {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  font-family: "Poppins";
+  text-decoration: none;
+  color: black;
+  background-color: #d9a691;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+.arrow {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.back h4 {
+  margin: 0;
+}
