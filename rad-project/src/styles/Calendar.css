@@ -1,0 +1,20 @@
+.calendar-container {
+    width: 45%;
+    background-color: #f6e5e4;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  
+  .calendar-day {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #ffe3e2;
+    border-radius: 5px;
+  }
+  
