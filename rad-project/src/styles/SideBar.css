@@ -58,7 +58,7 @@
 }
 
 .sidebar-ul li.active:hover {
-    background-color: #FFE3E2; /* Keeps the active item's background color the same on hover */
+    background-color: #FFE3E2;
 }
   
 .sidebar-ul li.active::before {
@@ -67,9 +67,9 @@
     left: 0;
     top: 0;
     height: 100%;
-    width: 5px; /* Width of the rectangle */
-    background-color: #C3907B; /* Color of the rectangle */
-    border-radius: 0 5px 5px 0; /* Optional: Rounded corners for the rectangle */
+    width: 5px;
+    background-color: #C3907B;
+    border-radius: 0 5px 5px 0;
 }
 
 .logout {
