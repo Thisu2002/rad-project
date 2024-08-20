@@ -1,9 +1,9 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
+} */
 
 .sidebar {
     width: 250px;
@@ -26,12 +26,12 @@
     cursor: pointer;
 }
   
-ul {
+.sidebar-ul {
     list-style: none;
     padding: 20px 0;
 }
 
-ul li {
+.sidebar-ul li {
     display: flex;
     align-items: center;
     padding: 15px 0;
@@ -41,30 +41,30 @@ ul li {
 }
 
 
-ul li:hover {
+.sidebar-ul li:hover {
     background-color: #fff1f0; 
     border-radius: 0 5px 5px 0;
 }
 
-ul li img.icon {
+.sidebar-ul li img.icon {
     width: 20px; 
     height: 20px;
     margin-right: 10px;
     margin-left: 20px; 
 }
 
-ul li.active {
+.sidebar-ul li.active {
     font-weight: bold;
     color: #C3907B;
     background-color:#FFE3E2;
     border-radius: 0 5px 5px 0;
 }
 
-ul li.active:hover {
+.sidebar-ul li.active:hover {
     background-color: #FFE3E2; /* Keeps the active item's background color the same on hover */
 }
   
-ul li.active::before {
+.sidebar-ul li.active::before {
     content: '';
     position: absolute;
     left: 0;

@@ -19,7 +19,7 @@ const SideBar = () => {
                 <img src = {logo} alt="Dr.Pet Logo"/>
             </div>
 
-            <ul>
+            <ul className='sidebar-ul'>
                 <li className="active">
                     <img src={dashboardIcon} alt="Dashboard Icon" className="icon" />
                     Dashboard
