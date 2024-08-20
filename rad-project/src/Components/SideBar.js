@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/SideBar.css';
 import logo from '../images/Logo.png';
 import dashboardIcon from '../images/dashboardIcon.png';
@@ -15,9 +16,9 @@ const SideBar = () => {
     return (
         <div className="sidebar">
 
-            <div className="logo">
-                <img src = {logo} alt="Dr.Pet Logo"/>
-            </div>
+            <Link to="/">
+                <img src = {logo} alt="Dr.Pet Logo" className='logo'/>
+            </Link>
 
             <ul className='sidebar-ul'>
                 <li className="active">
@@ -52,8 +53,12 @@ const SideBar = () => {
             </ul>
 
             <div className="logout">
-                <img src={logoutIcon} alt="Logout Icon" className="icon" />
-                Logout
+            <Link to="/login">
+                
+                    <img src={logoutIcon} alt="Logout Icon" className="icon" />
+                    Logout
+                
+            </Link>
             </div>
 
         </div>

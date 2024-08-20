@@ -39,11 +39,11 @@
   width: 80%;
 }
 
-.content a {
+.content a, .user-back {
   transition: transform 0.2s ease-in-out;
 }
 
-.content a:hover {
+.content a:hover, .user-back:hover {
   transform: translateY(-5px);
 }
 

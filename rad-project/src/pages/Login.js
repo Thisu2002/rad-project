@@ -23,7 +23,7 @@ const Login = () => {
           <h4>Login</h4>
           <hr className="header-hr" />
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login-form">
           <label>Username:</label>
           <input type="text" placeholder="Username" />
 

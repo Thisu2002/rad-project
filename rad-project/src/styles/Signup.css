@@ -5,7 +5,7 @@
   background-position: center;
   min-height: 100vh;
   position: relative;
-  font-family: Poppins;
+  font-family: 'Poppins';
   padding-bottom: 150px;
 }
 
@@ -122,10 +122,16 @@
     border-radius: 10px;
     padding: 10px 15px;
     font-family: "Poppins", sans-serif;
+    transition: transform 0.2s ease-in-out;
   }
   
   .signup-arrow {
     width: 25px;
     margin-right: 10px;
   }
+
+  .signup-back:hover {
+    transform: translateY(-5px);
+  }
+  
   
