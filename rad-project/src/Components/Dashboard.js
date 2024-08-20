@@ -18,7 +18,7 @@ const Dashboard = () => {
             <div className="profile-info">
                 <img src={profileImage} alt="Profile" className="profile-img" />
                 <div className="profile-details">
-                    <span className="profile-name">Jonitha Cathrine</span>
+                    <span className="profile-name">Jonitha Cathrine</span><br />
                     <span className="profile-role">Admin</span>
                 </div>
             </div>

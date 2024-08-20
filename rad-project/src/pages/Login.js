@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import "../styles/Login.css";
 import arrowBack from "../images/arrowBack.png";
@@ -8,6 +8,12 @@ const Login = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const hideSignUp = queryParams.get("hideSignUp") === "true";
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/admin");
+  };
 
   return (
     <div>
@@ -17,7 +23,7 @@ const Login = () => {
           <h4>Login</h4>
           <hr className="header-hr" />
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>Username:</label>
           <input type="text" placeholder="Username" />
 

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("./fonts/Poppins.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Handlee";
+    src: url("./fonts/Handlee.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: "BreeSerif";
+    src: url("./fonts/BreeSerif.ttf") format("truetype");
+  }

@@ -1,9 +1,9 @@
-/* *{
+.dashboard-container * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-} */
+    font-family: 'Poppins';
+}
 
 .dashboard-container {
     display: flex;
@@ -46,7 +46,7 @@
 }
 
 .profile-details {
-    text-align: right;
+    text-align: left;
 }
 
 .profile-name {

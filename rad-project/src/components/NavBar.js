@@ -7,11 +7,9 @@ import { HashLink as Link } from "react-router-hash-link";
 const NavBar = () => {
   return (
     <nav>
-      <img
-        src={logo}
-        alt="Logo"
-        style={{ height: "50px", marginRight: "20px" }}
-      />
+      <Link to="/#home">
+        <img src={logo} alt="Logo" className="logo"/>
+      </Link>
       <ul className="navbar-links">
         <li>
           <Link to="/#home">Home</Link>
@@ -27,12 +25,12 @@ const NavBar = () => {
         </li>
         <li>
           <Link to="/user">
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div className="login-link">
               Login
               <img
                 src={user}
                 alt="user"
-                style={{ height: "25px", margin: "0 20px 0 5px" }}
+                className="user-icon"
               />
             </div>
           </Link>
@@ -43,3 +41,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+

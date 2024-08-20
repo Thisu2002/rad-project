@@ -19,20 +19,26 @@
 }
   
 .summary-icon {
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
+    width: 65px;
+    height: 65px;
+    margin-right: 10px;
+}
+
+.summary-details {
+    text-align: center;
 }
   
 .summary-details h2 {
     margin: 0;
     font-size: 36px;
     color: #000000;
+    font-family: 'Handlee';
 }
   
 .summary-details p {
     font-size: 18px;
     margin: 0;
     color: #000000;
+    font-family: 'Handlee';
 }
   
