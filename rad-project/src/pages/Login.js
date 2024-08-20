@@ -33,8 +33,8 @@ const Login = () => {
           )}
         </form>
       </div>
-      <Link to="/user" className="back">
-        <img src={arrowBack} alt="arrowBack" className="arrow" />
+      <Link to="/user" className="login-back">
+        <img src={arrowBack} alt="arrowBack" className="login-arrow" />
         <h4 style={{ margin: "0" }}>Back</h4>
       </Link>
     </div>

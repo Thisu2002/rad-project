@@ -29,9 +29,8 @@ const User = () => {
             <img src={petOwner} alt="petOwner" className="role-image" />
           </Link>
         </div>
-
-        <Link to="/" className="back">
-          <img src={arrowBack} alt="arrowBack" className="arrow" />
+        <Link to="/" className="user-back">
+          <img src={arrowBack} alt="arrowBack" className="user-arrow" />
           <h4>Back</h4>
         </Link>
       </div>

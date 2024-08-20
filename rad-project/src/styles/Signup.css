@@ -1,0 +1,131 @@
+.signup-page {
+  background-image: url("../images/paws.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  position: relative;
+  font-family: Poppins;
+  padding-bottom: 150px;
+}
+
+.signup-header {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.signup-header h4 {
+  margin: 0;
+}
+
+.header-hr {
+  width: 100px;
+  border: none;
+  border-top: 2px solid black;
+}
+
+.signup-form {
+  background-color: #ffe3e2;
+  width: 40%;
+  padding: 60px;
+  border: #d9a691 1px solid;
+  border-radius: 10px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin-bottom: 500px;
+}
+
+.signup-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #d9a691;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.signup-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.signup-form button {
+  width: 25%;
+  padding: 10px;
+  background-color: #d9a691;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+  margin-top: 20px 0 0 0;
+  font-family: Poppins;
+}
+
+.signup-form button:hover {
+  background-color: #c48f82;
+}
+
+.signup-form p {
+  margin-top: 30px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.signup-form a {
+  margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .signup-form {
+    width: 60%;
+    padding: 30px;
+  }
+
+  .signup-form input,
+  .signup-form button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .signup-form input,
+  .signup-form button {
+    font-size: 12px;
+  }
+}
+
+.signup-back {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    background-color: #d9a691;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .signup-arrow {
+    width: 25px;
+    margin-right: 10px;
+  }
+  

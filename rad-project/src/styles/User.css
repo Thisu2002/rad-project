@@ -9,7 +9,7 @@
 
 .heading {
   position: absolute;
-  top: 130px;
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -33,7 +33,7 @@
   padding: 50px;
   font-family: "Poppins";
   position: absolute;
-  top: 150px;
+  top: 140px;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
@@ -42,19 +42,19 @@
 .row {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 70px;
   flex-wrap: wrap;
+  margin: 20px 20px 50px 20px;
 }
 
 .role-image {
   width: 200px;
   height: 200px;
-  margin: 20px;
-  flex: 1 1 150px;
+  margin-bottom: 0;
   max-width: 200px;
 }
 
-.back {
+.user-back {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -68,11 +68,11 @@
   padding: 10px 15px;
 }
 
-.arrow {
+.user-arrow {
   width: 30px;
   margin-right: 10px;
 }
 
-.back h4 {
+.user-back h4 {
   margin: 0;
 }
