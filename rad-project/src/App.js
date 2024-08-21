@@ -6,6 +6,8 @@ import User from "./pages/User";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AdminDashboard from './pages/AdminDashboard';
+import VetDashboard from './pages/VetDashboard';
+import PetOwnerDashboard from './pages/PetOwnerDashboard';
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/vet" element={<VetDashboard />} />
+        <Route path="/petOwner" element={<PetOwnerDashboard />} />
       </Routes>
     </Router>
   );
