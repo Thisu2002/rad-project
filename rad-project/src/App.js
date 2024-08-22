@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/vet" element={<VetDashboard />} />
         <Route path="/petOwner" element={<PetOwnerDashboard />} />
       </Routes>
-    </Router>
+    </Router> 
   );
 };
 
