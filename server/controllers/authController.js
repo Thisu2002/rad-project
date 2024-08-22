@@ -1,40 +1,3 @@
-    // const User = require('../models/User');
-    // const Admin = require('../models/Admin');
-    // const PetOwner = require('../models/PetOwner');
-    // const Vet = require('../models/Vet');
-    // const jwt = require('jsonwebtoken');
-
-    // const login = async (req, res) => {
-    //     const { username, password } = req.body;
-
-    //     try {
-    //         const user = await User.findOne({ username });
-    //         if (!user || user.password !== password) {
-    //             return res.status(400).json({ message: 'Invalid credentials' });
-    //         }
-
-    //         const token = jwt.sign({ username, user_role: user.user_role }, process.env.JWT_SECRET, {
-    //             expiresIn: '1h',
-    //         });
-
-    //         const roleRoutes = {
-    //             1: '/admin',
-    //             2: '/vet',
-    //             3: '/petOwner',
-    //         };
-
-    //         res.json({ token, redirect: roleRoutes[user.user_role] });
-    //     } catch (err) {
-    //         res.status(500).json({ message: 'Server error' });
-    //     }
-    // };
-
-    // module.exports = {
-    //     login
-    // };
-
-
-// controllers/authController.js
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
@@ -70,6 +33,7 @@ const signup = async (req, res) => {
 
         // Create a new pet owner
         const petOwner = new PetOwner({
+            username,
             fullName,
             address,
             contactNo,
@@ -90,26 +54,40 @@ const login = async (req, res) => {
     const { username, password } = req.body;
 
     try {
+        // Find the user by username
         const user = await User.findOne({ username });
-        if (!user || !(await bcrypt.compare(password, user.password))) {
+        if (!user) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ username, user_role: user.user_role }, process.env.JWT_SECRET, {
-            expiresIn: '1h',
-        });
+        // Compare the provided password with the hashed password stored in the database
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
 
+        // Generate a JWT token with the user's username and role
+        const token = jwt.sign(
+            { username: user.username, user_role: user.user_role }, 
+            process.env.JWT_SECRET, 
+            { expiresIn: '1h' }
+        );
+
+        // Define role-based routes for redirection
         const roleRoutes = {
             1: '/admin',
             2: '/vet',
             3: '/petOwner',
         };
 
+        // Send the token and the appropriate redirect route based on the user's role
         res.json({ token, redirect: roleRoutes[user.user_role] });
     } catch (err) {
+        console.error(err); // Log the error for debugging purposes
         res.status(500).json({ message: 'Server error' });
     }
 };
+
 
 module.exports = {
     signup,
