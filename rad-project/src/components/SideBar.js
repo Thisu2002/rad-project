@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/SideBar.css';
-import logo from '../images/Logo.png';
+import logo from '../images/logo.png';
 import dashboardIcon from '../images/dashboardIcon.png';
 import addIcon from '../images/addIcon.png';
 import appointmentsIcon from '../images/appointmentsIcon.png';

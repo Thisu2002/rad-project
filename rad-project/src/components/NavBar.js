@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../images/Logo.png";
+import logo from "../images/logo.png";
 import user from "../images/user.png";
 import "../styles/NavBar.css";
 import { HashLink as Link } from "react-router-hash-link";
