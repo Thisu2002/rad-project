@@ -8,6 +8,8 @@ import Signup from "./pages/Signup";
 import AdminDashboard from './pages/AdminDashboard';
 import VetDashboard from './pages/VetDashboard';
 import PetOwnerDashboard from './pages/PetOwnerDashboard';
+import VetSignup from "./components/VetSignup";
+import Dashboard from "./components/AdminTopDboard";
 
 const App = () => {
   return (
@@ -20,6 +22,7 @@ const App = () => {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/vet" element={<VetDashboard />} />
         <Route path="/petOwner" element={<PetOwnerDashboard />} />
+        <Route path="/create-user" element={<AdminDashboard />} />
       </Routes>
     </Router> 
   );

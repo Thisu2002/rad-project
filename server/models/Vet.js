@@ -6,6 +6,7 @@ const PetOwnerSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     address: { type: String, required: true },
     contactNo: { type: Number, required: true },
+    licenseNo: { type: String, required: true}
 }, {
     collection: 'vet'
 });

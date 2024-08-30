@@ -1,6 +1,6 @@
 import React from 'react'
 import SideBar from '../components/SideBar'
-import Dashboard from '../components/Dashboard'
+import AdminTopDboard from '../components/AdminTopDboard'
 
 const AdminDashboard = () => {
   return (
@@ -10,7 +10,7 @@ const AdminDashboard = () => {
         </div>
 
         <div className = "main">
-            <Dashboard />
+            <AdminTopDboard />
         </div>
     </div>
     

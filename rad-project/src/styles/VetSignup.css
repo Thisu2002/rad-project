@@ -1,0 +1,73 @@
+.vetSignup-page {
+    background-image: url("../images/paws.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Poppins';
+    align-items: center;
+    position: absolute;
+  }
+  
+  .vetSignup-header {
+    text-align: center;
+  }
+  
+  .vet-header-hr {
+    width: 100px;
+    border: none;
+    border-top: 2px solid black;
+  }
+  
+  .vetSignup-form {
+    margin-top: 50px;
+    background-color: #ffe3e2;
+    width: 100%;
+    padding: 60px;
+    border: #d9a691 1px solid;
+    border-radius: 10px;
+  }
+  
+  .vetSignup-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #d9a691;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+  
+  .vetSignup-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  .vetSignup-form button {
+    width: 50%;
+    padding: 10px;
+    background-color: #d9a691;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    margin-top: 20px 0 0 0;
+    font-family: Poppins;
+  }
+  
+  .vetSignup-form button:hover {
+    background-color: #c48f82;
+  }
+  
+  .vetSignup-form p {
+    margin-top: 30px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .vetSignup-form a {
+    margin-left: 5px;
+  } 

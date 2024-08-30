@@ -1,4 +1,4 @@
-.sidebar * {
+/* .sidebar * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -95,4 +95,242 @@
     margin-left: 20px;
     margin-right: 10px;
 }
+   */
+
+   /* BAlhhh */
+
+   /* .sidebar * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    padding: 0 0;
+}
   
+.logo {
+    margin-bottom: 30px;
+    margin-top: 0px;
+    max-width: 100%;
+    height: auto;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+  
+.sidebar-ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar-ul li {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-ul li:hover {
+    background-color: #fff1f0; 
+    border-radius: 0 5px 5px 0;
+}
+
+.sidebar-ul li img.icon {
+    width: 20px; 
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 20px; 
+}
+
+.sidebar-ul li.active {
+    font-weight: bold;
+    color: #C3907B;
+    background-color: #FFE3E2;
+    border-radius: 0 5px 5px 0;
+}
+
+.sidebar-ul li.active:hover {
+    background-color: #FFE3E2;
+}
+  
+.sidebar-ul li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #C3907B;
+    border-radius: 0 5px 5px 0;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+
+.logout a {
+    text-decoration: none;
+    color: black;
+}
+
+.logout:hover {
+    font-weight: bold;
+}
+
+.logout img.icon {
+    width: 20px; 
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+} */
+
+
+/* Reset and Base Styles */
+.sidebar * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Sidebar Container */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    padding: 0;
+}
+
+/* Logo Styling */
+.logo {
+    margin-bottom: 30px;
+    margin-top: 0px;
+    max-width: 100%;
+    height: auto;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+/* Sidebar Navigation List */
+.sidebar-ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+/* Sidebar Navigation Links */
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Hover Effect for Navigation Links */
+.nav-link:hover {
+    background-color: #fff1f0;
+}
+
+/* Icon Styling within Navigation Links */
+.nav-link img.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+/* Active Navigation Link Styling */
+.nav-link.active {
+    font-weight: bold;
+    color: #C3907B;
+    background-color: #FFE3E2;
+}
+
+/* Ensure Active Link Hover Maintains Active Styles */
+.nav-link.active:hover {
+    background-color: #FFE3E2;
+}
+
+/* Left Border Indicator for Active Links */
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #C3907B;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Logout Section Styling */
+.logout {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Pushes logout to the bottom */
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+
+/* Logout Link Styling */
+.logout a {
+    text-decoration: none;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Logout Link Hover Effect */
+.logout a:hover {
+    background-color: #fff1f0;
+}
+
+/* Optional: Active Logout Link Styling (if needed) */
+.logout a.active {
+    font-weight: bold;
+    color: #C3907B;
+    background-color: #FFE3E2;
+}
+
+.logout a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #C3907B;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Logout Icon Styling */
+.logout img.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
