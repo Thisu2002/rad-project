@@ -95,9 +95,9 @@ const SideBar = () => {
                 </li>
 
                 <li>
-                    <NavLink to="/create-user" className="nav-link" activeClassName="active">
+                    <NavLink to="/add-vet" className="nav-link" activeClassName="active">
                         <img src={addIcon} alt="Create User Icon" className="icon" />
-                        Create User Profile
+                        Add Veterinarian
                     </NavLink>
                 </li>
 

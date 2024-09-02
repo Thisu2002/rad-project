@@ -9,25 +9,28 @@ import statPetOwners from '../images/statPetOwners.png';
 import AppointmentList from './AppointmentList';
 import Calendar from './Calendar';
 import VetSignup from './VetSignup';
+import PetOwners from './PetOwners';
+import ViewOwner from './ViewOwner';
 
 const Dashboard = () => {
   const location = useLocation();
   const getCurrentPage = () => {
-    switch (location.pathname) {
-      case '/create-user':
-        return 'Create User Profile';
-      case '/appointments':
-        return 'Appointments';
-      case '/pets':
-        return 'Pets';
-      case '/pet-owners':
+    switch (true) {
+      case location.pathname.startsWith('/pet-owners'):
         return 'Pet Owners';
-      case '/veterinary':
+      case location.pathname === '/add-vet':
+        return 'Add Vet';
+      case location.pathname === '/appointments':
+        return 'Appointments';
+      case location.pathname === '/pets':
+        return 'Pets';
+      case location.pathname === '/veterinary':
         return 'Veterinary';
       default:
         return 'Dashboard';
     }
   };
+  
 
   return (
     <div className="dashboard-container">
@@ -54,7 +57,9 @@ const Dashboard = () => {
         <div className="main-content">
           {location.pathname === '/admin' && <AppointmentList />}
           {location.pathname === '/admin' && <Calendar />}
-          {location.pathname === '/create-user' && <VetSignup />}
+          {location.pathname === '/add-vet' && <VetSignup />}
+          {location.pathname === '/pet-owners' && <PetOwners />}
+          {location.pathname.startsWith('/pet-owners/view-owner/')  && <ViewOwner />}
           {/* Add other content components here based on the selected topic */}
         </div>
       </div>

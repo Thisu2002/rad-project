@@ -1,0 +1,93 @@
+.pet-owners-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Poppins';
+  }
+
+  .search-container {
+    width: 28%;
+    padding: 10px;
+    padding-right: 0px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffe3e2;
+    align-items: center;
+    display: flex;
+  }
+
+  .search-icon{
+    margin: 0 5px 0 5px;
+  }
+  
+  .search-bar {
+    width: 75%;
+    border: none;
+    background-color: #ffe3e2;
+    font-family: 'Poppins';
+  }
+
+  .pet-owners-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #595959;
+  }
+  
+  .pet-owners-table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+  }
+  
+  .pet-owners-table th {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .action-link {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #9c644b;
+    /* 595959 */
+  }
+  
+  /* .view-link {
+    color: #6466FF;
+  }
+  
+  .edit-link {
+    color: #6466FF;
+  }
+  
+  .delete-link {
+    color: #6466FF;
+  } */
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .pagination span {
+    margin: 0 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #595959;
+  }
+  
+  .pagination-active {
+    background-color: #f5b7b1;
+    border-radius: 5px;
+  }
+  
+  .pagination-previous, .pagination-next {
+    color: #6466FF;
+  }
+  

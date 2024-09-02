@@ -7,10 +7,12 @@ const VetSignup = () => {
     fullName: "",
     username: "",
     password: "",
+    gender: "",
     address: "",
     contactNo: "",
     email: "",
     licenseNo: "",
+    experience: "",
   });
 
   const navigate = useNavigate();
@@ -29,11 +31,23 @@ const VetSignup = () => {
         },
         body: JSON.stringify(formData),
       });
-
+  
       const result = await response.json();
       if (response.ok) {
         alert(result.message);
-        navigate("/create-user");
+        
+        setFormData({
+          fullName: "",
+          username: "",
+          password: "",
+          gender: "",
+          address: "",
+          contactNo: "",
+          email: "",
+          licenseNo: "",
+          experience: "",
+        });
+    
       } else {
         console.error("Error:", result.error);
         alert(result.error);
@@ -42,7 +56,7 @@ const VetSignup = () => {
       console.error("Error:", error);
       alert("Failed to register user.");
     }
-  };
+  };  
 
   return (
     <div className="vetSignup-page">
@@ -81,6 +95,31 @@ const VetSignup = () => {
             onChange={handleChange}
             required
           />
+          <div className="gender-options">
+          <label>Gender:</label>
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="M"
+                checked={formData.gender === "M"}
+                onChange={handleChange}
+                required
+              />
+              Male
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="F"
+                checked={formData.gender === "F"}
+                onChange={handleChange}
+                required
+              />
+              Female
+            </label>
+          </div>
 
           <label>Address:</label>
           <input
@@ -122,7 +161,16 @@ const VetSignup = () => {
             required
           />
 
-          <button type="submit">vetSignup</button>
+          <label>Experience:</label>
+          <textarea
+            name="experience"
+            placeholder="Describe your experience here..."
+            value={formData.experience}
+            onChange={handleChange}
+            required
+          />
+
+          <button type="submit">Vet Signup</button>
         </form>
       </div>
     </div>

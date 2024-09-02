@@ -5,7 +5,7 @@ const Vet = require('../models/Vet');
 
 // Signup function
 const vetSignup = async (req, res) => {
-    const { fullName, username, password, address, contactNo, email, licenseNo } = req.body;
+    const { fullName, username, password, gender, address, contactNo, email, licenseNo, experience } = req.body;
 
     try {
         // Check if the email already exists in vet collection
@@ -27,18 +27,20 @@ const vetSignup = async (req, res) => {
         const user = new User({
             username,
             password: hashedPassword,
-            user_role: 2, // Setting user_role to 3 for pet owners
+            user_role: 2,
         });
         await user.save();
 
-        // Create a new pet owner
+        // Create a new vet
         const vet = new Vet({
             username,
             fullName,
+            gender,
             address,
             contactNo,
             email,
             licenseNo,
+            experience,
             user: user._id,
         });
         await vet.save();
