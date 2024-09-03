@@ -42,4 +42,20 @@
   height: 35px; 
   text-align: center;
   color: #333;
+  cursor: pointer;
+}
+
+.calendar-table td.inactive {
+  color: #b0b0b0;
+}
+
+.inactive:hover {
+  cursor: not-allowed;
+}
+
+.today {
+  background-color: #D9A691;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: bold;
 }

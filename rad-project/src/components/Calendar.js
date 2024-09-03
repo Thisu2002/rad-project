@@ -6,6 +6,11 @@ const Calendar = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [days, setDays] = useState([]);
 
+  const today = new Date();
+  const todayDate = today.getDate();
+  const todayMonth = today.getMonth();
+  const todayYear = today.getFullYear();
+
   const months = [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
@@ -43,6 +48,7 @@ const Calendar = () => {
           week.push({
             day: date,
             inactive: false,
+            isToday: date === todayDate && month === todayMonth && year === todayYear,
           });
           date++;
         }
@@ -100,7 +106,7 @@ const Calendar = () => {
               {week.map((day, index) => (
                 <td
                   key={index}
-                  className={day.inactive ? 'inactive' : ''}
+                  className={`${day.inactive ? 'inactive' : ''} ${day.isToday ? 'today' : ''}`}
                 >
                   {day.day}
                 </td>

@@ -1,0 +1,23 @@
+.main-content * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-left: 250px;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.tab {
+    font-weight: bold;
+    border-bottom: 2px solid #D9A691;
+    padding-bottom: 5px;
+}
