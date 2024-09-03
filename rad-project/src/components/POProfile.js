@@ -1,32 +1,44 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import '../styles/POProfile.css';
 import profileImage from '../images/profileImg.png';
 import ProImage from '../images/ProImage.png';
 
 const POProfile = () => {
-    return (
-      
-      <div className="dashboard-container">
-          
-          <div className="dashboard-header">
-              <h1>View Profile</h1>
-              <div className="profile-info">
-                  <img src={profileImage} alt="Profile" className="profile-img" />
-                  <div className="profile-details">
-                      <span className="profile-name">Jonitha Cathrine</span><br />
-                      <span className="profile-role">Pet Owner</span>
-                  </div>
-              </div>
+  const location = useLocation();
+  const getCurrentPage = () => {
+    switch (true) {
+      case location.pathname.startsWith('/petOwners'):
+        return 'Dashboard';
+      case location.pathname === '/petOwnerProfile':
+        return 'View Profile';
+      case location.pathname === '/appointments':
+        return 'Add and View Appointments';
+      case location.pathname === '/pets':
+        return 'Pet Details';
+      default:
+        return 'Dashboard';
+    }
+  };
+  
+
+  return (
+    <div className="dashboard-container">
+      <div className="dashboard-header">
+        <h1>{getCurrentPage()}</h1>
+        <div className="profile-info">
+          <img src={profileImage} alt="Profile" className="profile-img" />
+          <div className="profile-details">
+            <span className="profile-name">Jonitha Cathrine</span><br />
+            <span className="profile-role">Admin</span>
           </div>
-          
-          <div className="action">
-            <h4><u>Pet Owner</u></h4>
-          </div>
-          
-          <div className="pet-details-container">
+        </div>
+      </div>
+
+      <div className="profile-content">
             <img src={ProImage} alt="Profile Picture" className="profile-picture"/>
-            <div className="username"><p>Jonitha Cathrine</p></div>
-            <div className='pet-details'>
+            <div className="username">Jonitha Cathrine</div><br></br>
+            <div className='petowner-details'>
                 <table>
                     <tr>
                         <td><strong>Full Name:</strong></td>
@@ -52,20 +64,14 @@ const POProfile = () => {
                 </table>
                 
             </div>
-            <div className='edit-container'>
             <button className='edit'>Edit</button>
-            </div>
-            {/*<Link to="/addPet">
-            <button className="addPet-btn">Add another pet</button>
-            </Link>
-            <Link to="/PetHealthDetails">
-            <button className="health-btn">View health details</button>
-            </Link>*/}
-          </div>
+            
+      </div>
+
 
           <div className="dashboard-footer"></div>
       </div>
-   
+
   );
 };
 

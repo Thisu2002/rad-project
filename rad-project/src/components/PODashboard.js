@@ -1,14 +1,42 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import '../styles/PODashboard.css';
+import profileImage from '../images/profileImg.png';
 import dogImage from '../images/dog.jpg';
 
-
 const Dashboard = () => {
+  const location = useLocation();
+  const getCurrentPage = () => {
+    switch (true) {
+      case location.pathname.startsWith('/petOwners'):
+        return 'Dashboard';
+      case location.pathname === '/petOwnerProfile':
+        return 'View Profile';
+      case location.pathname === '/appointments':
+        return 'Add and View Appointments';
+      case location.pathname === '/pets':
+        return 'Pet Details';
+      default:
+        return 'Dashboard';
+    }
+  };
+  
+
   return (
-    
     <div className="dashboard-container">
-        
-        <div className="pet-profile">
+      <div className="dashboard-header">
+        <h1>{getCurrentPage()}</h1>
+        <div className="profile-info">
+          <img src={profileImage} alt="Profile" className="profile-img" />
+          <div className="profile-details">
+            <span className="profile-name">Jonitha Cathrine</span><br />
+            <span className="profile-role">Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="dashboard-content">
+      <div className="pet-profile">
         <img src={dogImage} alt="Dandelion the Beagle" className="pet-image" />
         <div className="pet-details">
           <h3>Dandelion</h3>
@@ -22,8 +50,11 @@ const Dashboard = () => {
       </div>
         
         
-        <div className="dashboard-footer"></div>
-        
+      </div>
+
+      
+
+      <div className="dashboard-footer"></div>
     </div>
   );
 };

@@ -1,22 +1,10 @@
 import React from 'react';
-import profileImage from '../images/profileImg.png';
 import '../styles/POPetView.css';
 import { Link } from 'react-router-dom';
 
 const Pets = () => {
     return (
-        <div className="dashboard-container">
-          
-          <div className="dashboard-header">
-              <h1>View Pet Details</h1>
-              <div className="profile-info">
-                  <img src={profileImage} alt="Profile" className="profile-img" />
-                  <div className="profile-details">
-                      <span className="profile-name">Jonitha Cathrine</span><br />
-                      <span className="profile-role">Pet Owner</span>
-                  </div>
-              </div>
-          </div>
+        <div className="pet-view-container">
           
           <div className="action">
             <h4><u>Pet Details</u></h4>
@@ -60,7 +48,7 @@ const Pets = () => {
             </Link>
           </div>
 
-          <div className="dashboard-footer"></div>
+          
         </div>
     )
 };

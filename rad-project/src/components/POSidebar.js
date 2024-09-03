@@ -3,12 +3,12 @@ import { NavLink } from 'react-router-dom';
 import '../styles/POSideBar.css';
 import logo from '../images/logo.png';
 import dashboardIcon from '../images/dashboardIcon.png';
-import addIcon from '../images/addIcon.png';
+import viewProfile from '../images/profile1.png';
 import appointmentsIcon from '../images/appointmentsIcon.png';
 import petsIcon from '../images/petsIcon.png';
 import logoutIcon from '../images/logoutIcon.png';
 
-const SideBar = () => {
+const POSideBar = () => {
     return (
         <div className="sidebar">
             <NavLink to="/">
@@ -25,22 +25,22 @@ const SideBar = () => {
 
                 <li>
                     <NavLink to="/petOwnerProfile" className="nav-link" activeClassName="active">
-                        <img src={addIcon} alt="Create User Icon" className="icon" />
-                        Add Veterinarian
+                        <img src={viewProfile} alt="User Icon" className="icon" />
+                        View Profile
                     </NavLink>
                 </li>
 
                 <li>
                     <NavLink to="/appointments" className="nav-link" activeClassName="active">
                         <img src={appointmentsIcon} alt="Appointments Icon" className="icon" />
-                        Appointments
+                        Add and View Appointments
                     </NavLink>
                 </li>
 
                 <li>
                     <NavLink to="/pets" className="nav-link" activeClassName="active">
                         <img src={petsIcon} alt="Pets Icon" className="icon" />
-                        Pets
+                        Pet Details
                     </NavLink>
                 </li>
 
@@ -57,4 +57,4 @@ const SideBar = () => {
     );
 }
 
-export default SideBar;
+export default POSideBar;

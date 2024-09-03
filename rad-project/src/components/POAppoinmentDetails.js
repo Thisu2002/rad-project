@@ -1,29 +1,17 @@
 import React from 'react';
-import profileImage from '../images/profileImg.png';
 import '../styles/POAppoinmentDetails.css';
 import { Link } from 'react-router-dom';
 
 
 const Appoinments = () => {
     return (
-        <div className="dashboard-container">
-          
-          <div className="dashboard-header">
-              <h1>Add Appoinments</h1>
-              <div className="profile-info">
-                  <img src={profileImage} alt="Profile" className="profile-img" />
-                  <div className="profile-details">
-                      <span className="profile-name">Jonitha Cathrine</span><br />
-                      <span className="profile-role">Pet Owner</span>
-                  </div>
-              </div>
-          </div>
+        <div className="appDetails-container">
           
           <div className="action">
             <h4><u>Appoinment Details</u></h4>
           </div>
 
-          <div className="pet-details-container">
+          <div className="app-details-container">
             <div className="topic"><p>Appoinment</p></div>
             <div className="App-details">
                 <form>
@@ -52,7 +40,7 @@ const Appoinments = () => {
             </Link>
 
           </div>
-          <div className="dashboard-footer"></div>
+          
         </div>
 
         

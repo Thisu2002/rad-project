@@ -20,8 +20,6 @@
     background-color: #FFE3E2;
     padding: 20px;
     position: relative;
-    margin-left: 30px;
-    
 }
 
 .dashboard-header h1 {
@@ -61,67 +59,48 @@
     color: #000000;
 }
 
-.action{
-    margin-top: 50px;
-    margin-left: 100px;
-}
-
-.pet-details-container {
-    height:600px;
+.profile-content {
+    height:500px;
     background-color: #FFE3E2;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-left: 200px;
+    margin-left: 50px;
     margin-right: 200px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    position: relative; 
+    display: flex;
 }
 
 .profile-picture {
     width: 50px;
     height:50px;
-    align-items: center;
+    margin-left:350px ;
 }
 
-.username p{
+.username{
     font-size: 25px;
     font-weight: bold;
-    margin-left: 350px;
-    margin-top: 10px;
+    margin-left: 10px;
+    margin-top: 8px;
+    
 }
 
-.pet-details{
-    margin-top: 20px;;
+.petowner-details{
+    margin-top: 20px;
     margin-left: 60px;
 }
 
-.addPet-btn{
-    margin-left: 600px;
-    margin-top: 8px;
+.edit{
+    margin-left: 90px;
+    margin-top: 400px;
     width: 150px;
     height: 30px;
     background-color: #C3907B;
     border: 1px solid #C3907B;
     font-weight: 900;
 }
-
-.edit-container {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 100px; /* Adjust as needed */
-}
-
-.edit{
-    margin-left: 10000px;
-    margin-top: 12px;
-    width: 100px;
-    height: 30px;
-    background-color: #C3907B;
-    border: 1px solid #C3907B;
-    font-weight: 900;
-}
-
 
 
 .dashboard-footer {
