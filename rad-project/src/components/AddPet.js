@@ -25,12 +25,15 @@ const AddPet = () => {
   };
 
   const [formData, setFormData] = useState({
-    fullName: "",
-    username: "",
-    password: "",
-    address: "",
-    contactNo: "",
-    email: "",
+    name: "",
+    species: "",
+    breed: "",
+    dob: "",
+    age: "",
+    gender: "",
+    allergies: "",
+    chronicConditions: "",
+}, {
   });
 
   const navigate = useNavigate();
@@ -60,7 +63,7 @@ const AddPet = () => {
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to register user.");
+      alert("Failed to register pet.");
     }
   };
 
@@ -83,83 +86,83 @@ const AddPet = () => {
       </div>
 
         <div className='main-content'>
-
-
           <div className='header'>
             <span className='tab'>Add Pet Details</span>
           </div>
 
-          <div className="signup-page">
-            <div className="page-container">
-              <div className="signup-header">
-                <h4>Sign Up</h4>
-                <hr className="header-hr" />
-              </div>
-              <form className="signup-form" onSubmit={handleSubmit}>
-                <label>Full Name:</label>
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="ex:- Harry Edward Styles"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  required
-                />
+              <form className="addPet-form" onSubmit={handleSubmit}>
+                <span className='form-title'>Pet Details</span>
+                <div className='form-row'>
+                  <label>Pet's Name:</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="ex:- Roxy"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                
+                <div className='form-row'>
+                  <label>Species:</label>
+                  <input
+                    type="text"
+                    name="species"
+                    placeholder="ex:- Dog"
+                    value={formData.species}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-                <label>Username:</label>
-                <input
-                  type="text"
-                  name="username"
-                  placeholder="ex:- hedward"
-                  value={formData.username}
-                  onChange={handleChange}
-                  required
-                />
+                <div className='form-row'>
+                  <label>Breed:</label>
+                  <input
+                    type="text"
+                    name="breed"
+                    placeholder="ex:- Dashchund"
+                    value={formData.breed}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
 
-                <label>Password:</label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="ex:- HEStyles@123"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
+                <div className='form-row'>
+                    <label>Date of Birth:</label>
+                    <input 
+                      type="date" 
+                      id="dob" 
+                      name="dob" 
+                    />
+                    <label for="age" class="age-label">Age:</label>
+                    <input 
+                      type="text" 
+                      id="age" 
+                      name="age" 
+                      class="age-input" />
+                </div>
 
-                <label>Address:</label>
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="ex:- No 146, Flower Rd, Colombo."
-                  value={formData.address}
-                  onChange={handleChange}
-                  required
-                />
-
-                <label>Contact No:</label>
-                <input
-                  type="text"
-                  name="contactNo"
-                  placeholder="ex:- 0711234567"
-                  value={formData.contactNo}
-                  onChange={handleChange}
-                  required
-                />
-
-                <label>Email:</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="ex:- hstyles94@gmail.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
+                <div class="form-row">
+                  <label>Gender:</label>
+                  <input 
+                    type="radio" 
+                    id="male" 
+                    name="gender" 
+                    value="M" 
+                  />
+                  <label>M</label>
+                  <input 
+                    type="radio" 
+                    id="female" 
+                    name="gender" 
+                    value="F" 
+                    />
+                  <label>F</label>
+                </div>
 
                 <button type="submit">Signup</button>
               </form>
-            </div>
-          </div>
 
           
 

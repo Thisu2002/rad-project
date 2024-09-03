@@ -7,13 +7,14 @@
 
 .main-content {
     display: flex;
-    flex-direction: column;
     padding: 0;
     margin-left: 250px;
 }
 
 .header {
     font-weight: bold;
+    padding-left: 20px; 
+    margin-bottom: 20px;
 }
 
 .tab {
@@ -21,41 +22,11 @@
     border-bottom: 2px solid #D9A691;
     padding-bottom: 5px;
 }
-
-.signup-page {
-    background-image: url("../images/paws.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 100vh;
-    position: relative;
-    font-family: 'Poppins';
-    padding-bottom: 150px;
-  }
   
-  .signup-header {
-    position: absolute;
-    top: 110px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-  }
-  
-  .signup-header h4 {
-    margin: 0;
-  }
-  
-  .header-hr {
-    width: 100px;
-    border: none;
-    border-top: 2px solid black;
-  }
-  
-  .signup-form {
+.addPet-form {
     background-color: #ffe3e2;
-    width: 40%;
-    padding: 60px;
-    border: #d9a691 1px solid;
+    width: 60%;
+    padding: 40px 60px;
     border-radius: 10px;
     position: absolute;
     top: 25%;
@@ -63,27 +34,80 @@
     transform: translateX(-50%);
     text-align: center;
     margin-bottom: 500px;
-  }
+}
+
+.form-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+}
   
-  .signup-form input {
+.addPet-form input {
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 0;
     margin-bottom: 15px;
     background-color: #d9a691;
     border: none;
     border-radius: 20px;
     font-size: 16px;
-  }
+}
   
-  .signup-form label {
+.addPet-form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size: 16px;
     text-align: left;
-  }
+}
+
+.form-row input[type="text"],
+.form-row input[type="date"] {
+    flex: 2;
+    padding: 10px;
+    border:none;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.form-row input[type="radio"] {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.age-label {
+    margin-left: 20px;
+}
+
+.age-input {
+    width: 50px;
+    margin-left: 10px;
+}
   
-  .signup-form button {
+.gender-options {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.gender-options input[type="radio"] {
+    margin-right: 5px;
+}
+
+.addPet-form button {
     width: 25%;
     padding: 10px;
     background-color: #d9a691;
@@ -94,47 +118,47 @@
     cursor: pointer;
     margin-top: 20px 0 0 0;
     font-family: Poppins;
-  }
+}
   
-  .signup-form button:hover {
+.addPet-form button:hover {
     background-color: #c48f82;
-  }
+}
   
-  .signup-form p {
+.addPet-form p {
     margin-top: 30px;
     font-size: 14px;
     text-align: center;
-  }
+}
   
-  .signup-form a {
+.addPet-form a {
     margin-left: 5px;
-  }
+}
   
-  @media (max-width: 768px) {
-    .signup-form {
+@media (max-width: 768px) {
+    .addPet-form {
       width: 60%;
       padding: 30px;
-    }
+}
   
-    .signup-form input,
-    .signup-form button {
-      font-size: 14px;
+    .addPet-form input,
+    .addPet-form button {
+        font-size: 14px;
     }
-  }
+}
   
-  @media (max-width: 480px) {
-    .signup-form {
+@media (max-width: 480px) {
+    .addPet-form {
       width: 90%;
       padding: 20px;
     }
   
-    .signup-form input,
-    .signup-form button {
+    .addPet-form input,
+    .addPet-form button {
       font-size: 12px;
     }
-  }
+}
   
-  .signup-back {
+.signup-back {
       position: absolute;
       top: 110px;
       left: 20px;
@@ -147,15 +171,15 @@
       padding: 10px 15px;
       font-family: "Poppins", sans-serif;
       transition: transform 0.2s ease-in-out;
-    }
+}
     
-    .signup-arrow {
+.signup-arrow {
       width: 25px;
       margin-right: 10px;
-    }
+}
   
-    .signup-back:hover {
+.signup-back:hover {
       transform: translateY(-5px);
-    }
+}
     
     
