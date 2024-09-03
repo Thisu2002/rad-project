@@ -12,7 +12,11 @@ const AppointmentList = () => {
 
   return (
     <div className="appointment-list">
-      <h3>Today's Appointments</h3>
+      <div className="header">
+        <h3>Today's Appointments</h3>
+        <a href="#">See all</a>
+      </div>
+      
       <ul>
         {appointments.map((appointment, index) => (
           <li key={index} className={appointment.status === 'Ongoing' ? 'ongoing' : ''}>
@@ -27,7 +31,7 @@ const AppointmentList = () => {
           </li>
         ))}
       </ul>
-      <a href="#">See all</a>
+      
     </div>
   );
 };
