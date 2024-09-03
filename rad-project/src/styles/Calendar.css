@@ -17,4 +17,32 @@
     background-color: #ffe3e2;
     border-radius: 5px;
   }
+
+  .calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar-nav span {
+    font-size: 20px;
+    color: #1b2748;
+}
+
+.calendar-nav button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #1b2748;
+    cursor: pointer;
+}
+
+.calendar-table th,
+.calendar-table td {
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    color: #333;
+}
   
