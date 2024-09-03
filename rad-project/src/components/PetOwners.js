@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../styles/PetOwners.css"; // Assume you have this stylesheet
+import "../styles/PetOwners.css";
 import searchIcon from "../images/searchIcon.png";
 
 const PetOwners = () => {
@@ -72,9 +72,6 @@ const PetOwners = () => {
               <td>
                 <Link to={`/pet-owners/view-owner/${owner._id}`} className="action-link view-link">
                   View
-                </Link>
-                <Link to={`/pet-owners/edit-owner/${owner._id}`} className="action-link edit-link">
-                  Edit
                 </Link>
                 <button
                   onClick={() => handleDelete(owner._id)}
