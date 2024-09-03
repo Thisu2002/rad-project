@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from '../components/PODashboard';
+import Dashboard from '../components/PetOwnerTopBoard';
 import POSideBar from '../components/POSidebar';
 
 const PetOwnerDashboard = () => {

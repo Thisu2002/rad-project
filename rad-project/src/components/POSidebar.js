@@ -1,63 +1,60 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../styles/POSideBar.css';
 import logo from '../images/logo.png';
-import dashboardIcon from '../images/dashboardIcon2.png';
-import profileIcon from '../images/profile1.png';
-import appoinmentsIcon from '../images/schedule1.png';
-import petIcon from '../images/pet1.png';
+import dashboardIcon from '../images/dashboardIcon.png';
+import addIcon from '../images/addIcon.png';
+import appointmentsIcon from '../images/appointmentsIcon.png';
+import petsIcon from '../images/petsIcon.png';
 import logoutIcon from '../images/logoutIcon.png';
 
-
-
-const POSideBar = () => {
+const SideBar = () => {
     return (
         <div className="sidebar">
+            <NavLink to="/">
+                <img src={logo} alt="Dr.Pet Logo" className='logo' />
+            </NavLink>
 
-            <Link to="/">
-                <img src = {logo} alt="Dr.Pet Logo"/>
-            </Link>
-
-            <ul className="sidebar-ul">
-                <li className="active">
-                    
-                    <img src={dashboardIcon} alt="Dashboard Icon" className="icon" />
-                    Dashboard
-                    
-                </li>
-                
+            <ul className='sidebar-ul'>
                 <li>
-                    <Link to="/petOwnerProfile" target="_self">
-                      <img src={profileIcon} alt="Profile Icon" className="icon" />
-                      View Profile
-                    </Link>
-                </li>
-                
-
-                <li>
-                    <Link to="/Appoinment-Date&Time" target="_self">
-                    <img src={appoinmentsIcon} alt="Appoinment Icon" className="icon" />
-                    Add and View Appoinmnets
-                    </Link>
+                    <NavLink to="/petOwner" className="nav-link" activeClassName="active">
+                        <img src={dashboardIcon} alt="Dashboard Icon" className="icon" />
+                        Dashboard
+                    </NavLink>
                 </li>
 
                 <li>
-                    <Link to="/Pet-Details">
-                    <img src={petIcon} alt="Pet Icon" className="icon" />
-                    Pet Details
-                    </Link>
+                    <NavLink to="/petOwnerProfile" className="nav-link" activeClassName="active">
+                        <img src={addIcon} alt="Create User Icon" className="icon" />
+                        Add Veterinarian
+                    </NavLink>
                 </li>
+
+                <li>
+                    <NavLink to="/appointments" className="nav-link" activeClassName="active">
+                        <img src={appointmentsIcon} alt="Appointments Icon" className="icon" />
+                        Appointments
+                    </NavLink>
+                </li>
+
+                <li>
+                    <NavLink to="/pets" className="nav-link" activeClassName="active">
+                        <img src={petsIcon} alt="Pets Icon" className="icon" />
+                        Pets
+                    </NavLink>
+                </li>
+
+               
             </ul>
 
             <div className="logout">
-            <Link to="/login">
-                <img src={logoutIcon} alt="Logout Icon" className="icon" />
-                Logout
-            </Link>
+                <NavLink to="/login" className="nav-link" activeClassName="active">
+                    <img src={logoutIcon} alt="Logout Icon" className="icon" />
+                    Logout
+                </NavLink>
             </div>
-
         </div>
     );
 }
 
-export default POSideBar;
+export default SideBar;
