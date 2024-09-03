@@ -27,6 +27,8 @@ const App = () => {
         <Route path="/add-vet" element={<AdminDashboard />} />
         <Route path="/pet-owners" element={<AdminDashboard />} />
         <Route path="/pet-owners/view-owner/:id" element={<AdminDashboard />} />
+        <Route path="/vets" element={<AdminDashboard />} />
+        <Route path="/vets/view-vet/:id" element={<AdminDashboard />} />
       </Routes>
     </Router> 
   );

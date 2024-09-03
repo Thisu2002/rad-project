@@ -52,6 +52,35 @@ const vetSignup = async (req, res) => {
     }
 };
 
+// Fetch all vets
+const getAllVets = async (req, res) => {
+    try {
+      const vets = await Vet.find({}, { _id: 1, username: 1, fullName: 1 });
+      res.json(vets);
+    } catch (error) {
+      console.error("Error fetching pet owners:", error);
+      res.status(500).json({ error: "Server error. Please try again later." });
+    }
+  };
+  
+  // Fetch specific vet by ID
+const getVetById = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const vet = await Vet.findById(id);
+      if (!vet) {
+        return res.status(404).json({ error: "Vet not found." });
+      }
+      res.json(vet);
+    } catch (error) {
+      console.error("Error fetching vet:", error);
+      res.status(500).json({ error: "Server error. Please try again later." });
+    }
+  };
+
 module.exports = {
-    vetSignup
+    vetSignup,
+    getAllVets,
+    getVetById
 };

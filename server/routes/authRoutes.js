@@ -22,4 +22,9 @@ router.get('/pet-owners/view-owner/:id', ownerController.getPetOwnerById);
 // Delete pet owner
 router.delete('/pet-owners/:id', ownerController.deletePetOwnerById);
 
+// Vet route
+router.get('/vets', vetController.getAllVets);
+
+router.get('/vets/view-vet/:id', vetController.getVetById);
+
 module.exports = router;
