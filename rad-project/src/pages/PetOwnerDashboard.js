@@ -1,10 +1,19 @@
 import React from 'react'
+import Dashboard from '../components/PODashboard';
+import POSideBar from '../components/POSidebar';
 
 const PetOwnerDashboard = () => {
   return (
     <div>
-        <h1>Pet Owner Dashboard</h1>
+        <div className="sidebar">
+          <POSideBar/>
+        </div>
+
+        <div className="main">
+          <Dashboard/>
+        </div>
     </div>
+   
     
   )
 }
