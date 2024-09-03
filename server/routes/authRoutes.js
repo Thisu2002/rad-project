@@ -18,4 +18,9 @@ router.get('/pet-owners', ownerController.getAllPetOwners);
 
 router.get('/pet-owners/view-owner/:id', ownerController.getPetOwnerById);
 
+// Vet route
+router.get('/vets', vetController.getAllVets);
+
+router.get('/vets/view-vet/:id', vetController.getVetById);
+
 module.exports = router;

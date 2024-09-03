@@ -21,9 +21,10 @@ const Login = () => {
       const response = await axios.post("http://localhost:5000/login", { username, password });
       console.log(response);
       
-      const { token, redirect } = response.data;
+      const { token, adminDetails, redirect } = response.data;
 
       localStorage.setItem("token", token);
+      localStorage.setItem("adminDetails", JSON.stringify(adminDetails));
 
       navigate(redirect);
     } catch (err) {
