@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import pets from "../images/pets.png";
 import ellipse from "../images/ellipse.png";
 import nutrition from "../images/nutrition.png";
 import vaccine from "../images/vaccine.png";
@@ -41,14 +40,7 @@ const Home = () => {
     <div>
       <NavBar />
 
-      <section id="home" className="section">
-        <img
-          src={pets}
-          alt="pets"
-          style={{ width: "100%" }}
-          className="fade-in"
-        />
-      </section>
+      <section id="home" className="section"></section>
 
       <section id="about-us" className="section">
         <div className="about1">
@@ -72,7 +64,7 @@ const Home = () => {
               playing.
             </p>
           </div>
-          <img src={ellipse} alt="ellipse" data-animation="fade-in" />
+          <img src={ellipse} alt="ellipse" className="ellipse" data-animation="fade-in" />
         </div>
       </section>
 
@@ -86,6 +78,12 @@ const Home = () => {
               pet's optimal health and well-being through balanced nutrition
             </p>
           </div>
+
+          <div className="v-heading" data-animation="fade-in">
+            <h1>Our Veterinary</h1>
+            <h1>Services</h1>
+          </div>
+
           <div className="v-item" data-animation="fade-in">
             <img src={vaccine} alt="image2" />
             <h3>Vaccinations</h3>

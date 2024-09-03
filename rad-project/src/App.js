@@ -8,6 +8,10 @@ import Signup from "./pages/Signup";
 import AdminDashboard from './pages/AdminDashboard';
 import VetDashboard from './pages/VetDashboard';
 import PetOwnerDashboard from './pages/PetOwnerDashboard';
+import PetOwners from "./components/PetOwners";
+import VetSignup from "./components/VetSignup";
+import Dashboard from "./components/AdminTopDboard";
+import ViewOwner from "./components/ViewOwner";
 import PetOwnerProfile from './pages/PetOwnerProfile';
 import POAppoinments from './pages/PetOwnerAppoinments';
 import AppoinmentsDetails from './pages/PetOwnerAppoinmentDetails';
@@ -30,6 +34,9 @@ const App = () => {
 
         
         <Route path="/petOwner" element={<PetOwnerDashboard />} />
+        <Route path="/add-vet" element={<AdminDashboard />} />
+        <Route path="/pet-owners" element={<AdminDashboard />} />
+        <Route path="/pet-owners/view-owner/:id" element={<AdminDashboard />} />
         <Route path="/petOwnerProfile" element={<PetOwnerProfile/>}/>
         <Route path="/Appoinment-Date&Time" element={<POAppoinments/>}/>
         <Route path="/Appoinment-Details" element={<AppoinmentsDetails/>}/>
