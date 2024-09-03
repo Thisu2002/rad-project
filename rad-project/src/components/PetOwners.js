@@ -9,19 +9,35 @@ const PetOwners = () => {
   const itemsPerPage = 10;
 
   useEffect(() => {
-    // Fetch the pet owners from the server
-    const fetchPetOwners = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/pet-owners");
-        const data = await response.json();
-        setPetOwners(data);
-      } catch (error) {
-        console.error("Error fetching pet owners:", error);
-      }
-    };
-
     fetchPetOwners();
   }, []);
+
+  const fetchPetOwners = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/pet-owners");
+      const data = await response.json();
+      setPetOwners(data);
+    } catch (error) {
+      console.error("Error fetching pet owners:", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/pet-owners/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        alert("Deleted successfully!");
+        fetchPetOwners(); // Refresh the list after deletion
+      } else {
+        console.error("Failed to delete the pet owner.");
+      }
+    } catch (error) {
+      console.error("Error deleting pet owner:", error);
+    }
+  };
 
   // Pagination Logic
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -60,9 +76,12 @@ const PetOwners = () => {
                 <Link to={`/pet-owners/edit-owner/${owner._id}`} className="action-link edit-link">
                   Edit
                 </Link>
-                <Link to={`/pet-owners/delete-owner/${owner._id}`} className="action-link delete-link">
+                <button
+                  onClick={() => handleDelete(owner._id)}
+                  className="action-link delete-link"
+                >
                   Delete
-                </Link>
+                </button>
               </td>
             </tr>
           ))}

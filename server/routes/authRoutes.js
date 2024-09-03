@@ -16,6 +16,10 @@ router.post('/vetSignup', vetController.vetSignup);
 // PetOwner route
 router.get('/pet-owners', ownerController.getAllPetOwners);
 
+// View PetOwner
 router.get('/pet-owners/view-owner/:id', ownerController.getPetOwnerById);
+
+// Delete pet owner
+router.delete('/pet-owners/:id', ownerController.deletePetOwnerById);
 
 module.exports = router;
