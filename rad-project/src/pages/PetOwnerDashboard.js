@@ -1,6 +1,6 @@
 import React from 'react';
 import POSideBar from '../components/POSidebar';
-import Dashboard from '../components/PODashboard';
+import Dashboard from '../components/OwnerTopDboard';
 
 const PetOwnerDashboard = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import POSideBar from '../components/POSidebar';
-import POProfile from '../components/POProfile';
+import Dashboard from '../components/OwnerTopDboard';
 
 const PetOwnerProfile = () => {
   return (
@@ -10,7 +10,7 @@ const PetOwnerProfile = () => {
         </div>
 
         <div className="main">
-          <POProfile/>
+          <Dashboard/>
         </div>
         
         

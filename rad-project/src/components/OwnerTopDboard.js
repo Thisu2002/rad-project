@@ -2,18 +2,23 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import '../styles/Dashboard.css';
 import profileImage from '../images/profileImg.png';
-import AppointmentList from './AppointmentList';
-import Calendar from './Calendar';
-import VetSignup from './VetSignup';
+import PODashboard from './PODashboard';
+import POProfile from './POProfile';
+import POAddAppointments from './POAddAppointments';
 
 const Dashboard = () => {
   const location = useLocation();
   const getCurrentPage = () => {
-    switch (location.pathname) {
-      case '/view-appointments':
-        return 'View Appointments';
-      case '/pet-details':
+    switch (true) {
+      case location.pathname.startsWith('/pet-owners'):
+        return 'Pet Owners';
+      case location.pathname === '/petOwnerProfile':
+        return 'View Profile';
+      case location.pathname === '/appointments':
+        return ' Add Appointments';
+      case location.pathname === '/pets':
         return 'Pet Details';
+      
       default:
         return 'Dashboard';
     }
@@ -27,20 +32,20 @@ const Dashboard = () => {
           <img src={profileImage} alt="Profile" className="profile-img" />
           <div className="profile-details">
             <span className="profile-name">Jonitha Cathrine</span><br />
-            <span className="profile-role">Admin</span>
+            <span className="profile-role">Pet Owner</span>
           </div>
         </div>
       </div>
 
-      <div className="dashboard-content">
+      
 
         <div className="main-content">
-          {location.pathname === '/admin' && <AppointmentList />}
-          {location.pathname === '/admin' && <Calendar />}
-          {location.pathname === '/create-user' && <VetSignup />}
-          {/* Add other content components here based on the selected topic */}
+          {location.pathname === '/petOwner' && <PODashboard />}
+          {location.pathname === '/petOwnerProfile' && <POProfile />}
+          {location.pathname === '/appointments' && <POAddAppointments />}
+          
         </div>
-      </div>
+      
 
       <div className="dashboard-footer"></div>
     </div>

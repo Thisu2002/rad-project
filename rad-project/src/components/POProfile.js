@@ -5,35 +5,8 @@ import profileImage from '../images/profileImg.png';
 import ProImage from '../images/ProImage.png';
 
 const POProfile = () => {
-  const location = useLocation();
-  const getCurrentPage = () => {
-    switch (true) {
-      case location.pathname.startsWith('/petOwners'):
-        return 'Dashboard';
-      case location.pathname === '/petOwnerProfile':
-        return 'View Profile';
-      case location.pathname === '/appointments':
-        return 'Add and View Appointments';
-      case location.pathname === '/pets':
-        return 'Pet Details';
-      default:
-        return 'Dashboard';
-    }
-  };
-  
+    return (
 
-  return (
-    <div className="dashboard-container">
-      <div className="dashboard-header">
-        <h1>{getCurrentPage()}</h1>
-        <div className="profile-info">
-          <img src={profileImage} alt="Profile" className="profile-img" />
-          <div className="profile-details">
-            <span className="profile-name">Jonitha Cathrine</span><br />
-            <span className="profile-role">Admin</span>
-          </div>
-        </div>
-      </div>
 
       <div className="profile-content">
             <img src={ProImage} alt="Profile Picture" className="profile-picture"/>
@@ -66,7 +39,7 @@ const POProfile = () => {
             </div>
             <button className='edit'>Edit</button>
             
-      </div>
+    
 
 
           <div className="dashboard-footer"></div>

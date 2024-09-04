@@ -9,7 +9,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import VetDashboard from './pages/VetDashboard';
 import PetOwnerDashboard from './pages/PetOwnerDashboard';
 import PetOwnerProfile from "./pages/PetOwnerProfile";
-import PetOwnerAddAppoinments from "./pages/PetOwnerAddAppoinments";
+import PetOwnerAddAppointments from "./pages/PetOwnerAddAppointments";
 
 
 
@@ -28,7 +28,7 @@ const App = () => {
         
         <Route path="/petOwner" element={<PetOwnerDashboard />} />
         <Route path="/petOwnerProfile" element={<PetOwnerProfile/>}/>
-        <Route path="/addAppoinments" element={<PetOwnerAddAppoinments/>}/>
+        <Route path="/appointments" element={<PetOwnerAddAppointments/>}/>
       </Routes>
     </Router> 
   );

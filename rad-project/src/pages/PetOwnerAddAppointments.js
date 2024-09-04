@@ -1,8 +1,9 @@
 import React from 'react';
 import POSideBar from '../components/POSidebar';
-import AddAppoinments from '../components/POAddAppoinments';
+import Dashboard from '../components/OwnerTopDboard';
 
-const PetOwnerAddAppoinments = () => {
+
+const PetOwnerAddAppointments = () => {
   return (
     <div>
         <div className="sidebar">
@@ -10,7 +11,7 @@ const PetOwnerAddAppoinments = () => {
         </div>
 
         <div className="main">
-          <AddAppoinments/>
+          <Dashboard/>
         </div>
         
         
@@ -20,4 +21,4 @@ const PetOwnerAddAppoinments = () => {
   )
 }
 
-export default PetOwnerAddAppoinments;
+export default PetOwnerAddAppointments;
