@@ -27,4 +27,7 @@ router.get('/vets', vetController.getAllVets);
 
 router.get('/vets/view-vet/:id', vetController.getVetById);
 
+// Delete vet
+router.delete('/vets/:id', vetController.deleteVetById);
+
 module.exports = router;

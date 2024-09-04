@@ -26,11 +26,14 @@ const ViewOwner = () => {
 
   return (
     <div className="view-owner-page">
-      <h2>{ownerDetails.fullName}</h2>
-      <p><strong>Email:</strong> {ownerDetails.email}</p>
-      <p><strong>Address:</strong> {ownerDetails.address}</p>
-      <p><strong>Contact No:</strong> {ownerDetails.contactNo}</p>
-      {/* Add more details as needed */}
+      <div className="owner-picture" /> {/* Placeholder for the owner's picture */}
+      <div className="owner-details">
+        <h2>{ownerDetails.fullName}</h2>
+        <p><strong>Email:</strong> {ownerDetails.email}</p>
+        <p><strong>Address:</strong> {ownerDetails.address}</p>
+        <p><strong>Contact No:</strong> {ownerDetails.contactNo}</p>
+        {/* Add more details as needed */}
+      </div>
     </div>
   );
 };

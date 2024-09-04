@@ -123,7 +123,7 @@ const SideBar = () => {
                 </li>
 
                 <li>
-                    <NavLink to="/veterinary" className="nav-link" activeClassName="active">
+                    <NavLink to="/vets" className="nav-link" activeClassName="active">
                         <img src={vetIcon} alt="Veterinary Icon" className="icon" />
                         Veterinary
                     </NavLink>

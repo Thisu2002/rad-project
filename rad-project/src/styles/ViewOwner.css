@@ -1,6 +1,49 @@
 .view-owner-page {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    font-family: 'Poppins';
-}
+    background-image: url("../images/paws.png");
+  background-size: cover;
+  background-position: center;
+    width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .owner-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    background-image: url('../images/ownerProfile.png');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+  }
+  
+  .owner-details {
+    width: 100%;
+  }
+  
+  .view-owner-page h2 {
+    font-size: 36px;
+    color: #2C2C2C;
+    font-weight: bold;
+    margin-bottom: 50px;
+    margin-top: -80px;
+    margin-left: 150px;
+  }
+  
+  .view-owner-page p {
+    font-size: 20px;
+    color: #6C6C6C;
+    margin: 0 0 10px 0;
+    text-align: left;
+  }
+  
+  .view-owner-page p strong {
+    color: #2C2C2C;
+  }
+  

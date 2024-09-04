@@ -79,8 +79,25 @@ const getVetById = async (req, res) => {
     }
   };
 
+  // Delete specific vet by ID
+const deleteVetById = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const deletedVet = await Vet.findByIdAndDelete(id);
+      if (!deletedVet) {
+        return res.status(404).json({ error: "Vet not found." });
+      }
+      res.json({ message: "Vet deleted successfully." });
+    } catch (error) {
+      console.error("Error deleting Vet:", error);
+      res.status(500).json({ error: "Server error. Please try again later." });
+    }
+  };
+
 module.exports = {
     vetSignup,
     getAllVets,
-    getVetById
+    getVetById,
+    deleteVetById
 };
