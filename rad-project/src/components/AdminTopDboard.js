@@ -19,9 +19,9 @@ const Dashboard = () => {
   const [adminName, setAdminName] = useState('');
 
   useEffect(() => {
-    const adminDetails = JSON.parse(localStorage.getItem('adminDetails'));
+    const adminDetails = JSON.parse(localStorage.getItem('userDetails'));
     if (adminDetails) {
-      setAdminName(adminDetails.admin_name);
+      setAdminName(adminDetails.fullName);
     }
   }, []);
 

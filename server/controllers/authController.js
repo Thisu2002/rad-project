@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const PetOwner = require('../models/PetOwner');
 const Admin = require('../models/Admin');
+const Vet = require('../models/Vet');
 
 // Signup function
 const signup = async (req, res) => {
@@ -67,10 +68,24 @@ const login = async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        // Find the admin details using the same username
-        const admin = await Admin.findOne({ username });
-        if (!admin) {
-            return res.status(400).json({ message: 'Admin details not found' });
+        let foundUser;
+
+        switch (user.user_role) {
+            case 1:
+                foundUser = await Admin.findOne({ username });
+                break;
+            case 2:
+                foundUser = await Vet.findOne({ username });
+                break;
+            case 3:
+                foundUser = await PetOwner.findOne({ username });
+                break;
+            default:
+                return res.status(400).json({ message: 'Invalid user role' });
+        }
+
+        if (!foundUser) {
+            return res.status(400).json({ message: 'User details not found' });
         }
 
         // Generate a JWT token with the user's username and role
@@ -90,8 +105,8 @@ const login = async (req, res) => {
         // Send the token, user details, and the appropriate redirect route based on the user's role
         res.json({
             token,
-            adminDetails: {
-                admin_name: admin.admin_name,
+            userDetails: {
+                fullName: foundUser.fullName,
                 username: user.username,
                 role: user.user_role
             },

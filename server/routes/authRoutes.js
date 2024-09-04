@@ -30,4 +30,8 @@ router.get('/vets/view-vet/:id', vetController.getVetById);
 // Delete vet
 router.delete('/vets/:id', vetController.deleteVetById);
 
+//Edit Vet by Id
+router.put('/vets/edit-vet/:id', vetController.editVetById);
+
+
 module.exports = router;
