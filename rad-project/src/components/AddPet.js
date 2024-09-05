@@ -27,8 +27,6 @@ const AddPet = () => {
     dob: "",
     age: "",
     gender: "",
-    allergies: "",
-    chronicConditions: "",
 }, {
   });
 
@@ -41,7 +39,7 @@ const AddPet = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/signup", {
+      const response = await fetch("http://localhost:5000/add-pet", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -165,9 +163,6 @@ const AddPet = () => {
 
                 <button type="submit">Submit</button>
               </form>
-
-          
-
         </div>
     </div>
     
