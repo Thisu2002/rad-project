@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../styles/Dashboard.css';
 import SummaryCard from './SummaryCard';
@@ -11,9 +11,20 @@ import Calendar from './Calendar';
 import VetSignup from './VetSignup';
 import PetOwners from './PetOwners';
 import ViewOwner from './ViewOwner';
+import Vets from './Vets';
+import ViewVet from './ViewVet';
 
 const Dashboard = () => {
   const location = useLocation();
+  const [adminName, setAdminName] = useState('');
+
+  useEffect(() => {
+    const adminDetails = JSON.parse(localStorage.getItem('userDetails'));
+    if (adminDetails) {
+      setAdminName(adminDetails.fullName);
+    }
+  }, []);
+
   const getCurrentPage = () => {
     switch (true) {
       case location.pathname.startsWith('/pet-owners'):
@@ -24,7 +35,7 @@ const Dashboard = () => {
         return 'Appointments';
       case location.pathname === '/pets':
         return 'Pets';
-      case location.pathname === '/veterinary':
+        case location.pathname.startsWith('/vets'):
         return 'Veterinary';
       default:
         return 'Dashboard';
@@ -39,7 +50,7 @@ const Dashboard = () => {
         <div className="profile-info">
           <img src={profileImage} alt="Profile" className="profile-img" />
           <div className="profile-details">
-            <span className="profile-name">Jonitha Cathrine</span><br />
+            <span className="profile-name">{adminName || 'Admin2'}</span><br />
             <span className="profile-role">Admin</span>
           </div>
         </div>
@@ -60,7 +71,8 @@ const Dashboard = () => {
           {location.pathname === '/add-vet' && <VetSignup />}
           {location.pathname === '/pet-owners' && <PetOwners />}
           {location.pathname.startsWith('/pet-owners/view-owner/')  && <ViewOwner />}
-          {/* Add other content components here based on the selected topic */}
+          {location.pathname === '/vets' && <Vets />}
+          {location.pathname.startsWith('/vets/view-vet/')  && <ViewVet />}
         </div>
       </div>
 

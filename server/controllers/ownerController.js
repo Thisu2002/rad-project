@@ -27,3 +27,19 @@ exports.getPetOwnerById = async (req, res) => {
   }
 };
 
+// Delete specific pet owner by ID
+exports.deletePetOwnerById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deletedPetOwner = await PetOwner.findByIdAndDelete(id);
+    if (!deletedPetOwner) {
+      return res.status(404).json({ error: "Pet owner not found." });
+    }
+    res.json({ message: "Pet owner deleted successfully." });
+  } catch (error) {
+    console.error("Error deleting pet owner:", error);
+    res.status(500).json({ error: "Server error. Please try again later." });
+  }
+};
+

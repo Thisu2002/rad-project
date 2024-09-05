@@ -41,7 +41,7 @@ const seedAdmin = async () => {
     if (!adminEntry) {
       await Admin.create({
         username: 'admin',
-        admin_name: 'Admin1',
+        fullName: 'Team DrPet',
       });
 
       console.log('Admin entry created in Admin table');
