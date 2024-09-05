@@ -55,6 +55,15 @@
     color: #9c644b;
     /* 595959 */
   }
+
+  .pet-owners-table td button{
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+  }
   
   /* .view-link {
     color: #6466FF;

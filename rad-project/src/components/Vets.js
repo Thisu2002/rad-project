@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import "../styles/PetOwners.css";
 import searchIcon from "../images/searchIcon.png";
 
-const PetOwners = () => {
-  const [petOwners, setPetOwners] = useState([]);
+const Vets = () => {
+  const [vets, setVets] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
   useEffect(() => {
-    fetchPetOwners();
+    fetchVets();
   }, []);
 
-  const fetchPetOwners = async () => {
+  const fetchVets = async () => {
     try {
-      const response = await fetch("http://localhost:5000/pet-owners");
+      const response = await fetch("http://localhost:5000/vets");
       const data = await response.json();
-      setPetOwners(data);
+      setVets(data);
     } catch (error) {
       console.error("Error fetching pet owners:", error);
     }
@@ -24,28 +24,28 @@ const PetOwners = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/pet-owners/${id}`, {
+      const response = await fetch(`http://localhost:5000/vets/${id}`, {
         method: "DELETE",
       });
 
       if (response.ok) {
         alert("Deleted successfully!");
-        fetchPetOwners(); // Refresh the list after deletion
+        fetchVets(); // Refresh the list after deletion
       } else {
-        console.error("Failed to delete the pet owner.");
+        console.error("Failed to delete the vet.");
       }
     } catch (error) {
-      console.error("Error deleting pet owner:", error);
+      console.error("Error deleting vet:", error);
     }
   };
 
   // Pagination Logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = petOwners.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = vets.slice(indexOfFirstItem, indexOfLastItem);
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(petOwners.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(vets.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -53,7 +53,7 @@ const PetOwners = () => {
     <div className="pet-owners-container">
       <div className="search-container">
         <img src={searchIcon} alt="search-icon" className="search-icon" />
-        <input type="text" placeholder="Search by Owner Username" className="search-bar" />
+        <input type="text" placeholder="Search by Vet Username" className="search-bar" />
       </div>
 
       <table className="pet-owners-table">
@@ -65,16 +65,19 @@ const PetOwners = () => {
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((owner, index) => (
+          {currentItems.map((vet, index) => (
             <tr key={index}>
-              <td>{owner.username}</td>
-              <td>{owner.fullName}</td>
+              <td>{vet.username}</td>
+              <td>{vet.fullName}</td>
               <td>
-                <Link to={`/pet-owners/view-owner/${owner._id}`} className="action-link view-link">
+                <Link to={`/vets/view-vet/${vet._id}`} className="action-link view-link">
                   View
                 </Link>
+                <Link to={`/vets/edit-vet/${vet._id}`} className="action-link edit-link">
+                  Edit
+                </Link>
                 <button
-                  onClick={() => handleDelete(owner._id)}
+                  onClick={() => handleDelete(vet._id)}
                   className="action-link delete-link"
                 >
                   Delete
@@ -106,4 +109,4 @@ const PetOwners = () => {
   );
 };
 
-export default PetOwners;
+export default Vets;

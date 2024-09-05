@@ -2,6 +2,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const PetOwner = require('../models/PetOwner');
+const Admin = require('../models/Admin');
+const Vet = require('../models/Vet');
 
 // Signup function
 const signup = async (req, res) => {
@@ -66,6 +68,26 @@ const login = async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
+        let foundUser;
+
+        switch (user.user_role) {
+            case 1:
+                foundUser = await Admin.findOne({ username });
+                break;
+            case 2:
+                foundUser = await Vet.findOne({ username });
+                break;
+            case 3:
+                foundUser = await PetOwner.findOne({ username });
+                break;
+            default:
+                return res.status(400).json({ message: 'Invalid user role' });
+        }
+
+        if (!foundUser) {
+            return res.status(400).json({ message: 'User details not found' });
+        }
+
         // Generate a JWT token with the user's username and role
         const token = jwt.sign(
             { username: user.username, user_role: user.user_role }, 
@@ -80,8 +102,16 @@ const login = async (req, res) => {
             3: '/petOwner',
         };
 
-        // Send the token and the appropriate redirect route based on the user's role
-        res.json({ token, redirect: roleRoutes[user.user_role] });
+        // Send the token, user details, and the appropriate redirect route based on the user's role
+        res.json({
+            token,
+            userDetails: {
+                fullName: foundUser.fullName,
+                username: user.username,
+                role: user.user_role
+            },
+            redirect: roleRoutes[user.user_role]
+        });
     } catch (err) {
         console.error(err); // Log the error for debugging purposes
         res.status(500).json({ message: 'Server error' });
@@ -93,3 +123,49 @@ module.exports = {
     signup,
     login,
 };
+
+// const login = async (req, res) => {
+//     const { username, password } = req.body;
+
+//     try {
+//         // Find the user by username
+//         const user = await User.findOne({ username });
+//         if (!user) {
+//             return res.status(400).json({ message: 'Invalid credentials' });
+//         }
+
+//         // Compare the provided password with the hashed password stored in the database
+//         const isMatch = await bcrypt.compare(password, user.password);
+//         if (!isMatch) {
+//             return res.status(400).json({ message: 'Invalid credentials' });
+//         }
+
+//         // Generate a JWT token with the user's username and role
+//         const token = jwt.sign(
+//             { username: user.username, user_role: user.user_role }, 
+//             process.env.JWT_SECRET, 
+//             { expiresIn: '1h' }
+//         );
+
+//         // Define role-based routes for redirection
+//         const roleRoutes = {
+//             1: '/admin',
+//             2: '/vet',
+//             3: '/petOwner',
+//         };
+
+//         // Send the token, user details, and the appropriate redirect route based on the user's role
+//         res.json({
+//             token,
+//             redirect: roleRoutes[user.user_role],
+//             adminDetails: {
+//                 fullName: user.fullName,  // Assuming you have a 'fullName' field in your User model
+//                 username: user.username,
+//                 role: user.user_role
+//             }
+//         });
+//     } catch (err) {
+//         console.error(err); // Log the error for debugging purposes
+//         res.status(500).json({ message: 'Server error' });
+//     }
+// };

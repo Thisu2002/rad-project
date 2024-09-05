@@ -52,6 +52,100 @@ const vetSignup = async (req, res) => {
     }
 };
 
+// Fetch all vets
+const getAllVets = async (req, res) => {
+    try {
+      const vets = await Vet.find({}, { _id: 1, username: 1, fullName: 1 });
+      res.json(vets);
+    } catch (error) {
+      console.error("Error fetching pet owners:", error);
+      res.status(500).json({ error: "Server error. Please try again later." });
+    }
+  };
+  
+  // Fetch specific vet by ID
+const getVetById = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const vet = await Vet.findById(id);
+      if (!vet) {
+        return res.status(404).json({ error: "Vet not found." });
+      }
+      res.json(vet);
+    } catch (error) {
+      console.error("Error fetching vet:", error);
+      res.status(500).json({ error: "Server error. Please try again later." });
+    }
+  };
+
+  // Delete specific vet by ID
+const deleteVetById = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const deletedVet = await Vet.findByIdAndDelete(id);
+      if (!deletedVet) {
+        return res.status(404).json({ error: "Vet not found." });
+      }
+      res.json({ message: "Vet deleted successfully." });
+    } catch (error) {
+      console.error("Error deleting Vet:", error);
+      res.status(500).json({ error: "Server error. Please try again later." });
+    }
+  };
+
+// Edit info of specific vet by ID
+const editVetById = async (req, res) => {
+  const { id } = req.params;
+  const { fullName, password, gender, address, contactNo, email, licenseNo, experience } = req.body;
+
+  try {
+    const vet = await Vet.findById(id);
+    if (!vet) {
+      return res.status(404).json({ error: 'Veterinarian not found' });
+    }
+
+    if (email !== vet.email) {
+      const existingVetWithEmail = await Vet.findOne({ email });
+      if (existingVetWithEmail) {
+        return res.status(400).json({ error: 'Email is already registered to another vet' });
+      }
+    }
+
+    // Update password if provided
+    if (password) {
+      const user = await User.findOne({ username: vet.username });
+      if (user) {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        user.password = hashedPassword;
+        await user.save();
+      }
+    }
+
+    vet.fullName = fullName;
+    vet.gender = gender;
+    vet.address = address;
+    vet.contactNo = contactNo;
+    vet.email = email;
+    vet.licenseNo = licenseNo;
+    vet.experience = experience;
+
+    await vet.save();
+
+    res.status(200).json(vet);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
+
+
+
 module.exports = {
-    vetSignup
+    vetSignup,
+    getAllVets,
+    getVetById,
+    deleteVetById,
+    editVetById
 };

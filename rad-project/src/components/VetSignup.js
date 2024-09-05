@@ -101,8 +101,8 @@ const VetSignup = () => {
               <input
                 type="radio"
                 name="gender"
-                value="M"
-                checked={formData.gender === "M"}
+                value="Male"
+                checked={formData.gender === "Male"}
                 onChange={handleChange}
                 required
               />
@@ -112,8 +112,8 @@ const VetSignup = () => {
               <input
                 type="radio"
                 name="gender"
-                value="F"
-                checked={formData.gender === "F"}
+                value="Female"
+                checked={formData.gender === "Female"}
                 onChange={handleChange}
                 required
               />

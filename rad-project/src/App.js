@@ -16,7 +16,8 @@ import PetOwnerViewAppointment from "./pages/PetOwnerViewAppointment";
 import PetOwnerViewPet from "./pages/PetOwnerViewPet";
 import PetOwnerAddPet from "./pages/PetOwnerAddPets";
 import PetOwnerPetHealth from "./pages/PetOwnerPetHealth";
-
+import Dashboard from "./components/AdminTopDboard";
+import ViewOwner from "./components/ViewOwner";
 
 const App = () => {
   return (
@@ -32,6 +33,11 @@ const App = () => {
 
         
         <Route path="/petOwner" element={<PetOwnerDashboard />} />
+        <Route path="/add-vet" element={<AdminDashboard />} />
+        <Route path="/pet-owners" element={<AdminDashboard />} />
+        <Route path="/pet-owners/view-owner/:id" element={<AdminDashboard />} />
+        <Route path="/vets" element={<AdminDashboard />} />
+        <Route path="/vets/view-vet/:id" element={<AdminDashboard />} />
         <Route path="/petOwnerProfile" element={<PetOwnerProfile/>}/>
         <Route path="/petOwnerProfile/editProfile" element={<EditPetOwnerProfile/>}/>
         <Route path="/appointments" element={<PetOwnerAddAppointments/>}/>
@@ -40,6 +46,8 @@ const App = () => {
         <Route path="/petView" element={<PetOwnerViewPet/>}/>
         <Route path="/petView/addPet" element={<PetOwnerAddPet/>}/>
         <Route path="/petView/PetHealthDetails" element={<PetOwnerPetHealth/>}/>
+        <Route path="/vets" element={<AdminDashboard />} />
+        <Route path="/vets/view-vet/:id" element={<AdminDashboard />} />
       </Routes>
     </Router> 
   );
