@@ -1,99 +1,45 @@
-.dashboard-container * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
-}
-
-.dashboard-container {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin-left: 250px;
-    height: 100vh;
-}
-
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #FFE3E2;
-    padding: 20px;
-    position: relative;
-}
-
-.dashboard-header h1 {
-    font-weight: bold;
-    margin-left: 20px;
-    font-size: 28px;
-    color: #5144B2; /* Title color */
-}
-
-.profile-info {
-    display: flex;
-    align-items: center;
-}
-
-.profile-info:hover{
-    cursor: pointer;
-}
-
-.profile-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.profile-details {
-    text-align: left;
-}
-
-.profile-name {
-    font-weight: bold;
-    color: #000000;
-}
-
-.profile-role {
-    font-size: 14px;
-    color: #000000;
-}
-
-.dashboard-content {
+.pet-info {
     height:500px;
-    background-color: #ffffff;
+    width:900px;
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-left: 50px;
+    margin-left: 200px;
     margin-right: 200px;
-    margin-top: 50px;
+    margin-top: 80px;
     margin-bottom: 80px;
-    position: relative; 
-    display: flex;
-}
+    top:80px;
+    left:500px;
+  }
     
   .pet-image {
-      width: 300px;
-      height: auto;
-      margin-right: 40px;
-      padding-top: 20px;
-      padding-left: 20px;
+    width: 300px;
+    height: auto;
+    margin-right: 40px;
+    padding-top: 20px;
+    padding-left: 20px;
   }
     
   .pet-details {
-      font-size: 18px;
+    font-size: 18px;
   }
     
   .pet-details h3 {
-      font-size: 28px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      margin-left: 100px;
-      text-align: center;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    text-align: center;
   }
 
-.dashboard-footer {
-    background-color: #FFE3E2; /* Bottom label color */
-    height: 30px;
-}
+  .pet-details p{
+    line-height-step:1.5px;
+  }
+
+  .pet-profile {
+    position: relative; 
+    display: flex;
+    align-items: center;
+  }
+

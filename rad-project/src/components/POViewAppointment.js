@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/POViewAppoinments.css';
 
 
-const Appoinments = () => {
+const POViewAppointments = () => {
     return (
         <div className="appView-container">
           
@@ -51,4 +51,4 @@ const Appoinments = () => {
     )
 };
 
-export default Appoinments;
+export default POViewAppointments;

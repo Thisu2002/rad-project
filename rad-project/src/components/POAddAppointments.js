@@ -3,7 +3,7 @@ import '../styles/POAddAppointments.css';
 import { Link } from 'react-router-dom';
 
 
-const AddAppointments = () => {
+const POAddAppointments = () => {
   return (
     <div className="appDate-container">
       
@@ -22,7 +22,7 @@ const AddAppointments = () => {
             </div>
 
             
-            <Link to="/Appoinment-Details">
+            <Link to="/appointments/Appointment-Details">
             <button className='next-btn'>Next</button>
             </Link>
       
@@ -37,4 +37,4 @@ const AddAppointments = () => {
   );
 };
 
-export default AddAppointments;
+export default POAddAppointments;

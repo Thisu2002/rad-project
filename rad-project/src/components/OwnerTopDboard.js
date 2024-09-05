@@ -4,7 +4,13 @@ import '../styles/Dashboard.css';
 import profileImage from '../images/profileImg.png';
 import PODashboard from './PODashboard';
 import POProfile from './POProfile';
+import POEditProfile from './POEditProfile';
 import POAddAppointments from './POAddAppointments';
+import Appointments from './POAppointmentDetails';
+import POViewAppointments from './POViewAppointment';
+import Pets from './POPetView';
+import AddPets from './POAddPet';
+import PetHealth from './POPetHealth';
 
 const Dashboard = () => {
   const location = useLocation();
@@ -14,11 +20,20 @@ const Dashboard = () => {
         return 'Pet Owners';
       case location.pathname === '/petOwnerProfile':
         return 'View Profile';
+      case location.pathname === '/petOwnerProfile/editProfile':
+        return 'Edit Profile'; 
       case location.pathname === '/appointments':
         return ' Add Appointments';
-      case location.pathname === '/pets':
+      case location.pathname === '/appointments/Appointment-Details':
+        return ' Add Appointments'; 
+      case location.pathname === '/appointments/Appointment-Details/ViewAppointment':
+          return ' View Appointments';
+      case location.pathname === '/petView':
         return 'Pet Details';
-      
+      case location.pathname === '/petView/addPet':
+        return 'Add Pet Details';
+      case location.pathname === '/petView/PetHealthDetails':
+        return 'Pet Health Information';
       default:
         return 'Dashboard';
     }
@@ -42,7 +57,13 @@ const Dashboard = () => {
         <div className="main-content">
           {location.pathname === '/petOwner' && <PODashboard />}
           {location.pathname === '/petOwnerProfile' && <POProfile />}
+          {location.pathname === '/petOwnerProfile/editProfile' && <POEditProfile />}
           {location.pathname === '/appointments' && <POAddAppointments />}
+          {location.pathname === '/appointments/Appointment-Details' && <Appointments />}
+          {location.pathname === '/appointments/Appointment-Details/ViewAppointment' && <POViewAppointments />}
+          {location.pathname === '/petView' && <Pets />}
+          {location.pathname === '/petView/addPet' && <AddPets />}
+          {location.pathname === '/petView/PetHealthDetails' && <PetHealth />}
           
         </div>
       

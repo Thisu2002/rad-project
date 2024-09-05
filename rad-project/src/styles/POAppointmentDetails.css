@@ -13,8 +13,8 @@
     color:#C3907B ;
 }
 
-.pet-details-container {
-    height:500px;
+.app-details-container {
+    height:460px;
     background-color: #FFE3E2;
     padding: 20px;
     border-radius: 10px;
@@ -28,7 +28,7 @@
 .topic p{
     font-size: 25px;
     font-weight: bold;
-    margin-left: 330px;
+    margin-left: 280px;
 }
 
 .App-details form{
@@ -45,3 +45,5 @@
     border: 1px solid #C3907B;
     font-weight: 900;
 }
+
+

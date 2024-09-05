@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/POAppoinmentDetails.css';
+import '../styles/POAppointmentDetails.css';
 import { Link } from 'react-router-dom';
 
 
-const Appoinments = () => {
+const Appointments = () => {
     return (
         <div className="appDetails-container">
           
@@ -35,12 +35,12 @@ const Appoinments = () => {
                     </table>
                 </form>
             </div>
-            <Link to="/ViewAppoinment-Details">
+            <Link to="/appointments/Appointment-Details/ViewAppointment">
             <button className="confirm-btn">Confirm</button>
             </Link>
 
           </div>
-          
+          <div className="dashboard-footer"></div>
         </div>
 
         
@@ -48,4 +48,4 @@ const Appoinments = () => {
     )
 };
 
-export default Appoinments;
+export default Appointments;

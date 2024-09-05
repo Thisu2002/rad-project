@@ -40,10 +40,10 @@ const Pets = () => {
                     </tr>
                 </table>
             </div>
-            <Link to="/addPet">
+            <Link to="/petView/addPet">
             <button className="addPet-btn">Add another pet</button>
             </Link>
-            <Link to="/PetHealthDetails">
+            <Link to="/petView/PetHealthDetails">
             <button className="health-btn">View health details</button>
             </Link>
           </div>

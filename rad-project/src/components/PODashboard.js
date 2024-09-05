@@ -1,12 +1,11 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import '../styles/PODashboard.css';
 import dogImage from '../images/dog.jpg';
 
-const Dashboard = () => {
+const PODashboard = () => {
     return(
-
-      <div className="dashboard-content">
+      <div className="pet-info">
+      
       <div className="pet-profile">
         <img src={dogImage} alt="Dandelion the Beagle" className="pet-image" />
         <div className="pet-details">
@@ -19,15 +18,17 @@ const Dashboard = () => {
         </div>
         
       </div>
+    </div>
+      
         
         
      
 
       
 
-      <div className="dashboard-footer"></div>
-    </div>
+      
+    
   );
 };
 
-export default Dashboard;
+export default PODashboard;

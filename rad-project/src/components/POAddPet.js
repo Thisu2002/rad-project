@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pets = () => {
+const AddPets = () => {
     return (
         <div className="add-pet-container">
           
@@ -10,4 +10,4 @@ const Pets = () => {
     )
 };
 
-export default Pets;
+export default AddPets;

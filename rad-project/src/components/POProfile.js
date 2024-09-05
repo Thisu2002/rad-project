@@ -1,16 +1,17 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import '../styles/POProfile.css';
-import profileImage from '../images/profileImg.png';
 import ProImage from '../images/ProImage.png';
+import { Link } from 'react-router-dom';
 
 const POProfile = () => {
     return (
 
 
       <div className="profile-content">
-            <img src={ProImage} alt="Profile Picture" className="profile-picture"/>
-            <div className="username">Jonitha Cathrine</div><br></br>
+            <div className="profile-header">
+              <img src={ProImage} alt="Profile Picture" className="profile-picture" />
+              <div className="username">Jonitha Cathrine</div>
+            </div>
             <div className='petowner-details'>
                 <table>
                     <tr>
@@ -37,12 +38,13 @@ const POProfile = () => {
                 </table>
                 
             </div>
+            <Link to="/petOwnerProfile/editProfile">
             <button className='edit'>Edit</button>
-            
+            </Link>
     
 
 
-          <div className="dashboard-footer"></div>
+          
       </div>
 
   );
