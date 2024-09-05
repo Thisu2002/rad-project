@@ -20,6 +20,8 @@ const AddPet = () => {
     }
   };
 
+  const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
+
   const [formData, setFormData] = useState({
     name: "",
     species: "",
@@ -27,10 +29,13 @@ const AddPet = () => {
     dob: "",
     age: "",
     gender: "",
+    ownerID: ownerDetails._id
 }, {
   });
 
   const navigate = useNavigate();
+
+  
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -61,6 +66,7 @@ const AddPet = () => {
     }
   };
 
+  
 
   return (
     <div className='appointment'>
