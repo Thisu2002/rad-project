@@ -73,7 +73,6 @@ const Dashboard = () => {
           {location.pathname.startsWith('/pet-owners/view-owner/')  && <ViewOwner />}
           {location.pathname === '/vets' && <Vets />}
           {location.pathname.startsWith('/vets/view-vet/')  && <ViewVet />}
-          {/* Add other content components here based on the selected topic */}
         </div>
       </div>
 
