@@ -43,3 +43,12 @@ exports.deletePetOwnerById = async (req, res) => {
   }
 };
 
+// get owner count
+exports.getOwnersCount = async (req, res) => {
+  try {
+    const count = await PetOwner.countDocuments();
+    res.json({ count });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch pet owners count' });
+  }
+};
