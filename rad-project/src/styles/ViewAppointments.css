@@ -1,26 +1,8 @@
-.sidebar {
-    display: flex;
-    font-family: 'Poppins';
-  }
-  
-  main {
-    flex: 1;
-    padding: 20px;
-    background-color: #f8f9fa;
-    margin-left: 250px;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .dashboard-contain * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins';
+.dashboard-contain * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
 }
 
 .dashboard-contain {

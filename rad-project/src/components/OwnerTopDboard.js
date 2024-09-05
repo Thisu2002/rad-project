@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+//import '../styles/OwnerTopboard.css';
 import '../styles/Dashboard.css';
 import profileImage from '../images/profileImg.png';
-import AppointmentList from './AppointmentList';
-import Calendar from './Calendar';
-import VetSignup from './VetSignup';
+import PODashboard from '../components/PODashboard';
+// import POProfile from '../components/POProfile';
+// import AddAppointments from './POAddAppoinments';
 
-const Dashboard = () => {
+const OwnerDashboard = () => {
   const location = useLocation();
+  const [ownerName, setOwnerName] = useState('');
+
+  useEffect(() => {
+    const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
+    if (ownerDetails) {
+      setOwnerName(ownerDetails.fullName);
+    }
+  }, []);
+
   const getCurrentPage = () => {
-    switch (location.pathname) {
-      case '/view-appointments':
-        return 'View Appointments';
-      case '/pet-details':
+    switch (true) {
+      case location.pathname.startsWith('/petOwners'):
+        return 'Dashboard';
+      case location.pathname === '/petOwnerProfile':
+        return 'View Profile';
+      case location.pathname === '/appointments':
+        return 'Add and View Appointments';
+      case location.pathname === '/pets':
         return 'Pet Details';
       default:
         return 'Dashboard';
@@ -26,25 +40,24 @@ const Dashboard = () => {
         <div className="profile-info">
           <img src={profileImage} alt="Profile" className="profile-img" />
           <div className="profile-details">
-            <span className="profile-name">Jonitha Cathrine</span><br />
-            <span className="profile-role">Admin</span>
+            <span className="profile-name">{ownerName || 'Pet Owner'}</span><br />
+            <span className="profile-role">Pet Owner</span>
           </div>
         </div>
       </div>
 
-      <div className="dashboard-content">
+      
 
         <div className="main-content">
-          {location.pathname === '/admin' && <AppointmentList />}
-          {location.pathname === '/admin' && <Calendar />}
-          {location.pathname === '/create-user' && <VetSignup />}
-          {/* Add other content components here based on the selected topic */}
+          {location.pathname === '/petOwner' && <PODashboard />}
+          {/* {location.pathname === '/petOwnerProfile' && <POProfile />}
+          {location.pathname === '/appointments' && <AddAppointments />} */}
         </div>
-      </div>
+      
 
       <div className="dashboard-footer"></div>
     </div>
   );
 };
 
-export default Dashboard;
+export default OwnerDashboard;
