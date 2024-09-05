@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate, Link } from "react-router-dom";
 import '../styles/AddPet.css';
-import SideBar from './SideBar';
-import profileImage from '../images/profileImg.png';
-import arrowBack from "../images/arrowBack.png";
-
 
 const AddPet = () => {
   const location = useLocation();
@@ -70,7 +66,7 @@ const AddPet = () => {
 
   return (
     <div className='appointment'>
-      <SideBar />
+      {/* <SideBar />
 
       <div className="dashboard-container">
         <div className="dashboard-header">
@@ -83,11 +79,11 @@ const AddPet = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-        <div className='main-content'>
-          <div className='header'>
-            <span className='tab'>Add Pet Details</span>
+        <div className='add-pet-content'>
+          <div className='add-pet-header'>
+              <span className='tab'>Add Pet Details</span>
           </div>
 
               <form className="addPet-form" onSubmit={handleSubmit}>
@@ -144,24 +140,30 @@ const AddPet = () => {
                 </div>
 
                 <div class="form-row">
-                  <label>Gender:</label>
-                  <input 
-                    type="radio" 
-                    id="male" 
-                    name="gender" 
-                    value="M" 
-                  />
-                  <label>M</label>
-                  <input 
-                    type="radio" 
-                    id="female" 
-                    name="gender" 
-                    value="F" 
+                  <div className='gender-options'>
+                    <label>Gender:</label>
+                    <label>
+                    <input 
+                      type="radio" 
+                      id="male" 
+                      name="gender" 
+                      value="M" 
                     />
-                  <label>F</label>
+                    M
+                    </label>
+                    <label>
+                    <input 
+                      type="radio" 
+                      id="female" 
+                      name="gender" 
+                      value="F" 
+                      />
+                    F
+                    </label>
+                  </div>
                 </div>
 
-                <button type="submit">Signup</button>
+                <button type="submit">Submit</button>
               </form>
 
           
