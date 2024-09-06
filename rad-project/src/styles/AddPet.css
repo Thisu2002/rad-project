@@ -1,4 +1,5 @@
-.add-pet-page{
+
+/* .add-pet-page{
     background-image: url("../images/paws.png");
     background-size: cover;
    
@@ -7,21 +8,35 @@
     position: relative;
     font-family: 'Poppins';
     padding-bottom: 150px;
-}
+} */
+
+.add-pet-page {
+    background-image: url("../images/paws.png");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Poppins';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding-left: 50px;
+  }
 
 .add-pet-header {
-    border-bottom: 2px solid #D9A691;
+    
     font-weight: bold;
-    padding-left: 20px;
+    
     margin-top: -20px;
     text-align: left; 
 }
 
 .tab {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: normal;
     padding-bottom: 5px;
+    border-bottom: 2px solid #D9A691;
     
 }
   
@@ -32,8 +47,9 @@
     border-radius: 10px;
     text-align: center;
     margin: 0 auto; /* Centers the form horizontally */
-    margin-top: 20px; /* Adds space between the form and the header */
+    margin-top: 10px; /* Adds space between the form and the header */
 }
+
 
 .form-title {
     font-size: 20px;
