@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import "../styles/Signup.css";
 import arrowBack from "../images/arrowBack.png";
 
+
 const Signup = () => {
   const [formData, setFormData] = useState({
     fullName: "",

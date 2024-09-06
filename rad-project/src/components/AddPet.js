@@ -22,8 +22,6 @@ const AddPet = () => {
 
   const navigate = useNavigate();
 
-  
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -52,11 +50,9 @@ const AddPet = () => {
     }
   };
 
-  
-
   return (
     <div className='add-pet-page'>
-        <div className='add-pet-content'>
+        <div className='add-pet-container'>
           <div className='add-pet-header'>
               <span className='tab'>Add Pet Details</span>
           </div>
