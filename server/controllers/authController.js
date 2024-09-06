@@ -106,6 +106,7 @@ const login = async (req, res) => {
         res.json({
             token,
             userDetails: {
+                id: foundUser._id,
                 fullName: foundUser.fullName,
                 username: user.username,
                 role: user.user_role

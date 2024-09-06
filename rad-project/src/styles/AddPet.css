@@ -1,0 +1,164 @@
+.add-pet-page{
+    background-image: url("../images/paws.png");
+    background-size: cover;
+   
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Poppins';
+    padding-bottom: 150px;
+}
+
+.add-pet-header {
+    border-bottom: 2px solid #D9A691;
+    font-weight: bold;
+    padding-left: 20px;
+    margin-top: -20px;
+    text-align: left; 
+}
+
+.tab {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    
+}
+  
+.addPet-form {
+    background-color: #ffe3e2;
+    width: 100%;
+    padding: 40px 60px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto; /* Centers the form horizontally */
+    margin-top: 20px; /* Adds space between the form and the header */
+}
+
+.form-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    margin-right: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.addPet-form input {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 15px;
+    background-color: #d9a691;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.addPet-form label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.form-row input[type="text"],
+.form-row input[type="date"] {
+    flex: 2;
+    padding: 10px;
+    border:none;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.gender-options {
+    display: flex;
+  }
+  
+  .gender-options label {
+    margin-right: 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .gender-options label input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    outline: rgb(92, 84, 84) 1px solid;
+    margin-right: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    position: relative;
+  }
+  
+  .gender-options label input[type="radio"]:checked::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: rgb(123, 109, 109);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.age-label {
+    margin-left: 20px;
+}
+
+.age-input {
+    width: 50px;
+    margin-left: 10px;
+}
+
+.addPet-form button {
+    width: 25%;
+    padding: 10px;
+    background-color: #d9a691;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.addPet-form button:hover {
+    background-color: #c48f82;
+}
+
+@media (max-width: 768px) {
+    .addPet-form {
+        width: 60%;
+        padding: 30px;
+    }
+  
+    .addPet-form input,
+    .addPet-form button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .addPet-form {
+        width: 90%;
+        padding: 20px;
+    }
+  
+    .addPet-form input,
+    .addPet-form button {
+        font-size: 12px;
+    }
+}

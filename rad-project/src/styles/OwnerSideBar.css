@@ -1,0 +1,137 @@
+/* Reset and Base Styles */
+.owner-sidebar * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Sidebar Container */
+.owner-sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    padding: 0;
+}
+
+/* Logo Styling */
+.logo {
+    margin-bottom: 30px;
+    margin-top: 0px;
+    max-width: 100%;
+    height: auto;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+/* Sidebar Navigation List */
+.owner-sidebar-ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+/* Sidebar Navigation Links */
+.owner-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Hover Effect for Navigation Links */
+.owner-nav-link:hover {
+    background-color: #fff1f0;
+}
+
+/* Icon Styling within Navigation Links */
+.owner-nav-link img.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+/* Active Navigation Link Styling */
+.owner-nav-link.active {
+    font-weight: bold;
+    color: #C3907B;
+    background-color: #FFE3E2;
+}
+
+/* Ensure Active Link Hover Maintains Active Styles */
+.owner-nav-link.active:hover {
+    background-color: #FFE3E2;
+}
+
+/* Left Border Indicator for Active Links */
+.owner-nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #C3907B;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Logout Section Styling */
+.owner-logout {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Pushes logout to the bottom */
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+
+/* Logout Link Styling */
+.owner-logout a {
+    text-decoration: none;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 0 5px 5px 0;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Logout Link Hover Effect */
+.owner-logout a:hover {
+    background-color: #fff1f0;
+}
+
+/* Optional: Active Logout Link Styling (if needed) */
+.owner-logout a.active {
+    font-weight: bold;
+    color: #C3907B;
+    background-color: #FFE3E2;
+}
+
+.owner-logout a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #C3907B;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Logout Icon Styling */
+.owner-logout img.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}

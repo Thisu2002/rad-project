@@ -5,7 +5,7 @@ const PetSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  type: {
+  species: {
     type: String,
     required: true
   },
@@ -13,7 +13,19 @@ const PetSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  dob: {
+    type: Date,
+    required: true
+  },
   age: {
+    type: Number,
+    required: true
+  },
+  gender: { 
+    type: String, 
+    enum: ['Male', 'Female'], 
+    required: true },
+  weight: {
     type: Number,
     required: true
   },

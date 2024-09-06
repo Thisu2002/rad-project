@@ -7,6 +7,13 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AdminDashboard from './pages/AdminDashboard';
 import VetDashboard from './pages/VetDashboard';
+import PetOwnerDashboard from './pages/PetOwnerDashboard';
+import AddPet from './components/AddPet';
+import PetOwners from "./components/PetOwners";
+import VetSignup from "./components/VetSignup";
+import Dashboard from "./components/AdminTopDboard";
+import ViewOwner from "./components/ViewOwner";
+import OwnerViewPets from "./components/OwnerViewPets";
 import OwnerDashboard from './pages/OwnerDashboard';
 
 const App = () => {
@@ -19,10 +26,14 @@ const App = () => {
         <Route path="signup" element={<Signup />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/vet" element={<VetDashboard />} />
+        <Route path="/petOwner" element={<PetOwnerDashboard />} />
+        <Route path="/owner-view-profile" element={<PetOwnerDashboard />} />
         <Route path="/petOwner" element={<OwnerDashboard />} />
         <Route path="/add-vet" element={<AdminDashboard />} />
         <Route path="/pet-owners" element={<AdminDashboard />} />
         <Route path="/pet-owners/view-owner/:id" element={<AdminDashboard />} />
+
+        <Route path="/pets/add-pet" element={<PetOwnerDashboard />} />
         <Route path="/vets" element={<AdminDashboard />} />
         <Route path="/vets/view-vet/:id" element={<AdminDashboard />} />
         <Route path="/appointments" element={<AdminDashboard />} />
