@@ -58,7 +58,6 @@ const getPetsByOwner = async (req, res) => {
 };
 
 // controllers/PetController.js
-const Pet = require('../models/Pet'); // Replace with actual path to your Pet model
 
 exports.getPetsCount = async (req, res) => {
   try {
