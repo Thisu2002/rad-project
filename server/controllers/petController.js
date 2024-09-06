@@ -57,9 +57,7 @@ const getPetsByOwner = async (req, res) => {
     }
 };
 
-// controllers/PetController.js
-
-exports.getPetsCount = async (req, res) => {
+const getPetsCount = async (req, res) => {
   try {
     const count = await Pet.countDocuments();
     res.json({ count });
@@ -70,5 +68,7 @@ exports.getPetsCount = async (req, res) => {
 
 module.exports = {
     addPet,
-    getPetsByOwner, // Export the new function
+    getPetsByOwner,
+    getPetsCount,
 };
+

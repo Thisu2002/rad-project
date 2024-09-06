@@ -14,7 +14,6 @@ import VetSignup from "./components/VetSignup";
 import Dashboard from "./components/AdminTopDboard";
 import ViewOwner from "./components/ViewOwner";
 import OwnerViewPets from "./components/OwnerViewPets";
-import OwnerDashboard from './pages/OwnerDashboard';
 
 const App = () => {
   return (
@@ -28,7 +27,7 @@ const App = () => {
         <Route path="/vet" element={<VetDashboard />} />
         <Route path="/petOwner" element={<PetOwnerDashboard />} />
         <Route path="/owner-view-profile" element={<PetOwnerDashboard />} />
-        <Route path="/petOwner" element={<OwnerDashboard />} />
+        {/* <Route path="/petOwner" element={<OwnerDashboard />} /> */}
         <Route path="/add-vet" element={<AdminDashboard />} />
         <Route path="/pet-owners" element={<AdminDashboard />} />
         <Route path="/pet-owners/view-owner/:id" element={<AdminDashboard />} />
