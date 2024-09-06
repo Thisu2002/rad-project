@@ -29,7 +29,7 @@ const AddPet = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/add-pet", {
+      const response = await fetch("http://localhost:5000/pets/add-pet", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
