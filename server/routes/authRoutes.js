@@ -45,4 +45,7 @@ router.get('/pets/count', petController.getPetsCount);
 // Get pet owners count
 router.get('/pet-owners/count', ownerController.getOwnersCount);
 
+//add pet
+router.post('/add-pet', petController.addPet);
+
 module.exports = router;
