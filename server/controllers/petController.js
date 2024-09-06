@@ -57,7 +57,18 @@ const getPetsByOwner = async (req, res) => {
     }
 };
 
+const getPetsCount = async (req, res) => {
+  try {
+    const count = await Pet.countDocuments();
+    res.json({ count });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch pets count' });
+  }
+};
+
 module.exports = {
     addPet,
-    getPetsByOwner, // Export the new function
+    getPetsByOwner,
+    getPetsCount,
 };
+
