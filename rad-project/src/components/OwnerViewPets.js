@@ -1,49 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../styles/OwnerViewPets.css';
+import petImage from '../images/statPets.png'
+import dogImage from '../images/dogImage.png'; 
+import catImage from '../images/catImage.png';
+import rabbitImage from '../images/rabbitImage.png'; 
+
+const speciesImages = {
+    dog: dogImage,
+    cat: catImage,
+    rabbit: rabbitImage,
+    Dog: dogImage,
+    Cat: catImage,
+    Rabbit: rabbitImage,
+};
 
 const OwnerViewPets = () => {
     const [pets, setPets] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fetch the pets of the logged-in pet owner
     useEffect(() => {
         const fetchPets = async () => {
             try {
-                // Get ownerDetails from localStorage
                 const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
 
-                // Check if ownerDetails exist and if _id is present
                 if (!ownerDetails || !ownerDetails.id) {
                     setError('User details not found. Please log in again.');
                     setLoading(false);
                     return;
                 }
 
-                const ownerID = ownerDetails.id; // Get the correct owner ID
+                const ownerID = ownerDetails.id;
 
-                // API call to fetch pets for the logged-in pet owner
                 const response = await axios.get(`http://localhost:5000/pets/${ownerID}`);
-                console.log('Response data:', response.data); // Log the data fetched from API
-                console.log(response.data.length);
+                console.log('Response data:', response.data);
 
-                // Ensure the response is an array before updating the state
-                if (Array.isArray(response.data)) {
-                    setPets(response.data); // Set the pets state
-                } else {
-                    setPets([]); // Set to an empty array if the response is not an array
-                }
+                let petsData = response.data.pets;
 
-                setLoading(false); // Set loading to false once data is fetched
+                setPets(petsData);
+                setLoading(false);
             } catch (err) {
                 console.error(err);
                 setError('Failed to load pets');
-                setLoading(false); // Set loading to false even on error
+                setLoading(false);
             }
         };
 
         fetchPets();
-    }, []); // Empty dependency array so it runs only once
+    }, []);
 
     if (loading) {
         return <p>Loading pets...</p>;
@@ -53,35 +58,30 @@ const OwnerViewPets = () => {
         return <p>{error}</p>;
     }
 
-    // Safeguard to handle non-array values
     return (
-        <div className="pet-list">
-            <h2>My Pets</h2>
-            {Array.isArray(pets) && pets.length === 0 ? (
-                <p>Oops, no pet registered</p>
+        <div className="owner-pet-list">
+            {pets.length === 0 ? (
+                <div className="no-pets">
+                    <p>Oops, no pets registered</p>
+                </div>
             ) : (
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Species</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {Array.isArray(pets) ? (
-                            pets.map((pet) => (
-                                <tr key={pet._id}>
-                                    <td>{pet.name}</td>
-                                    <td>{pet.species}</td>
-                                </tr>
-                            ))
-                        ) : (
-                            <tr>
-                                <td colSpan="2">No valid pet data available</td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
+                <div className="pets-grid">
+                    {pets.map((pet) => (
+                        <div key={pet._id} className="pet-box">
+                            <div className="pet-content">
+                                <img 
+                                    src={speciesImages[pet.species] || petImage} // Default image if species not found
+                                    alt={pet.species} 
+                                    className="pet-icon" 
+                                />
+                                <div>
+                                    <h3>{pet.name}</h3>
+                                    <p>Species: {pet.species}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             )}
         </div>
     );
