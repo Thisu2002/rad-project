@@ -3,6 +3,7 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 const vetController = require('../controllers/vetController');
 const ownerController = require('../controllers/ownerController');
+const petController = require('../controllers/petController');
 
 // Signup route
 router.post('/signup', authController.signup);
@@ -32,6 +33,12 @@ router.delete('/vets/:id', vetController.deleteVetById);
 
 //Edit Vet by Id
 router.put('/vets/edit-vet/:id', vetController.editVetById);
+
+// Fetch pets by ownerID
+router.get('/pets/:ownerID', petController.getPetsByOwner);
+
+//add pet
+router.post('/add-pet', petController.addPet);
 
 
 module.exports = router;

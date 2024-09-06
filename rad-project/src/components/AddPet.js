@@ -5,21 +5,7 @@ import '../styles/AddPet.css';
 
 const AddPet = () => {
   const location = useLocation();
-  const getCurrentPage = () => {
-    switch (true) {
-      case location.pathname.startsWith('/petOwners'):
-        return 'Dashboard';
-      case location.pathname === '/petOwnerProfile':
-        return 'View Profile';
-      case location.pathname === '/appointments':
-        return 'Add and View Appointments';
-      case location.pathname === '/pets':
-        return 'Pet Details';
-      default:
-        return 'Dashboard';
-    }
-  };
-
+  
   const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
 
   const [formData, setFormData] = useState({
@@ -29,7 +15,8 @@ const AddPet = () => {
     dob: "",
     age: "",
     gender: "",
-    ownerID: ownerDetails._id
+    weight: "",
+    ownerID: ownerDetails.id
 }, {
   });
 
@@ -55,7 +42,6 @@ const AddPet = () => {
       const result = await response.json();
       if (response.ok) {
         alert(result.message);
-        navigate("/login");
       } else {
         console.error("Error:", result.error);
         alert(result.error);
@@ -69,22 +55,7 @@ const AddPet = () => {
   
 
   return (
-    <div className='appointment'>
-      {/* <SideBar />
-
-      <div className="dashboard-container">
-        <div className="dashboard-header">
-          <h1>{getCurrentPage()}</h1>
-          <div className="profile-info">
-            <img src={profileImage} alt="Profile" className="profile-img" />
-            <div className="profile-details">
-              <span className="profile-name">Jonitha Cathrine</span><br />
-              <span className="profile-role">Admin</span>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
+    <div className='add-pet-page'>
         <div className='add-pet-content'>
           <div className='add-pet-header'>
               <span className='tab'>Add Pet Details</span>
@@ -134,12 +105,18 @@ const AddPet = () => {
                       type="date" 
                       id="dob" 
                       name="dob" 
+                      value={formData.dob}
+                    onChange={handleChange}
+                    required
                     />
                     <label for="age" class="age-label">Age:</label>
                     <input 
                       type="text" 
                       id="age" 
                       name="age" 
+                      value={formData.age}
+                    onChange={handleChange}
+                    required
                       class="age-input" />
                 </div>
 
@@ -151,7 +128,10 @@ const AddPet = () => {
                       type="radio" 
                       id="male" 
                       name="gender" 
-                      value="M" 
+                      value="Male"
+                checked={formData.gender === "Male"}
+                onChange={handleChange}
+                    required
                     />
                     M
                     </label>
@@ -160,11 +140,26 @@ const AddPet = () => {
                       type="radio" 
                       id="female" 
                       name="gender" 
-                      value="F" 
+                      value="Female"
+                checked={formData.gender === "Female"}
+                onChange={handleChange}
+                required
                       />
                     F
                     </label>
                   </div>
+                </div>
+
+                <div className='form-row'>
+                  <label>Weight:</label>
+                  <input
+                    type="text"
+                    name="weight"
+                    placeholder="ex:- 5kg"
+                    value={formData.weight}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
 
                 <button type="submit">Submit</button>

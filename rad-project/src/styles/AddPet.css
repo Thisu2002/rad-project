@@ -1,14 +1,18 @@
-.add-pet-content{
-    padding: 20px;
-    margin-left: 250px;
-    font-family: 'Poppins', sans-serif;
+.add-pet-page{
+    background-image: url("../images/paws.png");
+    background-size: cover;
+   
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Poppins';
+    padding-bottom: 150px;
 }
 
 .add-pet-header {
     border-bottom: 2px solid #D9A691;
     font-weight: bold;
     padding-left: 20px;
-    
     margin-top: -20px;
     text-align: left; 
 }
@@ -23,7 +27,7 @@
   
 .addPet-form {
     background-color: #ffe3e2;
-    width: 60%;
+    width: 100%;
     padding: 40px 60px;
     border-radius: 10px;
     text-align: center;

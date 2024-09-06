@@ -13,6 +13,7 @@ import PetOwners from "./components/PetOwners";
 import VetSignup from "./components/VetSignup";
 import Dashboard from "./components/AdminTopDboard";
 import ViewOwner from "./components/ViewOwner";
+import OwnerViewPets from "./components/OwnerViewPets";
 
 const App = () => {
   return (
@@ -25,11 +26,12 @@ const App = () => {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/vet" element={<VetDashboard />} />
         <Route path="/petOwner" element={<PetOwnerDashboard />} />
+        <Route path="/owner-view-profile" element={<PetOwnerDashboard />} />
         <Route path="/add-vet" element={<AdminDashboard />} />
         <Route path="/pet-owners" element={<AdminDashboard />} />
         <Route path="/pet-owners/view-owner/:id" element={<AdminDashboard />} />
 
-        <Route path="/add-pet" element={<AddPet />} />
+        <Route path="/pets/add-pet" element={<PetOwnerDashboard />} />
       </Routes>
     </Router> 
   );

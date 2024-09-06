@@ -24,8 +24,12 @@ const PetSchema = new Schema({
   },
   gender: { 
     type: String, 
-    enum: ['M', 'F'], 
+    enum: ['Male', 'Female'], 
     required: true },
+  weight: {
+    type: Number,
+    required: true
+  },
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'PetOwner',
