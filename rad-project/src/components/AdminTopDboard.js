@@ -8,12 +8,13 @@ import statPets from '../images/statPets.png';
 import statPetOwners from '../images/statPetOwners.png';
 import AppointmentList from './AppointmentList';
 import Calendar from './Calendar';
-import VetSignup from './VetSignup';
+import AddVet from './AddVet';
 import PetOwners from './PetOwners';
 import ViewOwner from './ViewOwner';
 import Vets from './Vets';
 import ViewVet from './ViewVet';
 import ViewAppointments from './ViewAppointments';
+import AdminViewPets from './AdminViewPets';
 
 const Dashboard = () => {
   const location = useLocation();
@@ -42,7 +43,7 @@ const Dashboard = () => {
       setAppointmentsCount(appointmentsData.count);
 
       // Fetch pets count
-      const petsResponse = await fetch("http://localhost:5000/pets/count");
+      const petsResponse = await fetch("http://localhost:5000/pet/count");
       const petsData = await petsResponse.json();
       setPetsCount(petsData.count);
 
@@ -64,7 +65,7 @@ const Dashboard = () => {
         return 'Add Vet';
       case location.pathname === '/appointments':
         return 'Appointments';
-      case location.pathname === '/pets':
+      case location.pathname.startsWith('/admin-pets'):
         return 'Pets';
       case location.pathname.startsWith('/vets'):
         return 'Veterinary';
@@ -99,12 +100,13 @@ const Dashboard = () => {
         <div className="main-content">
           {location.pathname === '/admin' && <AppointmentList />}
           {location.pathname === '/admin' && <Calendar />}
-          {location.pathname === '/add-vet' && <VetSignup />}
+          {location.pathname === '/add-vet' && <AddVet />}
           {location.pathname === '/pet-owners' && <PetOwners />}
           {location.pathname.startsWith('/pet-owners/view-owner/')  && <ViewOwner />}
           {location.pathname === '/vets' && <Vets />}
           {location.pathname.startsWith('/vets/view-vet/')  && <ViewVet />}
           {location.pathname === '/appointments' && <ViewAppointments />}
+          {location.pathname === '/admin-pets'  && <AdminViewPets />}
         </div>
       </div>
 

@@ -109,7 +109,7 @@ const SideBar = () => {
                 </li>
 
                 <li>
-                    <NavLink to="/pets" className="nav-link" activeClassName="active">
+                    <NavLink to="/admin-pets" className="nav-link" activeClassName="active">
                         <img src={petsIcon} alt="Pets Icon" className="icon" />
                         Pets
                     </NavLink>

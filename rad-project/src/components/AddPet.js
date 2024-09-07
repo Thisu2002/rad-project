@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useNavigate, Link } from "react-router-dom";
 import '../styles/AddPet.css';
 
 const AddPet = () => {
-  const location = useLocation();
   
   const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
 
@@ -20,7 +17,6 @@ const AddPet = () => {
 }, {
   });
 
-  const navigate = useNavigate();
 
   
 
@@ -42,6 +38,15 @@ const AddPet = () => {
       const result = await response.json();
       if (response.ok) {
         alert(result.message);
+        setFormData({
+          name: "",
+          species: "",
+          breed: "",
+          dob: "",
+          age: "",
+          gender: "",
+          weight: "",
+        });
       } else {
         console.error("Error:", result.error);
         alert(result.error);

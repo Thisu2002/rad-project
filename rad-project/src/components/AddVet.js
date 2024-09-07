@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "../styles/VetSignup.css";
+import "../styles/AddVet.css";
 
 
 const VetSignup = () => {
@@ -16,7 +15,6 @@ const VetSignup = () => {
     experience: "",
   });
 
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,7 +61,7 @@ const VetSignup = () => {
     <div className="vetSignup-page">
       <div className="vet-page-container">
         <div className="vetSignup-header">
-          <h4>Veterinarian Sign Up</h4>
+          <h4>Add Veterinarian</h4>
           <hr className="vet-header-hr" />
         </div>
         <form className="vetSignup-form" onSubmit={handleSubmit}>
@@ -171,7 +169,7 @@ const VetSignup = () => {
             required
           />
 
-          <button type="submit">Vet Signup</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>

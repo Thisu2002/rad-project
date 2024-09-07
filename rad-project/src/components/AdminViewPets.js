@@ -3,82 +3,54 @@ import { Link } from "react-router-dom";
 import "../styles/PetOwners.css";
 import searchIcon from "../images/searchIcon.png";
 
-const Vets = () => {
-  const [vets, setVets] = useState([]);
+const AdminViewPets = () => {
+  const [pets, setPets] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
   useEffect(() => {
-    fetchVets();
+    fetchPets();
   }, []);
 
-  const fetchVets = async () => {
+  const fetchPets = async () => {
     try {
-      const response = await fetch("http://localhost:5000/vets");
+      const response = await fetch("http://localhost:5000/admin-pets");
       const data = await response.json();
-      setVets(data);
+      setPets(data);
     } catch (error) {
-      console.error("Error fetching pet owners:", error);
-    }
-  };
-
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`http://localhost:5000/vets/${id}`, {
-        method: "DELETE",
-      });
-
-      if (response.ok) {
-        alert("Deleted successfully!");
-        fetchVets(); // Refresh the list after deletion
-      } else {
-        console.error("Failed to delete the vet.");
-      }
-    } catch (error) {
-      console.error("Error deleting vet:", error);
+      console.error("Error fetching pets:", error);
     }
   };
 
   // Pagination Logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = vets.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = pets.slice(indexOfFirstItem, indexOfLastItem);
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(vets.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(pets.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
     <div className="pet-owners-container">
-      <div className="search-container">
-        <img src={searchIcon} alt="search-icon" className="search-icon" />
-        <input type="text" placeholder="Search by Vet Username" className="search-bar" />
-      </div>
-
       <table className="pet-owners-table">
         <thead>
           <tr>
-            <th>Username</th>
             <th>Name</th>
+            <th>Species</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((vet, index) => (
+          {currentItems.map((pet, index) => (
             <tr key={index}>
-              <td>{vet.username}</td>
-              <td>{vet.fullName}</td>
+              <td>{pet.name}</td>
+              <td>{pet.species}</td>
               <td>
-                <Link to={`/vets/view-vet/${vet._id}`} className="action-link view-link">
+                <Link to={`/admin-pets/admin-view-pet/${pet._id}`} className="action-link view-link">
                   View
                 </Link>
-                <button
-                  onClick={() => handleDelete(vet._id)}
-                  className="action-link delete-link"
-                >
-                  Delete
-                </button>
               </td>
             </tr>
           ))}
@@ -106,4 +78,4 @@ const Vets = () => {
   );
 };
 
-export default Vets;
+export default AdminViewPets;

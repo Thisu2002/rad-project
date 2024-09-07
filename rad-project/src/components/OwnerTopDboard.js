@@ -6,6 +6,7 @@ import OwnerViewProfile from './OwnerViewProfile';
 import OwnerViewAppointments from './OwnerViewAppointments';
 import OwnerViewPets from './OwnerViewPets';
 import AddPet from './AddPet';
+import ViewPet from './ViewPet';
 
 const Dashboard = () => {
   const location = useLocation();
@@ -53,7 +54,7 @@ const Dashboard = () => {
           {location.pathname === '/owner-view-appointments' && <OwnerViewAppointments />}
           {location.pathname === '/petOwner' && <OwnerViewPets />}
           {location.pathname === '/pets/add-pet' && <AddPet />}
-
+          {location.pathname.startsWith('/petOwner/viewPet/')  && <ViewPet />}
           
 
           {/* Add other content components here based on the selected topic */}
