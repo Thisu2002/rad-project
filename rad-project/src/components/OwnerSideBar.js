@@ -30,7 +30,7 @@ const POSideBar = () => {
                 </li>
 
                 <li>
-                    <NavLink to="/owner-view-profile" className="owner-nav-link" activeClassName="active">
+                    <NavLink to="/ownerProfile" className="owner-nav-link" activeClassName="active">
                         <img src={viewProfile} alt="User Icon" className="icon" />
                         View Profile
                     </NavLink>

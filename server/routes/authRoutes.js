@@ -20,9 +20,14 @@ router.get('/pet-owners', ownerController.getAllPetOwners);
 
 // View PetOwner
 router.get('/pet-owners/view-owner/:id', ownerController.getPetOwnerById);
+router.get('/ownerProfile/:id', ownerController.getPetOwnerById);
 
 // Delete pet owner
 router.delete('/pet-owners/:id', ownerController.deletePetOwnerById);
+router.delete('/ownerProfile/:id', ownerController.deletePetOwnerById);
+
+// Edit PetOwner by Id
+router.put('/ownerProfile/editProfile/:id', ownerController.editOwnerById);
 
 // Fetch all vets
 router.get('/vets', vetController.getAllVets);

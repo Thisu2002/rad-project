@@ -1,4 +1,5 @@
 const PetOwner = require("../models/PetOwner");
+const User = require("../models/User");
 
 // Fetch all pet owners
 exports.getAllPetOwners = async (req, res) => {
@@ -40,6 +41,48 @@ exports.deletePetOwnerById = async (req, res) => {
   } catch (error) {
     console.error("Error deleting pet owner:", error);
     res.status(500).json({ error: "Server error. Please try again later." });
+  }
+};
+
+// Edit info of specific owner by ID
+exports.editOwnerById = async (req, res) => {
+  const { id } = req.params;
+  const { fullName, password, address, contactNo, email } = req.body;
+
+  try {
+    const owner = await PetOwner.findById(id);
+    if (!owner) {
+      return res.status(404).json({ error: 'Owner not found' });
+    }
+
+    if (email !== owner.email) {
+      const existingOwnerWithEmail = await owner.findOne({ email });
+      if (existingOwnerWithEmail) {
+        return res.status(400).json({ error: 'Email is already registered to another owner' });
+      }
+    }
+
+    // Update password if provided
+    if (password) {
+      const user = await User.findOne({ username: owner.username });
+      if (user) {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        user.password = hashedPassword;
+        await user.save();
+      }
+    }
+
+    owner.fullName = fullName;
+    owner.address = address;
+    owner.contactNo = contactNo;
+    owner.email = email;
+
+    await owner.save();
+
+    res.status(200).json(owner);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
   }
 };
 

@@ -24,7 +24,7 @@ const Dashboard = () => {
 
   const getCurrentPage = () => {
     switch (location.pathname) {
-      case '/owner-view-profile':
+      case '/ownerProfile':
         return 'View Profile';
       case '/owner-view-appointments':
         return 'View Appointments';
@@ -50,7 +50,7 @@ const Dashboard = () => {
       <div className="dashboard-content">
 
         <div className="main-content">
-          {location.pathname === '/owner-view-profile' && <OwnerViewProfile />}
+          {location.pathname === '/ownerProfile' && <OwnerViewProfile />}
           {location.pathname === '/owner-view-appointments' && <OwnerViewAppointments />}
           {location.pathname === '/petOwner' && <OwnerViewPets />}
           {location.pathname === '/pets/add-pet' && <AddPet />}
