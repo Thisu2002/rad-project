@@ -4,6 +4,8 @@ const authController = require('../controllers/authController');
 const vetController = require('../controllers/vetController');
 const ownerController = require('../controllers/ownerController');
 
+
+
 // Signup route
 router.post('/signup', authController.signup);
 
@@ -11,16 +13,9 @@ router.post('/signup', authController.signup);
 router.post('/login', authController.login);
 
 // VetSignup route
-router.post('/vetSignup', vetController.vetSignup);
+router.post('/vetSignup', vetController.vetSignup); 
 
-// PetOwner route
-router.get('/pet-owners', ownerController.getAllPetOwners);
 
-// View PetOwner
-router.get('/pet-owners/view-owner/:id', ownerController.getPetOwnerById);
-
-// Delete pet owner
-router.delete('/pet-owners/:id', ownerController.deletePetOwnerById);
 
 // Vet route
 router.get('/vets', vetController.getAllVets);
@@ -33,5 +28,11 @@ router.delete('/vets/:id', vetController.deleteVetById);
 //Edit Vet by Id
 router.put('/vets/edit-vet/:id', vetController.editVetById);
 
+
+//Get PO 
+router.get('/petOwnerProfile/view/:id', ownerController.getPOById);
+
+//Edit PO by ID
+router.put('/petOwnerProfile/edit/:id', ownerController.editPOById);
 
 module.exports = router;

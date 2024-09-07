@@ -5,7 +5,7 @@
     width: 800px;
     margin: 40px auto;
     margin-bottom: 0px;
-    margin-top: 0px;
+    margin-top: 80px;
     padding: 30px;
     padding-bottom: 15px;
     background-color: #ffffff;
@@ -26,12 +26,12 @@
     margin-bottom: 10px;
   }
   
-  .vet-picture {
-    width: 120px;
+  .po-picture {
+    width: 100px;
     height: 100px;
     border-radius: 50%;
     background-color: #f0f0f0;
-    background-image: url('../images/vetProfile.jpg');
+    background-image: url('../images/ownerProfile.png');
     background-size: cover;
     background-position: center;
     margin-bottom: 10px;

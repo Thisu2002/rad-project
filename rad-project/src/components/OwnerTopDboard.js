@@ -3,8 +3,7 @@ import { useLocation } from 'react-router-dom';
 import '../styles/Dashboard.css';
 import profileImage from '../images/profileImg.png';
 import PODashboard from './PODashboard';
-import POProfile from './POProfile';
-import POEditProfile from './POEditProfile';
+import ViewPO from './POProfile';
 import POAddAppointments from './POAddAppointments';
 import Appointments from './POAppointmentDetails';
 import POViewAppointments from './POViewAppointment';
@@ -18,10 +17,8 @@ const Dashboard = () => {
     switch (true) {
       case location.pathname.startsWith('/pet-owners'):
         return 'Pet Owners';
-      case location.pathname === '/petOwnerProfile':
-        return 'View Profile';
-      case location.pathname === '/petOwnerProfile/editProfile':
-        return 'Edit Profile'; 
+      case location.pathname.startsWith('/petOwnerProfile/view'):
+        return 'Pet Owner Profile'; 
       case location.pathname === '/appointments':
         return ' Add Appointments';
       case location.pathname === '/appointments/Appointment-Details':
@@ -56,8 +53,7 @@ const Dashboard = () => {
 
         <div className="main-content">
           {location.pathname === '/petOwner' && <PODashboard />}
-          {location.pathname === '/petOwnerProfile' && <POProfile />}
-          {location.pathname === '/petOwnerProfile/editProfile' && <POEditProfile />}
+          {location.pathname.startsWith('/petOwnerProfile/view') && <ViewPO />}
           {location.pathname === '/appointments' && <POAddAppointments />}
           {location.pathname === '/appointments/Appointment-Details' && <Appointments />}
           {location.pathname === '/appointments/Appointment-Details/ViewAppointment' && <POViewAppointments />}
