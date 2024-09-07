@@ -17,7 +17,7 @@ const Dashboard = () => {
     switch (true) {
       case location.pathname.startsWith('/pet-owners'):
         return 'Pet Owners';
-      case location.pathname.startsWith('/petOwnerProfile/view'):
+      case location.pathname.startsWith('/petOwnerProfile/view/'):
         return 'Pet Owner Profile'; 
       case location.pathname === '/appointments':
         return ' Add Appointments';
@@ -53,7 +53,7 @@ const Dashboard = () => {
 
         <div className="main-content">
           {location.pathname === '/petOwner' && <PODashboard />}
-          {location.pathname.startsWith('/petOwnerProfile/view') && <ViewPO />}
+          {location.pathname.startsWith('/petOwnerProfile/view/') && <ViewPO />}
           {location.pathname === '/appointments' && <POAddAppointments />}
           {location.pathname === '/appointments/Appointment-Details' && <Appointments />}
           {location.pathname === '/appointments/Appointment-Details/ViewAppointment' && <POViewAppointments />}

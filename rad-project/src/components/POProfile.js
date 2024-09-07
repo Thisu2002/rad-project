@@ -1,37 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/ViewOwner.css';
 
 const ViewPO = () => {
-  const { id } = useParams();
+  //const { id } = useParams(); // This will be set from localStorage
   const [PODetails, setPODetails] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editableDetails, setEditableDetails] = useState({});
 
   useEffect(() => {
     const fetchPODetails = async () => {
-      if(id){
       try {
-        const response = await fetch(`http://localhost:5000/petOwnerProfile/view/${id}`);
-        const data = await response.json();
-        setPODetails(data);
+        const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
+
+        if (!ownerDetails || !ownerDetails.id) {
+          console.error('User details not found.');
+          return;
+        }
+
+        const response = await axios.get(`http://localhost:5000/petOwnerProfile/view/${ownerDetails.id}`);
+        setPODetails(response.data);
         setEditableDetails({
-          fullName: data.fullName,
-          username: data.username,
-          gender: data.gender,
-          email: data.email,
-          address: data.address,
-          contactNo: data.contactNo,
+          fullName: response.data.fullName,
+          username: response.data.username,
+          gender: response.data.gender,
+          email: response.data.email,
+          address: response.data.address,
+          contactNo: response.data.contactNo,
           password: ''
         });
       } catch (error) {
-        console.error("Error fetching po details:", error);
+        console.error('Error fetching pet owner details:', error);
       }
-    }
     };
 
     fetchPODetails();
-  }, [id]);
+  }, []);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -39,23 +44,16 @@ const ViewPO = () => {
 
   const handleSaveClick = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/petOwnerProfile/edit/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(editableDetails),
-      });
+      const response = await axios.put(`http://localhost:5000/petOwnerProfile/edit/${PODetails._id}`, editableDetails);
 
-      if (response.ok) {
-        const updatedPO = await response.json();
-        setPODetails(updatedPO);
+      if (response.status === 200) {
+        setPODetails(response.data);
         setIsEditing(false);
       } else {
-        console.error("Failed to save pet owner details");
+        console.error('Failed to save pet owner details');
       }
     } catch (error) {
-      console.error("Error saving pet owner details:", error);
+      console.error('Error saving pet owner details:', error);
     }
   };
 
@@ -85,28 +83,28 @@ const ViewPO = () => {
     <div className="view-owner-page">
       <div className="po-picture" />
       <div className="owner-details">
-      <h2>
-        {isEditing ? (
-          <input
-            type="text"
-            name="fullName"
-            value={editableDetails.fullName}
-            onChange={handleChange}
-          />
-        ) : (
-          `${getTitlePrefix(PODetails.gender)} ${PODetails.fullName}`
-        )}
-      </h2>
-      <p><strong>Username:</strong> {isEditing ? (
-          <input
-            type="text"
-            name="username"
-            value={editableDetails.username}
-            onChange={handleChange}
-          />
-        ) : (
-          PODetails.username
-        )}</p>
+        <h2>
+          {isEditing ? (
+            <input
+              type="text"
+              name="fullName"
+              value={editableDetails.fullName}
+              onChange={handleChange}
+            />
+          ) : (
+            `${getTitlePrefix(PODetails.gender)} ${PODetails.fullName}`
+          )}
+        </h2>
+        <p><strong>Username:</strong> {isEditing ? (
+            <input
+              type="text"
+              name="username"
+              value={editableDetails.username}
+              onChange={handleChange}
+            />
+          ) : (
+            PODetails.username
+          )}</p>
         <p><strong>Gender:</strong> {isEditing ? (
           <input
             type="text"
@@ -162,9 +160,7 @@ const ViewPO = () => {
       {isEditing ? (
         <button className="edit-button" onClick={handleSaveClick}>Save</button>
       ) : (
-        
         <button className="edit-button" onClick={handleEditClick}>Edit Info</button>
-        
       )}
     </div>
   );

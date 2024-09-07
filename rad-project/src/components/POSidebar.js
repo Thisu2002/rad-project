@@ -9,7 +9,9 @@ import petsIcon from '../images/petsIcon.png';
 import logoutIcon from '../images/logoutIcon.png';
 
 const POSideBar = () => {
-    
+    const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
+    const profilePath = ownerDetails ? `/petOwnerProfile/view/${ownerDetails.id}` : '/';
+
     return (
         <div className="sidebar">
             <NavLink to="/">
@@ -29,11 +31,11 @@ const POSideBar = () => {
 
                 <li>
                     <NavLink 
-                         to={`/petOwnerProfile/view/`}
-                        className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
-                    >
-                        <img src={viewProfile} alt="User Icon" className="icon" />
-                        View Profile
+                       to={profilePath}
+                       className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+          >
+                       <img src={viewProfile} alt="User Icon" className="icon" />
+                       View Profile
                     </NavLink>
                 </li>
 

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 const vetController = require('../controllers/vetController');
-const ownerController = require('../controllers/ownerController');
+const POController = require('../controllers/POController');
 
 
 
@@ -28,11 +28,9 @@ router.delete('/vets/:id', vetController.deleteVetById);
 //Edit Vet by Id
 router.put('/vets/edit-vet/:id', vetController.editVetById);
 
+router.get('/petOwnerProfile/view/:id',POController.getPOById);
 
-//Get PO 
-router.get('/petOwnerProfile/view/:id', ownerController.getPOById);
+router.put('/petOwnerProfile/edit/:id', POController.editPOById);
 
-//Edit PO by ID
-router.put('/petOwnerProfile/edit/:id', ownerController.editPOById);
 
 module.exports = router;
