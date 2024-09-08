@@ -93,5 +93,10 @@ router.get('/todays-appointments', appointmentController.getTodaysAppointments);
 //make an appointment
 router.post('/makeAppointment', appointmentController.makeAppointment);
 
+// appointments for an owner
+router.get('/ownerViewAppointments/:ownerID', appointmentController.getAppointmentsByOwner);
+
+// Route to delete an appointment by ID
+router.delete('/deleteAppointment/:appointmentId', appointmentController.deleteAppointment);
 
 module.exports = router;

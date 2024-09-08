@@ -36,6 +36,12 @@
     margin-left: 30px;
 }
 
+.App-details form input, .App-details form select{
+    border-radius: 20px;
+    border: 1px solid rgb(119, 111, 111);
+    padding: 10px;
+}
+
 .confirm-btn{
     margin-left: 600px;
     margin-top: 70px;

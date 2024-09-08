@@ -213,7 +213,6 @@ const ViewPet = () => {
 
     <div className="pet-actions">
       <button className="pet-action-button" onClick={handleMakeAppointment}>Make an Appointment</button>
-      <button className="pet-action-button">View Records</button>
       <button className="pet-action-button" onClick={() => handleDelete(id)}>Delete Pet</button>
     </div>
 

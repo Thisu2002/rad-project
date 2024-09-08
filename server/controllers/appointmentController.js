@@ -1,4 +1,7 @@
 const Appointment = require('../models/Appointment');
+const Pet = require('../models/Pet');
+const PetOwner = require('../models/PetOwner');
+
 
 // Appointment Count
 exports.getAppointmentsCount = async (req, res) => {
@@ -169,3 +172,61 @@ exports.getTodaysAppointments = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
+// Controller to get appointments by owner ID
+exports.getAppointmentsByOwner = async (req, res) => {
+  try {
+    const { ownerID } = req.params;
+
+    // Fetch the owner's details by ownerID
+    const owner = await PetOwner.findById(ownerID);
+    if (!owner) {
+      return res.status(404).json({ message: 'Pet owner not found' });
+    }
+
+    const ownerName = owner.fullName;
+
+    // Fetch all appointments where the petOwner matches the owner._id
+    const appointments = await Appointment.find({ petOwner: ownerName });
+
+    // Fetch pet details for each appointment
+    const petIDs = appointments.map(app => app.petID);
+    const pets = await Pet.find({ _id: { $in: petIDs } });
+
+    // Create a mapping of petID to petName
+    const petMap = pets.reduce((map, pet) => {
+      map[pet._id.toString()] = pet.name;
+      return map;
+    }, {});
+
+    // Add petName to each appointment
+    const appointmentsWithPetNames = appointments.map(app => ({
+      ...app._doc, // Retain other fields
+      petName: petMap[app.petID.toString()] || 'Unknown', // Map petID to petName
+    }));
+
+    res.status(200).json({ appointments: appointmentsWithPetNames });
+  } catch (error) {
+    console.error('Error fetching appointments by owner:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
+// Controller to delete an appointment by ID
+exports.deleteAppointment = async (req, res) => {
+  try {
+    const { appointmentId } = req.params;
+
+    // Delete the appointment by ID
+    const result = await Appointment.findByIdAndDelete(appointmentId);
+    if (!result) {
+      return res.status(404).json({ message: 'Appointment not found' });
+    }
+
+    res.status(200).json({ message: 'Appointment deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting appointment:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
