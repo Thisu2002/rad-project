@@ -1,55 +1,88 @@
-import React from 'react';
-import '../styles/ViewAppointments.css';
+import React, { useState, useEffect } from "react";
+import "../styles/PetOwners.css";
 
-const ViewAppointments = () => {
-    return (
-        <div className="dashboard-contain">
-            <div className="dashboard-content">
-                <div className="main-content">
-                <div className="sub-heading">
-                    <div className="sub">
-                    <h4>Today's Appointments</h4>
-                    <h4>Upcoming</h4>
-                    </div>
-                    <hr className="sub-heading-hr" />
-                </div>
-                
-                <div className="appo-table">    
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Time</th>
-                            <th>Pet ID</th>
-                            <th>Pet Owner’s Name</th>
-                            <th>Pet’s Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-                </div>
-                
+const Appointments = () => {
+  const [appointments, setAppointments] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
 
-                </div>
+  useEffect(() => {
+    fetchAppointments();
+  }, []);
 
-            </div>
+  const fetchAppointments = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/vet-appointments");
+      const appointments = await response.json();
+      setAppointments(appointments); // Adjust based on API response structure
+    } catch (error) {
+      console.error("Error fetching appointments:", error);
+    }
+  };
 
-            <div className="dashboard-footer"></div>
-        </div>
-    );
+
+  // Pagination Logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = appointments.slice(indexOfFirstItem, indexOfLastItem);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(appointments.length / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  // Helper function to format date and time
+  const formatDateTime = (dateTime) => {
+    const date = new Date(dateTime);
+    const formattedDate = date.toLocaleDateString(); // Format date
+    const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Format time
+    return { formattedDate, formattedTime };
+  };
+
+  return (
+    <div className="pet-owners-container">
+
+      <table className="pet-owners-table">
+        <thead>
+          <tr>
+            <th>Pet Name</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {currentItems.map((appointment, index) => {
+            const { formattedDate, formattedTime } = formatDateTime(appointment.dateTime); // Extract date and time
+            return (
+              <tr key={index}>
+                <td>{appointment.petOwner || "Unknown"}</td>
+                <td>{formattedDate}</td>
+                <td>{formattedTime}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      <div className="pagination">
+        <span className="pagination-previous" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}>
+          Previous
+        </span>
+        {pageNumbers.map(number => (
+          <span
+            key={number}
+            onClick={() => setCurrentPage(number)}
+            className={currentPage === number ? "pagination-active" : ""}
+          >
+            {number}
+          </span>
+        ))}
+        <span className="pagination-next" onClick={() => setCurrentPage(prev => Math.min(prev + 1, pageNumbers.length))}>
+          Next
+        </span>
+      </div>
+    </div>
+  );
 };
 
-export default ViewAppointments;
+export default Appointments;
