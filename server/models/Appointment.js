@@ -1,10 +1,27 @@
 const mongoose = require('mongoose');
 
-const appointmentSchema = new mongoose.Schema({
-  dateTime: { type: Date, required: true },  // Store date and time together
-  petOwner: { type: String, required: true },
-  petID: { type: String, required: true },
-  records: { type: String, default: '' }
+const AppointmentSchema = new mongoose.Schema({
+  date: {
+    type: Date,
+    required: true
+  },
+  time: {
+    type: String,
+    required: true
+  },
+  petId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Pet',
+    required: true
+  },
+  petName: {
+    type: String,
+    required: true
+  },
+  cNo: {
+    type: Number,
+    required: true
+  }
 }, {
   collection: 'appointment'
 });
