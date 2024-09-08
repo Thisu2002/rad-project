@@ -5,7 +5,7 @@ import VetTopboard from '../components/VetTopboard';
 const Vet = () => {
   return (
     <div>
-      <div className="sidebar">
+      <div className="vetsidebar">
         <VetSideBar />
       </div>
 

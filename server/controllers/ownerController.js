@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const PetOwner = require("../models/PetOwner");
 const User = require("../models/User");
 
@@ -28,23 +29,33 @@ exports.getPetOwnerById = async (req, res) => {
   }
 };
 
-// Delete specific pet owner by ID
 exports.deletePetOwnerById = async (req, res) => {
-  const { id } = req.params;
+    const { id } = req.params;
 
-  try {
-    const deletedPetOwner = await PetOwner.findByIdAndDelete(id);
-    if (!deletedPetOwner) {
-      return res.status(404).json({ error: "Pet owner not found." });
+    try {
+        // Find the vet by ID
+        const owner = await PetOwner.findById(id);
+        if (!owner) {
+            return res.status(404).json({ error: "Pet Owner not found." });
+        }
+
+        // Retrieve the username from the vet record
+        const username = owner.username;
+
+        // Delete the vet record
+        await PetOwner.findByIdAndDelete(id);
+
+        // Delete the user record with the same username
+        await User.findOneAndDelete({ username });
+
+        res.json({ message: "Owner and corresponding user deleted successfully." });
+    } catch (error) {
+        console.error("Error deleting owner and user:", error);
+        res.status(500).json({ error: "Server error. Please try again later." });
     }
-    res.json({ message: "Pet owner deleted successfully." });
-  } catch (error) {
-    console.error("Error deleting pet owner:", error);
-    res.status(500).json({ error: "Server error. Please try again later." });
-  }
 };
 
-// Edit info of specific owner by ID
+// eidt owner by id
 exports.editOwnerById = async (req, res) => {
   const { id } = req.params;
   const { fullName, password, address, contactNo, email } = req.body;
@@ -56,9 +67,9 @@ exports.editOwnerById = async (req, res) => {
     }
 
     if (email !== owner.email) {
-      const existingOwnerWithEmail = await owner.findOne({ email });
+      const existingOwnerWithEmail = await PetOwner.findOne({ email });
       if (existingOwnerWithEmail) {
-        return res.status(400).json({ error: 'Email is already registered to another owner' });
+        return res.status(400).json({ error: 'Email is already registered to another owner!' });
       }
     }
 
@@ -85,6 +96,7 @@ exports.editOwnerById = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 };
+
 
 // get owner count
 exports.getOwnersCount = async (req, res) => {

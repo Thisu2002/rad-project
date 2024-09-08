@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import '../styles/Dashboard.css';
 import profileImage from '../images/profileImg.png';
-import UpcomingApp from './UpcomingApp';
 import VetAppointments from './VetAppointments';
 import VetDash from './VetDash';
 
@@ -13,9 +12,6 @@ const Dashboard = () => {
     switch (true) {
       case location.pathname === '/vet-appointments':
         return ' View Appointments';
-      case location.pathname === '/upcoming':
-        return ' Upcoming Appointments';
-
       default:
         return 'Dashboard';
     }
@@ -40,7 +36,6 @@ const Dashboard = () => {
         <div className="main-content">
             {location.pathname === '/vet' && <VetDash />}
             {location.pathname === '/vet-appointments' && <VetAppointments />}
-            {location.pathname === '/upcoming' && <UpcomingApp />}
         </div>
 
       <div className="dashboard-footer"></div>

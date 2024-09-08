@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/PetOwners.css";
-import searchIcon from "../images/searchIcon.png";
 
 const AdminViewPets = () => {
   const [pets, setPets] = useState([]);

@@ -60,10 +60,17 @@ const VetAppointments = () => {
     }
   };
 
+  const formatDateTime = (dateTimeString) => {
+    const date = new Date(dateTimeString);
+    const formattedDate = date.toLocaleDateString();
+    const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return { formattedDate, formattedTime };
+  };
+
   return (
     <div className="vetappointments-container">
       <div className="vetappointments-content">
-        <table className="appointment-table">
+        <table className="vetappointment-table">
           <thead>
             <tr>
               <th>Date</th>
@@ -75,37 +82,42 @@ const VetAppointments = () => {
           </thead>
           <tbody>
             {appointments.length > 0 ? (
-              appointments.map((appointment) => (
-                <tr key={appointment._id}>
-                  <td>{new Date(appointment.date).toLocaleDateString()}</td>
-                  <td>{appointment.time}</td>
-                  <td>{appointment.petOwner}</td>
-                  <td>{appointment.petID}</td>
-                  <td>
-                    {showAddRecord === appointment._id ? (
-                      <div className="add-record-form">
-                        <input
-                          type="text"
-                          placeholder="Command"
-                          value={newRecord.command}
-                          onChange={(e) => setNewRecord({ command: e.target.value })}
-                        />
-                        <button onClick={() => handleAddRecord(appointment._id)}>Submit</button>
-                        <button onClick={() => setShowAddRecord(null)}>Cancel</button>
-                      </div>
-                    ) : (
-                      <>
-                        {!addedRecordAppointments.has(appointment._id) ? (
-                          <button onClick={() => setShowAddRecord(appointment._id)}className="button-link">Add Record</button>
-                        ) : (
-                          <button disabled>Add Record</button>
-                        )}
-                        <Link to={`/view-records/${appointment._id}`}className="button-link">View Records</Link>
-                      </>
-                    )}
-                  </td>
-                </tr>
-              ))
+              appointments.map((appointment) => {
+                const { formattedDate, formattedTime } = formatDateTime(appointment.dateTime);
+                return (
+                  <tr key={appointment._id}>
+                    <td>{formattedDate}</td>
+                    <td>{formattedTime}</td>
+                    <td>{appointment.petOwner}</td>
+                    <td>{appointment.petID}</td>
+                    <td>
+                      {showAddRecord === appointment._id ? (
+                        <div className="vetadd-record-form">
+                          <input
+                            type="text"
+                            placeholder="Command"
+                            value={newRecord.command}
+                            onChange={(e) => setNewRecord({ command: e.target.value })}
+                          />
+                          <button onClick={() => handleAddRecord(appointment._id)}>Submit</button>
+                          <button onClick={() => setShowAddRecord(null)}>Cancel</button>
+                        </div>
+                      ) : (
+                        <>
+                          {!addedRecordAppointments.has(appointment._id) ? (
+                            <button onClick={() => setShowAddRecord(appointment._id)} className="vetbutton-link">
+                              Add Record
+                            </button>
+                          ) : (
+                            <button disabled>Add Record</button>
+                          )}
+                          <Link to={`/view-records/${appointment._id}`} className="vetbutton-link">View Records</Link>
+                        </>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })
             ) : (
               <tr>
                 <td colSpan="5">No appointments found.</td>
@@ -119,3 +131,4 @@ const VetAppointments = () => {
 };
 
 export default VetAppointments;
+

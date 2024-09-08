@@ -5,7 +5,6 @@ const vetController = require('../controllers/vetController');
 const ownerController = require('../controllers/ownerController');
 const petController = require('../controllers/petController');
 const appointmentController = require('../controllers/appointmentController');
-const VetAppcontroller = require('../controllers/VetAppcontroller');
 
 // Signup route
 router.post('/signup', authController.signup);
@@ -68,26 +67,31 @@ router.delete('/petOwner/:id', petController.deletePetById);
 // Fetch all pets
 router.get('/admin-pets', petController.getAllPets);
 
-// Pet Appointments routes (RUWANI)
+// VET APPOINTMENTS
 
 // Vet Appointments routes
-router.get('/vet-appointments', VetAppcontroller.getAllAppointments);
+router.get('/vet-appointments', appointmentController.getAllAppointments);
 
 // Add a new record to a specific appointment
-router.post('/vet-appointments/:appointmentId/records', VetAppcontroller.addRecordToAppointment);
+router.post('/vet-appointments/:appointmentId/records', appointmentController.addRecordToAppointment);
 
 // Get all records for a specific appointment
-router.get('/vet-appointments/:appointmentId', VetAppcontroller.getRecordsForAppointment);
-
-router.get('/vet-appointments/upcoming', VetAppcontroller.getUpcomingAppointments);
+router.get('/vet-appointments/:appointmentId', appointmentController.getRecordsForAppointment);
 
 // Route to update a specific record
-router.put('/vet-appointments/:appointmentId/records', VetAppcontroller.updateAppointmentRecord);
+router.put('/vet-appointments/:appointmentId/records', appointmentController.updateAppointmentRecord);
 
 // Delete a record from a specific appointment
-router.delete('/vet-appointments/:appointmentId/records', VetAppcontroller.deleteAppointmentRecord);
+router.delete('/vet-appointments/:appointmentId/records', appointmentController.deleteAppointmentRecord);
 
 // Get today's appointments
-router.get('/vet-appointments/todays-appointments', VetAppcontroller.getTodaysAppointments);
+router.get('/todays-appointments', appointmentController.getTodaysAppointments);
+
+
+//APPOINTMENT
+
+//make an appointment
+router.post('/makeAppointment', appointmentController.makeAppointment);
+
 
 module.exports = router;

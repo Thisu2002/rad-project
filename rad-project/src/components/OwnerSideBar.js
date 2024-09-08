@@ -39,7 +39,7 @@ const POSideBar = () => {
                 <li>
                     <NavLink to="/owner-view-appointments" className="owner-nav-link" activeClassName="active">
                         <img src={appointmentsIcon} alt="Appointments Icon" className="icon" />
-                        Add and View Appointments
+                        View Appointments
                     </NavLink>
                 </li>
             </ul>

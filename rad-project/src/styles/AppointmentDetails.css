@@ -1,0 +1,54 @@
+.appointment-details-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fce4ec;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sub-heading-hr {
+  width: 300px;
+  border: none;
+  border-top: 2px solid #f2d7d5;
+  margin-left: 1px;
+  padding: 20px;
+}  
+
+.appointment-card {
+  background-color: #ffebee;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.appointment-info p {
+  font-size: 18px;
+  color: #333;
+  margin: 8px 0;
+}
+
+.appointment-info span {
+  font-weight: bold;
+}
+
+.confirm-button {
+  margin-left: 600px;
+  margin-top: 70px;
+  width: 80px;
+  height: 30px;
+  background-color: #C3907B;
+  border: 1px solid #C3907B;
+  font-weight: 900;
+}
+
+.confirm-button:hover {
+  background-color: #795548;
+}

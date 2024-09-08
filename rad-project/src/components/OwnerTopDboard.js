@@ -7,6 +7,8 @@ import OwnerViewAppointments from './OwnerViewAppointments';
 import OwnerViewPets from './OwnerViewPets';
 import AddPet from './AddPet';
 import ViewPet from './ViewPet';
+import MakeAppointment from "./MakeAppointment";
+
 
 const Dashboard = () => {
   const location = useLocation();
@@ -23,11 +25,13 @@ const Dashboard = () => {
   }, []);
 
   const getCurrentPage = () => {
-    switch (location.pathname) {
-      case '/ownerProfile':
+    switch (true) {
+      case location.pathname === '/ownerProfile':
         return 'View Profile';
-      case '/owner-view-appointments':
+      case location.pathname === '/owner-view-appointments':
         return 'View Appointments';
+      case location.pathname.startsWith('/makeAppointment'):
+        return 'Make an Appointment';
       default:
         return 'Pet Details';
     }
@@ -55,7 +59,7 @@ const Dashboard = () => {
           {location.pathname === '/petOwner' && <OwnerViewPets />}
           {location.pathname === '/pets/add-pet' && <AddPet />}
           {location.pathname.startsWith('/petOwner/viewPet/')  && <ViewPet />}
-          
+          {location.pathname.startsWith('/makeAppointment')  && <MakeAppointment />}
 
           {/* Add other content components here based on the selected topic */}
         </div>

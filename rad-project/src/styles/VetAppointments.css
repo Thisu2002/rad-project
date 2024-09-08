@@ -25,7 +25,7 @@
 }
 
 /* Table styling */
-.appointment-table {
+.vetappointment-table {
   width: 100%;
   min-width: 1200px;
   border-collapse: collapse;
@@ -34,26 +34,26 @@
 
 }
 
-.appointment-table th, .appointment-table td {
+.vetappointment-table th, .appointment-table td {
   padding: 15px;
   border: 1px solid #ccc;
 }
 
 /* Add record form */
-.add-record-form {
+.vetadd-record-form {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
 
-.add-record-form input {
+.vetadd-record-form input {
   margin-bottom: 10px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.add-record-form button {
+.vetadd-record-form button {
   padding: 8px 12px;
   margin-right: 10px;
   border: none;
@@ -63,7 +63,7 @@
   border-radius: 4px;
 }
 
-.add-record-form button:last-child {
+.vetadd-record-form button:last-child {
   background-color: #f44336;
 }
 
@@ -78,7 +78,7 @@
   }
 }
 
-.button-link {
+.vetbutton-link {
   display: inline-block;
   padding: 10px 20px;
   margin: 5px;
@@ -91,7 +91,7 @@
   border: 1px solid #ff69b4; /* Pink border */
 }
 
-.button-link:hover {
+.vetbutton-link:hover {
   background-color: #ff69b4; /* Darker pink on hover */
   color: white; /* Text color changes to white on hover */
 }

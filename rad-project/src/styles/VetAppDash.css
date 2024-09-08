@@ -1,15 +1,15 @@
 /* VetAppDash.css */
-.layout {
+.vetlayout {
     display: flex;
     height: 100vh;
   }
   
-  .sidebar {
+  .vetsidebar {
     width: 250px; /* Same width as defined in VetSideBar.css */
     background-color: #FFFFFF;
   }
   
-  .content {
+  .vetcontent {
     flex: 1; /* This makes the content area take up the remaining space */
     margin-left: 250px; /* Offset to make space for the sidebar */
     padding: 20px;
@@ -18,11 +18,11 @@
   
   /* Additional styling to ensure responsiveness and spacing */
   @media (max-width: 768px) {
-    .layout {
+    .vetlayout {
       flex-direction: column;
     }
   
-    .content {
+    .vetcontent {
       margin-left: 0;
     }
   }

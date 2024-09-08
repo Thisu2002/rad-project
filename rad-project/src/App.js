@@ -8,9 +8,7 @@ import Signup from "./pages/Signup";
 import AdminDashboard from './pages/AdminDashboard';
 import VetDashboard from './pages/VetDashboard';
 import PetOwnerDashboard from './pages/PetOwnerDashboard';
-
 import ViewRecords from "./components/ViewRecords";
-import UpcomingApp from "./components/UpcomingApp";
 
 const App = () => {
   return (
@@ -38,7 +36,8 @@ const App = () => {
 
         <Route path="/view-records/:appointmentId" element={<ViewRecords />} />
         <Route path="/vet-appointments" element={<VetDashboard />} />
-        <Route path="/upcoming" element={<UpcomingApp />} />
+
+        <Route path="/makeAppointment/:id" element={<PetOwnerDashboard />} />
 
       </Routes>
     </Router> 

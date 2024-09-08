@@ -1,20 +1,20 @@
-.sidebar * {
+.vetsidebar * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins';
 }
 
-.sidebar {
+.vetsidebar {
     width: 250px;
     height: 100vh;
     position: fixed;
     overflow: hidden;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     padding: 0;
 }
 
-.logo {
+.vetlogo {
     margin-bottom: 30px;
     margin-top: 0;
     max-width: 100%;
@@ -23,12 +23,12 @@
     cursor: pointer;
 }
 
-.sidebar-ul {
+.vetsidebar-ul {
     list-style: none;
     padding: 20px 0;
 }
 
-.sidebar-ul li {
+.vetsidebar-ul li {
     display: flex;
     align-items: center;
     padding: 15px 0;
@@ -37,37 +37,44 @@
     transition: background-color 0.3s ease;
 }
 
-.sidebar-ul li:hover {
+.vetsidebar-ul li:hover {
     background-color: #fff1f0; /* Light pink background on hover */
     border-radius: 0 5px 5px 0;
 }
 
-.sidebar-ul li img.icon {
+.veticon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.vetsidebar-ul li img.icon {
     width: 20px; 
     height: 20px;
     margin-right: 10px;
     margin-left: 20px; 
 }
 
-.sidebar-ul li a {
+.vetsidebar-ul li a {
     color: black; /* Set text color to black */
     text-decoration: none; /* Remove underline */
     display: flex;
     align-items: center; /* Center text and icon vertically */
 }
 
-.sidebar-ul li.active {
+.vetsidebar-ul li.active {
     font-weight: bold;
     color: #C3907B; /* Text color when active */
     background-color: #FFE3E2; /* Light pink background when active */
     border-radius: 0 5px 5px 0;
 }
 
-.sidebar-ul li.active:hover {
+.vetsidebar-ul li.active:hover {
     background-color: #FFE3E2; /* Ensure light pink background remains on hover */
 }
 
-.sidebar-ul li.active::before {
+.vetsidebar-ul li.active::before {
     content: '';
     position: absolute;
     left: 0;
@@ -78,7 +85,7 @@
     border-radius: 0 5px 5px 0;
 }
 
-.logout {
+.vetlogout {
     display: flex;
     align-items: center;
     margin-top: 100px;
@@ -86,16 +93,16 @@
     cursor: pointer;
 }
 
-.logout a {
+.vetlogout a {
     text-decoration: none;
     color: black; /* Set text color to black */
 }
 
-.logout:hover {
+.vetlogout:hover {
     font-weight: bold;
 }
 
-.logout img.icon {
+.vetlogout img.icon {
     width: 20px; 
     height: 20px;
     margin-left: 20px;

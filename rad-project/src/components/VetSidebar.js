@@ -8,18 +8,18 @@ import logoutIcon from '../images/logoutIcon.png';
 
 const Sidebar = () => {
     return (
-        <div className="sidebar">
+        <div className="vetsidebar">
             <NavLink to="/">
-                <img src={logo} alt="PetCare Logo" className="logo" />
+                <img src={logo} alt="PetCare Logo" className="vetlogo" />
             </NavLink>
 
-            <ul className="sidebar-ul">
+            <ul className="vetsidebar-ul">
                 <li>
                     <NavLink 
                         to="/vet" 
                         className={({ isActive }) => (isActive ? 'active' : '')}
                     >
-                        <img src={dashboardIcon} alt="Dashboard Icon" className="icon" />
+                        <img src={dashboardIcon} alt="Dashboard Icon" className="veticon" />
                         Dashboard
                     </NavLink>
                 </li>
@@ -28,24 +28,15 @@ const Sidebar = () => {
                         to="/vet-appointments" 
                         className={({ isActive }) => (isActive ? 'active' : '')}
                     >
-                        <img src={appointmentsIcon} alt="View Appointments Icon" className="icon" />
+                        <img src={appointmentsIcon} alt="View Appointments Icon" className="veticon" />
                         View Appointments
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                        to="/upcoming" 
-                        className={({ isActive }) => (isActive ? 'active' : '')}
-                    >
-                        <img src={appointmentsIcon} alt="View Appointments Icon" className="icon" />
-                        Upcoming Appointments
                     </NavLink>
                 </li>
             </ul>
 
-            <div className="logout">
+            <div className="vetlogout">
                 <NavLink to="/login">
-                    <img src={logoutIcon} alt="Logout Icon" className="icon" />
+                    <img src={logoutIcon} alt="Logout Icon" className="veticon" />
                     Logout
                 </NavLink>
             </div>

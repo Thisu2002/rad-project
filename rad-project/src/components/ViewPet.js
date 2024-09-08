@@ -111,6 +111,13 @@ const ViewPet = () => {
     }
   };
 
+  const handleMakeAppointment = () => {
+    const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
+    const petOwner = ownerDetails.fullName;
+    navigate(`/makeAppointment/${id}`, { state: { petId: id, petOwner } });
+  };
+  
+
   if (!petDetails) {
     return <p>Loading pet details...</p>;
   }
@@ -205,7 +212,7 @@ const ViewPet = () => {
     </div>
 
     <div className="pet-actions">
-      <button className="pet-action-button">Make an Appointment</button>
+      <button className="pet-action-button" onClick={handleMakeAppointment}>Make an Appointment</button>
       <button className="pet-action-button">View Records</button>
       <button className="pet-action-button" onClick={() => handleDelete(id)}>Delete Pet</button>
     </div>
