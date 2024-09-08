@@ -8,6 +8,7 @@ const OwnerProfile = () => {
   const [ownerInfo, setOwnerInfo] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editableDetails, setEditableDetails] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');  // State to store the error message
 
   useEffect(() => {
     const fetchOwnerDetails = async () => {
@@ -50,11 +51,14 @@ const OwnerProfile = () => {
         const updatedOwner = await response.json();
         setOwnerInfo(updatedOwner);
         setIsEditing(false);
+        setErrorMessage('');  // Clear error message on success
       } else {
-        console.error("Failed to save owner details");
+        const errorData = await response.json();
+        setErrorMessage(errorData.error || 'Failed to save owner details');
       }
     } catch (error) {
       console.error("Error saving owner details:", error);
+      setErrorMessage('Server error. Please try again later.');
     }
   };
 
@@ -71,6 +75,7 @@ const OwnerProfile = () => {
 
   return (
     <div className="view-owner-page">
+      <div className="owner-picture" />
       <div className="owner-details">
         <h2>
           {isEditing ? (
@@ -126,6 +131,14 @@ const OwnerProfile = () => {
           </p>
         )}
       </div>
+
+      {errorMessage && 
+        <p className="error-message" style={{ color: 'red' }}>
+          {errorMessage}
+        </p>
+      }
+
+
       {isEditing ? (
         <button className="edit-button" onClick={handleSaveClick}>Save</button>
       ) : (

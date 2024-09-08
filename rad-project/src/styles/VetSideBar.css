@@ -1,0 +1,110 @@
+.vetsidebar * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.vetsidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 0;
+}
+
+.vetlogo {
+    margin-bottom: 30px;
+    margin-top: 0;
+    max-width: 100%;
+    height: auto;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+.vetsidebar-ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.vetsidebar-ul li {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.vetsidebar-ul li:hover {
+    background-color: #fff1f0; /* Light pink background on hover */
+    border-radius: 0 5px 5px 0;
+}
+
+.veticon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.vetsidebar-ul li img.icon {
+    width: 20px; 
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 20px; 
+}
+
+.vetsidebar-ul li a {
+    color: black; /* Set text color to black */
+    text-decoration: none; /* Remove underline */
+    display: flex;
+    align-items: center; /* Center text and icon vertically */
+}
+
+.vetsidebar-ul li.active {
+    font-weight: bold;
+    color: #C3907B; /* Text color when active */
+    background-color: #FFE3E2; /* Light pink background when active */
+    border-radius: 0 5px 5px 0;
+}
+
+.vetsidebar-ul li.active:hover {
+    background-color: #FFE3E2; /* Ensure light pink background remains on hover */
+}
+
+.vetsidebar-ul li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #C3907B;
+    border-radius: 0 5px 5px 0;
+}
+
+.vetlogout {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+
+.vetlogout a {
+    text-decoration: none;
+    color: black; /* Set text color to black */
+}
+
+.vetlogout:hover {
+    font-weight: bold;
+}
+
+.vetlogout img.icon {
+    width: 20px; 
+    height: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}

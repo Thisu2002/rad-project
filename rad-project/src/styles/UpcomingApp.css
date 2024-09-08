@@ -1,0 +1,31 @@
+.upcoming-appointments-container {
+    padding: 20px;
+  }
+  
+  .appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .appointments-table th, .appointments-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .add-record-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-record-form input {
+    margin-bottom: 10px;
+  }
+  
+  .add-record-form button {
+    margin-right: 5px;
+  }
+  
+  .view-records-link {
+    color: lightpink; /* Adjust color as needed */
+  }
+  

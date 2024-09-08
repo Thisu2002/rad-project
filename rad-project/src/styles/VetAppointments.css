@@ -1,0 +1,98 @@
+/* Reset margin, padding, and box-sizing */
+.vetappointments-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins';
+}
+
+/* Container for Vet Appointments */
+.vetappointments-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px; /* Space for sidebar */
+  padding: 20px;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Main content area */
+.vetappointments-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: calc(100% - 250px); /* Adjust width to avoid overlap with sidebar */
+}
+
+/* Table styling */
+.vetappointment-table {
+  width: 100%;
+  min-width: 1200px;
+  border-collapse: collapse;
+  overflow-x: auto;
+  margin-left: -250px
+
+}
+
+.vetappointment-table th, .appointment-table td {
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+/* Add record form */
+.vetadd-record-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.vetadd-record-form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.vetadd-record-form button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.vetadd-record-form button:last-child {
+  background-color: #f44336;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vetappointments-container {
+    margin-left: 0; /* Remove left margin on small screens */
+  }
+
+  .vetappointments-content {
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+.vetbutton-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #ffb6c1; /* Light pink background color */
+  color: #000; /* Text color */
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ff69b4; /* Pink border */
+}
+
+.vetbutton-link:hover {
+  background-color: #ff69b4; /* Darker pink on hover */
+  color: white; /* Text color changes to white on hover */
+}
+

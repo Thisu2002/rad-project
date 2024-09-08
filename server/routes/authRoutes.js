@@ -67,4 +67,31 @@ router.delete('/petOwner/:id', petController.deletePetById);
 // Fetch all pets
 router.get('/admin-pets', petController.getAllPets);
 
+// VET APPOINTMENTS
+
+// Vet Appointments routes
+router.get('/vet-appointments', appointmentController.getAllAppointments);
+
+// Add a new record to a specific appointment
+router.post('/vet-appointments/:appointmentId/records', appointmentController.addRecordToAppointment);
+
+// Get all records for a specific appointment
+router.get('/vet-appointments/:appointmentId', appointmentController.getRecordsForAppointment);
+
+// Route to update a specific record
+router.put('/vet-appointments/:appointmentId/records', appointmentController.updateAppointmentRecord);
+
+// Delete a record from a specific appointment
+router.delete('/vet-appointments/:appointmentId/records', appointmentController.deleteAppointmentRecord);
+
+// Get today's appointments
+router.get('/todays-appointments', appointmentController.getTodaysAppointments);
+
+
+//APPOINTMENT
+
+//make an appointment
+router.post('/makeAppointment', appointmentController.makeAppointment);
+
+
 module.exports = router;

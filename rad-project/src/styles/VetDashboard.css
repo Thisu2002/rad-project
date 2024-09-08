@@ -1,0 +1,18 @@
+.vetsidebar {
+    display: flex;
+    font-family: 'Poppins';
+  }
+  
+  main {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+    margin-left: 250px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  

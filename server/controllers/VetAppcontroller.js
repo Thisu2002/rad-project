@@ -1,38 +1,5 @@
 const Appointment = require('../models/Appointment');
 
-// Appointment Count
-exports.getAppointmentsCount = async (req, res) => {
-  try {
-    const count = await Appointment.countDocuments();
-    res.json({ count });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch appointments count' });
-  }
-};
-
-//make an appointment
-exports.makeAppointment = async (req, res) => {
-  const { dateTime, petID, petOwner } = req.body;  // Receive full Date object from the frontend
-
-  try {
-      const appointment = new Appointment({
-        dateTime,  // Store the full Date object directly
-        petID,
-        petOwner,
-      });
-      const savedAppointment = await appointment.save();
-
-      res.status(200).json({ message: 'Appointment submitted successfully!',
-          appointment: savedAppointment
-       });
-  } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Server error' });
-  }
-};
-
-
-
 
 // Get all appointments
 exports.getAllAppointments = async (req, res) => {
@@ -77,7 +44,7 @@ exports.getRecordsForAppointment = async (req, res) => {
     if (!appointment) {
       return res.status(404).json({ message: 'Appointment not found' });
     }
-    //console.log(appointment);
+    console.log(appointment);
     res.json(appointment);
   } catch (error) {
     console.error('Error fetching records:', error);
@@ -117,7 +84,7 @@ exports.getUpcomingAppointments = async (req, res) => {
     console.log("Fetching appointments from:", now);
     
     // Find appointments with a date greater than the current date and time
-    const appointments = await Appointment.find({ dateTime: { $gte: now } });
+    const appointments = await Appointment.find({ date: { $gte: now } });
     console.log("Found appointments:", appointments);
 
 
@@ -153,14 +120,14 @@ exports.deleteAppointmentRecord = async (req, res) => {
 exports.getTodaysAppointments = async (req, res) => {
   try {
     const today = new Date();
-    const startOfDay = new Date(today.setHours(0, 0, 0, 0)); // Start of the day at 00:00
-    const endOfDay = new Date(today.setHours(23, 59, 59, 999)); // End of the day at 23:59
+    const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 
     const appointments = await Appointment.find({
-      dateTime: {
+      date: {
         $gte: startOfDay,
-        $lt: endOfDay,
-      },
+        $lt: endOfDay
+      }
     });
 
     res.json(appointments);

@@ -79,21 +79,32 @@ const getVetById = async (req, res) => {
     }
   };
 
-  // Delete specific vet by ID
-const deleteVetById = async (req, res) => {
+  const deleteVetById = async (req, res) => {
     const { id } = req.params;
-  
+
     try {
-      const deletedVet = await Vet.findByIdAndDelete(id);
-      if (!deletedVet) {
-        return res.status(404).json({ error: "Vet not found." });
-      }
-      res.json({ message: "Vet deleted successfully." });
+        // Find the vet by ID
+        const vet = await Vet.findById(id);
+        if (!vet) {
+            return res.status(404).json({ error: "Vet not found." });
+        }
+
+        // Retrieve the username from the vet record
+        const username = vet.username;
+
+        // Delete the vet record
+        await Vet.findByIdAndDelete(id);
+
+        // Delete the user record with the same username
+        await User.findOneAndDelete({ username });
+
+        res.json({ message: "Vet and corresponding user deleted successfully." });
     } catch (error) {
-      console.error("Error deleting Vet:", error);
-      res.status(500).json({ error: "Server error. Please try again later." });
+        console.error("Error deleting Vet and user:", error);
+        res.status(500).json({ error: "Server error. Please try again later." });
     }
-  };
+};
+
 
 // Edit info of specific vet by ID
 const editVetById = async (req, res) => {

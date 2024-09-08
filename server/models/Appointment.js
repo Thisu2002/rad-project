@@ -23,7 +23,7 @@ const AppointmentSchema = new mongoose.Schema({
     required: true
   }
 }, {
-    collection: 'appointment' // Explicitly defining the collection name
-  });
+  collection: 'appointment'
+});
 
-module.exports = mongoose.model('Appointment', AppointmentSchema);
+module.exports = mongoose.model('Appointment', appointmentSchema);

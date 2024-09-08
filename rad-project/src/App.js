@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import AdminDashboard from './pages/AdminDashboard';
 import VetDashboard from './pages/VetDashboard';
 import PetOwnerDashboard from './pages/PetOwnerDashboard';
+import ViewRecords from "./components/ViewRecords";
 
 const App = () => {
   return (
@@ -32,6 +33,12 @@ const App = () => {
         <Route path="/petOwner/viewPet/:id" element={<PetOwnerDashboard />} />
 
         <Route path="/admin-pets" element={<AdminDashboard />} />
+
+        <Route path="/view-records/:appointmentId" element={<ViewRecords />} />
+        <Route path="/vet-appointments" element={<VetDashboard />} />
+
+        <Route path="/makeAppointment/:id" element={<PetOwnerDashboard />} />
+
       </Routes>
     </Router> 
   );
