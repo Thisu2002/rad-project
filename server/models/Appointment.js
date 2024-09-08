@@ -13,6 +13,14 @@ const AppointmentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Pet',
     required: true
+  },
+  petName: {
+    type: String,
+    required: true
+  },
+  cNo: {
+    type: Number,
+    required: true
   }
 }, {
     collection: 'appointment' // Explicitly defining the collection name

@@ -1,0 +1,49 @@
+.action{
+    margin-left: 80px;
+    margin-top: 50px;
+}
+
+.action p{
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.action u{
+    color:#C3907B ;
+}
+
+.app-details-container {
+    height:460px;
+    background-color: #FFE3E2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+.topic p{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 280px;
+}
+
+.App-details form{
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.confirm-btn{
+    margin-left: 600px;
+    margin-top: 70px;
+    width: 80px;
+    height: 30px;
+    background-color: #C3907B;
+    border: 1px solid #C3907B;
+    font-weight: 900;
+}
+
+
