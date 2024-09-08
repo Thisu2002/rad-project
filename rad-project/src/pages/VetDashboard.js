@@ -1,12 +1,19 @@
-import React from 'react'
+import React from 'react';
+import VetSideBar from '../components/VetSidebar';
+import VetTopboard from '../components/VetTopboard';
 
-const VetDashboard = () => {
+const Vet = () => {
   return (
     <div>
-        <h1>Vet Dashboard</h1>
-    </div>
-    
-  )
-}
+      <div className="sidebar">
+        <VetSideBar />
+      </div>
 
-export default VetDashboard;
+      <div className="main">
+        <VetTopboard />
+      </div>
+    </div>
+  );
+};
+
+export default Vet;

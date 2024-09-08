@@ -1,21 +1,13 @@
 const mongoose = require('mongoose');
 
-const AppointmentSchema = new mongoose.Schema({
-  date: {
-    type: Date,
-    required: true
-  },
-  time: {
-    type: String,
-    required: true
-  },
-  petId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Pet',
-    required: true
-  }
+const appointmentSchema = new mongoose.Schema({
+  date: { type: Date, required: true },
+  time: { type: String, required: true },
+  petOwner: { type: String, required: true },
+  petID: { type: String, required: true, unique: true },
+  records: { type: String, default: ''}
 }, {
-    collection: 'appointment' // Explicitly defining the collection name
-  });
+  collection: 'Appointment'
+});
 
-module.exports = mongoose.model('Appointment', AppointmentSchema);
+module.exports = mongoose.model('Appointment', appointmentSchema);

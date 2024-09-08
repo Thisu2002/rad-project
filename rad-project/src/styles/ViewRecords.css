@@ -1,0 +1,84 @@
+.view-records-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.appointment-details {
+  background-color: #fff0f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appointment-table th, .appointment-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.appointment-table th {
+  background-color: #f2d9e6; 
+}
+
+.records-section {
+  margin-top: 20px;
+}
+
+.records-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.record-item {
+  background-color: #fff0f5; 
+  border: 1px solid #f2d9e6; 
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.record-item p {
+  margin: 5px 0;
+}
+ViewRecords.css
+.view-records-container {
+  padding: 20px;
+  background-color: #f9f9f9; /* Very light pink background */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #d68e8e; /* Light pink color */
+}
+
+.records-list {
+  background-color: #fff; /* White background for records */
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+}
+
+p {
+  color: #666; /* Gray color for text */
+}
+
+.edit-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.edit-button {
+  background-color: lightpink; /* Adjust color as needed */
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

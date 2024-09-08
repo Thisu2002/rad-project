@@ -1,0 +1,65 @@
+.vetdash-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+  }
+  
+  .vetdash-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    height: 100vh;
+  }
+  
+  .vetdash-content {
+    padding: 20px;
+    display: flex;
+    align-items: flex-start; 
+  }
+  
+  .vetdash-session {
+    background-color: #FFE3E2; /* Light pink background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .session-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .appointments-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 60%;
+  }
+  
+  .appointment {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .session-image {
+    margin-left: 20px;
+  }
+  
+  .session-image img {
+    max-width: 150%;
+    border-radius: 10px;
+  }
+  
+  .appointment-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  
