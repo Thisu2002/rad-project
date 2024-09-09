@@ -160,7 +160,7 @@ const AddPet = () => {
                   <input
                     type="text"
                     name="weight"
-                    placeholder="ex:- 5kg"
+                    placeholder="ex:- 5"
                     value={formData.weight}
                     onChange={handleChange}
                     required
