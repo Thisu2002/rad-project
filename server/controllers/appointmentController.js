@@ -34,6 +34,34 @@ exports.makeAppointment = async (req, res) => {
   }
 };
 
+//Edit an appointment by id
+exports.editAppointmentByID = async (req, res) => {
+  const { appointmentId } = req.params; // Get appointment ID from URL parameters
+  const { petOwner, dateTime, petID } = req.body; // Get data from the request body
+
+  try {
+    // Find the appointment by ID and update the fields
+    const updatedAppointment = await Appointment.findByIdAndUpdate(
+      appointmentId,
+      {
+        petOwner,
+        dateTime: new Date(dateTime), // Ensure dateTime is saved as a Date object
+        petID, // Assuming petID is passed and updated
+      },
+      { new: true } // This option returns the updated document
+    );
+
+    if (!updatedAppointment) {
+      return res.status(404).json({ message: "Appointment not found" });
+    }
+
+    // Return the updated appointment details
+    return res.status(200).json({ message: "Appointment updated successfully", updatedAppointment });
+  } catch (error) {
+    console.error("Error updating appointment:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
 
 
 

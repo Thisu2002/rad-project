@@ -99,4 +99,10 @@ router.get('/ownerViewAppointments/:ownerID', appointmentController.getAppointme
 // Route to delete an appointment by ID
 router.delete('/deleteAppointment/:appointmentId', appointmentController.deleteAppointment);
 
+// get pet id by name
+router.get('/petByName/:petName', petController.getPetByName);
+
+// edit appointment by id
+router.put('/updateAppointment/:appointmentId', appointmentController.editAppointmentByID);
+
 module.exports = router;

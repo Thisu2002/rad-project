@@ -4,6 +4,8 @@ import "../styles/PetOwners.css";
 const OwnerViewAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [editingAppointment, setEditingAppointment] = useState(null); // Track editing appointment
+  const [editedFields, setEditedFields] = useState({ petName: "", date: "", time: "" });
   const itemsPerPage = 8;
 
   useEffect(() => {
@@ -19,7 +21,6 @@ const OwnerViewAppointments = () => {
       }
 
       const ownerID = ownerDetails.id;
-
       const response = await fetch(`http://localhost:5000/ownerViewAppointments/${ownerID}`);
       const data = await response.json();
 
@@ -47,6 +48,51 @@ const OwnerViewAppointments = () => {
       }
     } catch (error) {
       console.error("Error deleting appointment:", error);
+    }
+  };
+
+  // Handle edit button click
+  const handleEdit = (appointment) => {
+    setEditingAppointment(appointment._id); // Set the current appointment being edited
+    setEditedFields({
+      petName: appointment.petName,
+      date: new Date(appointment.dateTime).toISOString().split("T")[0], // Set date as YYYY-MM-DD
+      time: new Date(appointment.dateTime).toTimeString().split(" ")[0].substring(0, 5), // HH:MM
+    });
+  };
+
+  const handleSave = async (appointmentId) => {
+    try {
+      const ownerDetails = JSON.parse(localStorage.getItem('userDetails'));
+      const petOwner = ownerDetails.fullName;
+
+      const petResponse = await fetch(`http://localhost:5000/petByName/${editedFields.petName}`);
+      const petData = await petResponse.json();
+      const petID = petData.petID; // Assuming the response contains the pet's ID
+
+      const updatedAppointment = {
+        petID,
+        petOwner,
+        dateTime: new Date(`${editedFields.date}T${editedFields.time}`), // Combine date and time
+      };
+
+      const response = await fetch(`http://localhost:5000/updateAppointment/${appointmentId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedAppointment),
+      });
+
+      if (response.ok) {
+        alert("Appointment updated successfully!");
+        setEditingAppointment(null); // Exit editing mode
+        fetchAppointments(); // Refresh appointments
+      } else {
+        console.error("Failed to update appointment");
+      }
+    } catch (error) {
+      console.error("Error updating appointment:", error);
     }
   };
 
@@ -81,16 +127,57 @@ const OwnerViewAppointments = () => {
         </thead>
         <tbody>
           {currentItems.map((appointment, index) => {
-            const { formattedDate, formattedTime } = formatDateTime(appointment.dateTime); // Extract date and time
+            const { formattedDate, formattedTime } = formatDateTime(appointment.dateTime);
             return (
               <tr key={index}>
-                <td>{appointment.petName || "Unknown"}</td>
-                <td>{formattedDate}</td>
-                <td>{formattedTime}</td>
                 <td>
-                  <button onClick={() => handleDelete(appointment._id)} className="action-link delete-link">
-                    Delete
-                  </button>
+                  {editingAppointment === appointment._id ? (
+                    <input
+                      type="text"
+                      value={editedFields.petName}
+                      onChange={(e) => setEditedFields({ ...editedFields, petName: e.target.value })}
+                    />
+                  ) : (
+                    appointment.petName || "Unknown"
+                  )}
+                </td>
+                <td>
+                  {editingAppointment === appointment._id ? (
+                    <input
+                      type="date"
+                      value={editedFields.date}
+                      onChange={(e) => setEditedFields({ ...editedFields, date: e.target.value })}
+                    />
+                  ) : (
+                    formattedDate
+                  )}
+                </td>
+                <td>
+                  {editingAppointment === appointment._id ? (
+                    <input
+                      type="time"
+                      value={editedFields.time}
+                      onChange={(e) => setEditedFields({ ...editedFields, time: e.target.value })}
+                    />
+                  ) : (
+                    formattedTime
+                  )}
+                </td>
+                <td>
+                  {editingAppointment === appointment._id ? (
+                    <button onClick={() => handleSave(appointment._id)} className="action-link save-link">
+                      Save
+                    </button>
+                  ) : (
+                    <>
+                      <button onClick={() => handleEdit(appointment)} className="action-link edit-link">
+                        Edit
+                      </button>
+                      <button onClick={() => handleDelete(appointment._id)} className="action-link delete-link">
+                        Delete
+                      </button>
+                    </>
+                  )}
                 </td>
               </tr>
             );

@@ -133,6 +133,28 @@ const deletePetById = async (req, res) => {
     res.status(500).json({ error: "Server error. Please try again later." });
   }
 };
+
+// Get Pet ID by name
+const getPetByName = async (req, res) => {
+  const { petName } = req.params; // Get petName from URL parameters
+
+  try {
+    // Find the pet with the given name
+    const pet = await Pet.findOne({ name: petName });
+
+    if (!pet) {
+      return res.status(404).json({ message: "Pet not found" });
+    }
+
+    // Return the pet details (including ID)
+    return res.status(200).json({
+      petID: pet._id,
+    });
+  } catch (error) {
+    console.error("Error finding pet by name:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
   
 
 module.exports = {
@@ -143,4 +165,5 @@ module.exports = {
     editPetById,
     deletePetById,
     getAllPets,
+    getPetByName,
 };
