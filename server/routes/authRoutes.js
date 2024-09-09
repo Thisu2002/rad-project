@@ -15,6 +15,9 @@ router.post('/login', authController.login);
 // VetSignup route
 router.post('/vetSignup', vetController.vetSignup);
 
+// Admin-AddOwner route
+router.post('/admin-add-owner', authController.adminAddOwner);
+
 // PetOwner route
 router.get('/pet-owners', ownerController.getAllPetOwners);
 

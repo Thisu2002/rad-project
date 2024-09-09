@@ -102,6 +102,13 @@ const SideBar = () => {
                 </li>
 
                 <li>
+                    <NavLink to="/admin-add-owner" className="nav-link" activeClassName="active">
+                        <img src={addIcon} alt="Create User Icon" className="icon" />
+                        Add Pet Owner
+                    </NavLink>
+                </li>
+
+                <li>
                     <NavLink to="/appointments" className="nav-link" activeClassName="active">
                         <img src={appointmentsIcon} alt="Appointments Icon" className="icon" />
                         Appointments

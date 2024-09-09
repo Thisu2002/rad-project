@@ -15,6 +15,7 @@ import Vets from './Vets';
 import ViewVet from './ViewVet';
 import ViewAppointments from './ViewAppointments';
 import AdminViewPets from './AdminViewPets';
+import AdminAddOwner from './AdminAddOwner';
 
 const Dashboard = () => {
   const location = useLocation();
@@ -63,6 +64,8 @@ const Dashboard = () => {
         return 'Pet Owners';
       case location.pathname === '/add-vet':
         return 'Add Vet';
+        case location.pathname === '/admin-add-owner':
+          return 'Add Pet Owner';
       case location.pathname === '/appointments':
         return 'Appointments';
       case location.pathname.startsWith('/admin-pets'):
@@ -101,6 +104,7 @@ const Dashboard = () => {
           {location.pathname === '/admin' && <AppointmentList />}
           {location.pathname === '/admin' && <Calendar />}
           {location.pathname === '/add-vet' && <AddVet />}
+          {location.pathname === '/admin-add-owner'  && <AdminAddOwner />}
           {location.pathname === '/pet-owners' && <PetOwners />}
           {location.pathname.startsWith('/pet-owners/view-owner/')  && <ViewOwner />}
           {location.pathname === '/vets' && <Vets />}
