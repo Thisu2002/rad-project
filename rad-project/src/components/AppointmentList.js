@@ -10,9 +10,9 @@ const AppointmentList = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await fetch("http://localhost:5000/appointments/today"); // Adjust endpoint as needed
-      const data = await response.json();
-      setAppointments(data.appointments); // Adjust based on API response structure
+      const response = await fetch("http://localhost:5000/todays-appointments"); // Adjust endpoint as needed
+      const appointments = await response.json();
+      setAppointments(appointments); // Adjust based on API response structure
     } catch (error) {
       console.error("Error fetching appointments:", error);
     }
