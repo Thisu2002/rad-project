@@ -1,5 +1,6 @@
 const Pet = require('../models/Pet');
 const petOwner = require('../models/PetOwner');
+const Appointment = require('../models/Appointment');
 
 // Add Pet function
 const addPet = async (req, res) => {
@@ -118,18 +119,25 @@ const editPetById = async (req, res) => {
     }
   };
 
-  // Delete specific vet by ID
+// Delete specific pet by ID and related appointments
 const deletePetById = async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params; // Pet ID from params
 
   try {
+    // Find and delete the pet
     const deletedPet = await Pet.findByIdAndDelete(id);
     if (!deletedPet) {
       return res.status(404).json({ error: "Pet not found." });
     }
-    res.json({ message: "Pet deleted successfully." });
+
+    // Delete all appointments related to the petID
+    await Appointment.deleteMany({ petID: id });
+
+    res.json({
+      message: "Pet and related appointments deleted successfully.",
+    });
   } catch (error) {
-    console.error("Error deleting Pet:", error);
+    console.error("Error deleting Pet and appointments:", error);
     res.status(500).json({ error: "Server error. Please try again later." });
   }
 };

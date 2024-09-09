@@ -1,6 +1,8 @@
 const bcrypt = require('bcryptjs');
 const PetOwner = require("../models/PetOwner");
 const User = require("../models/User");
+const Pet = require("../models/Pet");
+const Appointment = require("../models/Appointment");
 
 // Fetch all pet owners
 exports.getAllPetOwners = async (req, res) => {
@@ -30,30 +32,44 @@ exports.getPetOwnerById = async (req, res) => {
 };
 
 exports.deletePetOwnerById = async (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    try {
-        // Find the vet by ID
-        const owner = await PetOwner.findById(id);
-        if (!owner) {
-            return res.status(404).json({ error: "Pet Owner not found." });
-        }
-
-        // Retrieve the username from the vet record
-        const username = owner.username;
-
-        // Delete the vet record
-        await PetOwner.findByIdAndDelete(id);
-
-        // Delete the user record with the same username
-        await User.findOneAndDelete({ username });
-
-        res.json({ message: "Owner and corresponding user deleted successfully." });
-    } catch (error) {
-        console.error("Error deleting owner and user:", error);
-        res.status(500).json({ error: "Server error. Please try again later." });
+  try {
+    // Find the pet owner by ID
+    const owner = await PetOwner.findById(id);
+    if (!owner) {
+      return res.status(404).json({ error: "Pet Owner not found." });
     }
+
+    // Retrieve the username from the owner record
+    const username = owner.username;
+
+    // Find and delete all pets related to this owner
+    const pets = await Pet.find({ owner: id });
+
+    if (pets.length > 0) {
+      const petIds = pets.map(pet => pet._id);
+
+      // Delete all appointments related to these pets
+      await Appointment.deleteMany({ petID: { $in: petIds } });
+
+      // Delete the pets themselves
+      await Pet.deleteMany({ owner: id });
+    }
+
+    // Delete the pet owner record
+    await PetOwner.findByIdAndDelete(id);
+
+    // Delete the user record with the same username
+    await User.findOneAndDelete({ username });
+
+    res.json({ message: "Owner, their pets, related appointments, and corresponding user deleted successfully." });
+  } catch (error) {
+    console.error("Error deleting owner, pets, appointments, and user:", error);
+    res.status(500).json({ error: "Server error. Please try again later." });
+  }
 };
+
 
 // eidt owner by id
 exports.editOwnerById = async (req, res) => {

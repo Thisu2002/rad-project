@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/ViewOwner.css';
 
 const OwnerProfile = () => {
@@ -8,7 +9,8 @@ const OwnerProfile = () => {
   const [ownerInfo, setOwnerInfo] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editableDetails, setEditableDetails] = useState({});
-  const [errorMessage, setErrorMessage] = useState('');  // State to store the error message
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchOwnerDetails = async () => {
@@ -59,6 +61,23 @@ const OwnerProfile = () => {
     } catch (error) {
       console.error("Error saving owner details:", error);
       setErrorMessage('Server error. Please try again later.');
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/ownerProfile/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        alert("Deleted successfully!");
+        navigate('/login') // Refresh the list after deletion
+      } else {
+        console.error("Failed to delete the pet owner.");
+      }
+    } catch (error) {
+      console.error("Error deleting pet owner:", error);
     }
   };
 
@@ -144,6 +163,8 @@ const OwnerProfile = () => {
       ) : (
         <button className="edit-button" onClick={handleEditClick}>Edit Info</button>
       )}
+      <button
+        onClick={() => handleDelete(ownerId)} className="edit-button"> Delete Account </button>
     </div>
   );
 };

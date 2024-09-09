@@ -139,27 +139,6 @@ exports.updateAppointmentRecord = async (req, res) => {
   }
 };
 
-
-//Get upcoming appointments
-exports.getUpcomingAppointments = async (req, res) => {
-  try {
-    // Get the current date
-    const now = new Date();
-    console.log("Fetching appointments from:", now);
-    
-    // Find appointments with a date greater than the current date and time
-    const appointments = await Appointment.find({ dateTime: { $gte: now } });
-    console.log("Found appointments:", appointments);
-
-
-    res.json(appointments);
-  } catch (error) {
-    console.error('Error fetching upcoming appointments:', error);
-    res.status(500).json({ message: 'Server error' });
-  }
-};
-
-
 // Delete a record from a specific appointment
 exports.deleteAppointmentRecord = async (req, res) => {
   const { appointmentId } = req.params;
