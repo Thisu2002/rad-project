@@ -1,23 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import axios from 'axios';
-import '../styles/OwnerViewPets.css';
-import petImage from '../images/statPets.png';
-import dogImage from '../images/dogImage.png'; 
-import catImage from '../images/catImage.png';
-import rabbitImage from '../images/rabbitImage.png';
-import birdImage from '../images/birdImage.png';
-
-const speciesImages = {
-    dog: dogImage,
-    cat: catImage,
-    rabbit: rabbitImage,
-    bird: birdImage,
-    Bird: birdImage,
-    Dog: dogImage,
-    Cat: catImage,
-    Rabbit: rabbitImage,
-};
 
 const OwnerViewPets = () => {
     const [pets, setPets] = useState([]);
@@ -46,8 +29,8 @@ const OwnerViewPets = () => {
                 setLoading(false);
             } catch (err) {
                 console.error(err);
-                setError('Oops, no pets registered!');
-                setLoading(false);
+                setError('Failed to load pets');
+                setLoading(false); // Set loading to false even on error
             }
         };
 
@@ -63,31 +46,33 @@ const OwnerViewPets = () => {
     }
 
     return (
-        <div className="owner-pet-list">
-            {pets.length === 0 ? (
-                <div className="no-pets">
-                    <p>Oops, no pets registered</p>
-                </div>
+        <div className="pet-list">
+            <h2>My Pets</h2>
+            {Array.isArray(pets) && pets.length === 0 ? (
+                <p>Oops, no pet registered</p>
             ) : (
-                <div className="pets-grid">
-                    {pets.map((pet) => (
-                        <Link key={pet._id} to={`/petOwner/viewPet/${pet._id}`} className="pet-link">
-                            <div className="pet-box">
-                                <div className="pet-content">
-                                    <img 
-                                        src={speciesImages[pet.species] || petImage} // Default image if species not found
-                                        alt={pet.species}
-                                        className="pet-icon" 
-                                    />
-                                    <div>
-                                        <h3>{pet.name}</h3>
-                                        <p>Species: {pet.species}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Species</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {Array.isArray(pets) ? (
+                            pets.map((pet) => (
+                                <tr key={pet._id}>
+                                    <td>{pet.name}</td>
+                                    <td>{pet.species}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="2">No valid pet data available</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
             )}
         </div>
     );

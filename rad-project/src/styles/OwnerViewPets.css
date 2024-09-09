@@ -60,12 +60,3 @@
     font-size: 16px;
     color: #333;
 }
-
-.pet-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.pet-link:hover {
-    opacity: 0.8;
-}

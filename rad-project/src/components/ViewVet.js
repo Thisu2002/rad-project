@@ -257,6 +257,7 @@ const ViewVet = () => {
     }
     return '';
   };
+  
 
   if (!vetDetails) {
     return <p>Loading vet details...</p>;
