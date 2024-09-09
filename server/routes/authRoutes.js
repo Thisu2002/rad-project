@@ -105,4 +105,8 @@ router.get('/petByName/:petName', petController.getPetByName);
 // edit appointment by id
 router.put('/updateAppointment/:appointmentId', appointmentController.editAppointmentByID);
 
+//add pet owner - admin
+router.post('/admin-add-owner', authController.adminAddOwner);
+
+
 module.exports = router;

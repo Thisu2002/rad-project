@@ -40,6 +40,8 @@ const App = () => {
         <Route path="/makeAppointment/:id" element={<PetOwnerDashboard />} />
         <Route path="/ownerViewAppointments" element={<PetOwnerDashboard />} />
 
+        <Route path="/admin-add-owner" element={<AdminDashboard />} />
+
       </Routes>
     </Router> 
   );

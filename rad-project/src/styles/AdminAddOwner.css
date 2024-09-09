@@ -1,0 +1,80 @@
+.adminAddOwner-page {
+    background-image: url("../images/paws.png");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Poppins';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding-left: 50px;
+  }
+  
+  .addOwner-header {
+    text-align: center;
+  }
+  
+  .addOwner-header-hr {
+    width: 100px;
+    border: none;
+    border-top: 2px solid black;
+    margin-left: 350px;
+  }
+  
+  .addOwner-form {
+    margin-top: 20px;
+    width: 800px;
+    background-color: rgba(255, 227, 226, 0.7);
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .addOwner-form input,
+  .addOwner-form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f0c9b9;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+  }
+  
+  .addOwner-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  .addOwner-form button {
+    width: 25%;
+    padding: 10px;
+    background-color: #d9a691;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    margin: 20px 0 0 250px;
+    font-family: Poppins;
+  }
+  
+  .addOwner-form button:hover {
+    background-color: #c48f82;
+  }
+  
+  .addOwner-form p {
+    margin-top: 30px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .addOwner-form a {
+    margin-left: 5px;
+  }
+  
+  
