@@ -44,7 +44,7 @@ const Home = () => {
 
       <section id="about-us" className="section">
         <div className="about1">
-          <h1>Pet Care for Every Type and Breed of Pet</h1>
+          <h1 className="purple">Pet Care for Every Type and Breed of Pet</h1>
           <p className="p1">
             At Dr.Pet, we truly love and care for every type and breed of pet.
             Our pet care services are tailored to meet the individual needs of
@@ -80,8 +80,8 @@ const Home = () => {
           </div>
 
           <div className="v-heading" data-animation="fade-in">
-            <h1>Our Veterinary</h1>
-            <h1>Services</h1>
+            <h1 className="purple">Our Veterinary</h1>
+            <h1 className="purple">Services</h1>
           </div>
 
           <div className="v-item" data-animation="fade-in">
